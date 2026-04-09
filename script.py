@@ -21,6 +21,6 @@ def filter_and_remap_labels(label_dir, target_class_id=15, new_class_id=0):
             f.writelines(new_lines)
 
 # Utilisation :
-filter_and_remap_labels('C:/Users/augus/OneDrive/Documents/AI/train/labels')
-filter_and_remap_labels('C:/Users/augus/OneDrive/Documents/AI/val/labels')
-filter_and_remap_labels('C:/Users/augus/OneDrive/Documents/AI/test/labels')
+filter_and_remap_labels('/home/levraiking/Code/RoboCup-Phoenix-Team/train/labels')
+filter_and_remap_labels('/home/levraiking/Code/RoboCup-Phoenix-Team/val/labels')
+filter_and_remap_labels('/home/levraiking/Code/RoboCup-Phoenix-Team/verification/labels')
