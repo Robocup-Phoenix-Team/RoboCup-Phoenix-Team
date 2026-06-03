@@ -1,0 +1,1434 @@
+2026-06-03T19:58:55.2828363Z Current runner version: '2.334.0'
+2026-06-03T19:58:55.2863482Z ##[group]Runner Image Provisioner
+2026-06-03T19:58:55.2865249Z Hosted Compute Agent
+2026-06-03T19:58:55.2866279Z Version: 20260520.533
+2026-06-03T19:58:55.2867396Z Commit: 189110e25284a9812c124fd27b339e2fb4f2f9db
+2026-06-03T19:58:55.2868707Z Build Date: 2026-05-20T17:44:04Z
+2026-06-03T19:58:55.2869854Z Worker ID: {d0a0d10a-1d38-48ba-bd08-f6b66d2a40b8}
+2026-06-03T19:58:55.2871415Z Azure Region: eastus
+2026-06-03T19:58:55.2872454Z ##[endgroup]
+2026-06-03T19:58:55.2876555Z ##[group]Operating System
+2026-06-03T19:58:55.2877663Z Ubuntu
+2026-06-03T19:58:55.2878719Z 24.04.4
+2026-06-03T19:58:55.2879746Z LTS
+2026-06-03T19:58:55.2880650Z ##[endgroup]
+2026-06-03T19:58:55.2881604Z ##[group]Runner Image
+2026-06-03T19:58:55.2882651Z Image: ubuntu-24.04
+2026-06-03T19:58:55.2883956Z Version: 20260525.161.1
+2026-06-03T19:58:55.2886193Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260525.161/images/ubuntu/Ubuntu2404-Readme.md
+2026-06-03T19:58:55.2888871Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260525.161
+2026-06-03T19:58:55.2890661Z ##[endgroup]
+2026-06-03T19:58:55.2892994Z ##[group]GITHUB_TOKEN Permissions
+2026-06-03T19:58:55.2896259Z Contents: write
+2026-06-03T19:58:55.2897348Z Metadata: read
+2026-06-03T19:58:55.2898273Z PullRequests: write
+2026-06-03T19:58:55.2899449Z ##[endgroup]
+2026-06-03T19:58:55.2902551Z Secret source: Actions
+2026-06-03T19:58:55.2904496Z Prepare workflow directory
+2026-06-03T19:58:55.3398722Z Prepare all required actions
+2026-06-03T19:58:55.3456082Z Getting action download info
+2026-06-03T19:58:55.7036414Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-06-03T19:58:55.8325309Z Download action repository 'peter-evans/create-pull-request@v6' (SHA:c5a7806660adbe173f04e3e038b0ccdcd758773c)
+2026-06-03T19:58:56.0711634Z Complete job name: compress
+2026-06-03T19:58:56.1513247Z ##[group]Run actions/checkout@v4
+2026-06-03T19:58:56.1514516Z with:
+2026-06-03T19:58:56.1515127Z   repository: Robocup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T19:58:56.1519833Z   token: ***
+2026-06-03T19:58:56.1520320Z   ssh-strict: true
+2026-06-03T19:58:56.1520796Z   ssh-user: git
+2026-06-03T19:58:56.1521286Z   persist-credentials: true
+2026-06-03T19:58:56.1521815Z   clean: true
+2026-06-03T19:58:56.1522307Z   sparse-checkout-cone-mode: true
+2026-06-03T19:58:56.1522899Z   fetch-depth: 1
+2026-06-03T19:58:56.1523386Z   fetch-tags: false
+2026-06-03T19:58:56.1524064Z   show-progress: true
+2026-06-03T19:58:56.1524568Z   lfs: false
+2026-06-03T19:58:56.1525015Z   submodules: false
+2026-06-03T19:58:56.1525504Z   set-safe-directory: true
+2026-06-03T19:58:56.1526302Z ##[endgroup]
+2026-06-03T19:58:56.2679040Z Syncing repository: Robocup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T19:58:56.2682251Z ##[group]Getting Git version info
+2026-06-03T19:58:56.2684340Z Working directory is '/home/runner/work/RoboCup-Phoenix-Team/RoboCup-Phoenix-Team'
+2026-06-03T19:58:56.2686718Z [command]/usr/bin/git version
+2026-06-03T19:58:56.2760022Z git version 2.54.0
+2026-06-03T19:58:56.2788199Z ##[endgroup]
+2026-06-03T19:58:56.2812256Z Temporarily overriding HOME='/home/runner/work/_temp/990a3205-505b-4754-84e9-2590ef818ef4' before making global git config changes
+2026-06-03T19:58:56.2815734Z Adding repository directory to the temporary git global config as a safe directory
+2026-06-03T19:58:56.2818581Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/RoboCup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T19:58:56.2876468Z Deleting the contents of '/home/runner/work/RoboCup-Phoenix-Team/RoboCup-Phoenix-Team'
+2026-06-03T19:58:56.2879804Z ##[group]Initializing the repository
+2026-06-03T19:58:56.2884573Z [command]/usr/bin/git init /home/runner/work/RoboCup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T19:58:56.3042196Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-06-03T19:58:56.3044413Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-06-03T19:58:56.3046122Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-06-03T19:58:56.3047638Z hint: call:
+2026-06-03T19:58:56.3048679Z hint:
+2026-06-03T19:58:56.3050053Z hint: 	git config --global init.defaultBranch <name>
+2026-06-03T19:58:56.3051768Z hint:
+2026-06-03T19:58:56.3052818Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-06-03T19:58:56.3054707Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-06-03T19:58:56.3055850Z hint:
+2026-06-03T19:58:56.3056449Z hint: 	git branch -m <name>
+2026-06-03T19:58:56.3056974Z hint:
+2026-06-03T19:58:56.3057657Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-06-03T19:58:56.3058946Z Initialized empty Git repository in /home/runner/work/RoboCup-Phoenix-Team/RoboCup-Phoenix-Team/.git/
+2026-06-03T19:58:56.3078619Z [command]/usr/bin/git remote add origin https://github.com/Robocup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T19:58:56.3120324Z ##[endgroup]
+2026-06-03T19:58:56.3121207Z ##[group]Disabling automatic garbage collection
+2026-06-03T19:58:56.3126394Z [command]/usr/bin/git config --local gc.auto 0
+2026-06-03T19:58:56.3159985Z ##[endgroup]
+2026-06-03T19:58:56.3160816Z ##[group]Setting up auth
+2026-06-03T19:58:56.3192548Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-06-03T19:58:56.3216086Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-06-03T19:58:56.3611766Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-06-03T19:58:56.3645291Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-06-03T19:58:56.3882499Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-06-03T19:58:56.3922699Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-06-03T19:58:56.4150755Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-06-03T19:58:56.4185223Z ##[endgroup]
+2026-06-03T19:58:56.4193117Z ##[group]Fetching the repository
+2026-06-03T19:58:56.4195067Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b02e4d2e33dbf8513fc08d7cb6064ca3c42cee5b:refs/remotes/origin/main
+2026-06-03T19:59:30.0413935Z From https://github.com/Robocup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T19:59:30.0415270Z  * [new ref]         b02e4d2e33dbf8513fc08d7cb6064ca3c42cee5b -> origin/main
+2026-06-03T19:59:30.0439724Z ##[endgroup]
+2026-06-03T19:59:30.0440601Z ##[group]Determining the checkout info
+2026-06-03T19:59:30.0441963Z ##[endgroup]
+2026-06-03T19:59:30.0448362Z [command]/usr/bin/git sparse-checkout disable
+2026-06-03T19:59:30.0495354Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-06-03T19:59:30.0519069Z ##[group]Checking out the ref
+2026-06-03T19:59:30.0523133Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-06-03T19:59:31.1002829Z Updating files:   9% (124/1272)
+2026-06-03T19:59:31.2222818Z Updating files:  10% (128/1272)
+2026-06-03T19:59:31.3431899Z Updating files:  11% (140/1272)
+2026-06-03T19:59:31.4736753Z Updating files:  12% (153/1272)
+2026-06-03T19:59:31.5803152Z Updating files:  13% (166/1272)
+2026-06-03T19:59:31.6500533Z Updating files:  14% (179/1272)
+2026-06-03T19:59:31.7523327Z Updating files:  15% (191/1272)
+2026-06-03T19:59:31.8773734Z Updating files:  16% (204/1272)
+2026-06-03T19:59:31.9976112Z Updating files:  17% (217/1272)
+2026-06-03T19:59:32.0582515Z Updating files:  18% (229/1272)
+2026-06-03T19:59:32.1316985Z Updating files:  18% (235/1272)
+2026-06-03T19:59:32.2210398Z Updating files:  19% (242/1272)
+2026-06-03T19:59:32.3464425Z Updating files:  20% (255/1272)
+2026-06-03T19:59:32.4649838Z Updating files:  21% (268/1272)
+2026-06-03T19:59:32.5646842Z Updating files:  22% (280/1272)
+2026-06-03T19:59:32.6904293Z Updating files:  23% (293/1272)
+2026-06-03T19:59:32.8018485Z Updating files:  24% (306/1272)
+2026-06-03T19:59:32.9235509Z Updating files:  25% (318/1272)
+2026-06-03T19:59:33.0521382Z Updating files:  26% (331/1272)
+2026-06-03T19:59:33.0621523Z Updating files:  27% (344/1272)
+2026-06-03T19:59:33.1799451Z Updating files:  27% (345/1272)
+2026-06-03T19:59:33.2739963Z Updating files:  28% (357/1272)
+2026-06-03T19:59:33.4210111Z Updating files:  29% (369/1272)
+2026-06-03T19:59:33.4737772Z Updating files:  30% (382/1272)
+2026-06-03T19:59:33.5306215Z Updating files:  31% (395/1272)
+2026-06-03T19:59:33.6376790Z Updating files:  32% (408/1272)
+2026-06-03T19:59:33.6979140Z Updating files:  33% (420/1272)
+2026-06-03T19:59:33.8183389Z Updating files:  34% (433/1272)
+2026-06-03T19:59:33.8703976Z Updating files:  35% (446/1272)
+2026-06-03T19:59:33.9257828Z Updating files:  36% (458/1272)
+2026-06-03T19:59:33.9826633Z Updating files:  37% (471/1272)
+2026-06-03T19:59:34.0410537Z Updating files:  38% (484/1272)
+2026-06-03T19:59:34.0596832Z Updating files:  39% (497/1272)
+2026-06-03T19:59:34.0960511Z Updating files:  39% (501/1272)
+2026-06-03T19:59:34.1526968Z Updating files:  40% (509/1272)
+2026-06-03T19:59:34.2173352Z Updating files:  41% (522/1272)
+2026-06-03T19:59:34.2582930Z Updating files:  42% (535/1272)
+2026-06-03T19:59:34.2645989Z Updating files:  43% (547/1272)
+2026-06-03T19:59:34.2664286Z Updating files:  44% (560/1272)
+2026-06-03T19:59:34.2668617Z Updating files:  45% (573/1272)
+2026-06-03T19:59:34.2672810Z Updating files:  46% (586/1272)
+2026-06-03T19:59:34.2677659Z Updating files:  47% (598/1272)
+2026-06-03T19:59:34.2682739Z Updating files:  48% (611/1272)
+2026-06-03T19:59:34.2689062Z Updating files:  49% (624/1272)
+2026-06-03T19:59:34.2694174Z Updating files:  50% (636/1272)
+2026-06-03T19:59:34.2701125Z Updating files:  51% (649/1272)
+2026-06-03T19:59:34.2708153Z Updating files:  52% (662/1272)
+2026-06-03T19:59:34.2713796Z Updating files:  53% (675/1272)
+2026-06-03T19:59:34.2719271Z Updating files:  54% (687/1272)
+2026-06-03T19:59:34.2725712Z Updating files:  55% (700/1272)
+2026-06-03T19:59:34.2734339Z Updating files:  56% (713/1272)
+2026-06-03T19:59:34.2737998Z Updating files:  57% (726/1272)
+2026-06-03T19:59:34.2749752Z Updating files:  58% (738/1272)
+2026-06-03T19:59:34.2750630Z Updating files:  59% (751/1272)
+2026-06-03T19:59:34.2755697Z Updating files:  60% (764/1272)
+2026-06-03T19:59:34.2761332Z Updating files:  61% (776/1272)
+2026-06-03T19:59:34.2767772Z Updating files:  62% (789/1272)
+2026-06-03T19:59:34.2773861Z Updating files:  63% (802/1272)
+2026-06-03T19:59:34.2779547Z Updating files:  64% (815/1272)
+2026-06-03T19:59:34.2786294Z Updating files:  65% (827/1272)
+2026-06-03T19:59:34.2791995Z Updating files:  66% (840/1272)
+2026-06-03T19:59:34.2797409Z Updating files:  67% (853/1272)
+2026-06-03T19:59:34.2802889Z Updating files:  68% (865/1272)
+2026-06-03T19:59:34.2809118Z Updating files:  69% (878/1272)
+2026-06-03T19:59:34.2814318Z Updating files:  70% (891/1272)
+2026-06-03T19:59:34.2820107Z Updating files:  71% (904/1272)
+2026-06-03T19:59:34.2826111Z Updating files:  72% (916/1272)
+2026-06-03T19:59:34.2831782Z Updating files:  73% (929/1272)
+2026-06-03T19:59:34.2837281Z Updating files:  74% (942/1272)
+2026-06-03T19:59:34.2844858Z Updating files:  75% (954/1272)
+2026-06-03T19:59:34.2850262Z Updating files:  76% (967/1272)
+2026-06-03T19:59:34.2857108Z Updating files:  77% (980/1272)
+2026-06-03T19:59:34.2863180Z Updating files:  78% (993/1272)
+2026-06-03T19:59:34.2869882Z Updating files:  79% (1005/1272)
+2026-06-03T19:59:34.2876808Z Updating files:  80% (1018/1272)
+2026-06-03T19:59:34.2883707Z Updating files:  81% (1031/1272)
+2026-06-03T19:59:34.2890177Z Updating files:  82% (1044/1272)
+2026-06-03T19:59:34.2896150Z Updating files:  83% (1056/1272)
+2026-06-03T19:59:34.2901728Z Updating files:  84% (1069/1272)
+2026-06-03T19:59:34.2908054Z Updating files:  85% (1082/1272)
+2026-06-03T19:59:34.2914217Z Updating files:  86% (1094/1272)
+2026-06-03T19:59:34.4068471Z Updating files:  87% (1107/1272)
+2026-06-03T19:59:34.5411470Z Updating files:  88% (1120/1272)
+2026-06-03T19:59:34.6545673Z Updating files:  89% (1133/1272)
+2026-06-03T19:59:34.7733203Z Updating files:  90% (1145/1272)
+2026-06-03T19:59:34.8593942Z Updating files:  91% (1158/1272)
+2026-06-03T19:59:34.9194450Z Updating files:  92% (1171/1272)
+2026-06-03T19:59:34.9210366Z Updating files:  93% (1183/1272)
+2026-06-03T19:59:34.9234638Z Updating files:  94% (1196/1272)
+2026-06-03T19:59:34.9235156Z Updating files:  95% (1209/1272)
+2026-06-03T19:59:34.9235629Z Updating files:  96% (1222/1272)
+2026-06-03T19:59:34.9236083Z Updating files:  97% (1234/1272)
+2026-06-03T19:59:34.9236581Z Updating files:  98% (1247/1272)
+2026-06-03T19:59:35.1119725Z Updating files:  99% (1260/1272)
+2026-06-03T19:59:35.2963057Z Updating files:  99% (1270/1272)
+2026-06-03T19:59:35.2964023Z Updating files: 100% (1272/1272)
+2026-06-03T19:59:35.2964594Z Updating files: 100% (1272/1272), done.
+2026-06-03T19:59:35.2986424Z Switched to a new branch 'main'
+2026-06-03T19:59:35.2989796Z branch 'main' set up to track 'origin/main'.
+2026-06-03T19:59:35.3536308Z ##[endgroup]
+2026-06-03T19:59:35.3585514Z [command]/usr/bin/git log -1 --format=%H
+2026-06-03T19:59:35.3608015Z b02e4d2e33dbf8513fc08d7cb6064ca3c42cee5b
+2026-06-03T19:59:35.3871073Z ##[group]Run sudo apt-get update
+2026-06-03T19:59:35.3871449Z [36;1msudo apt-get update[0m
+2026-06-03T19:59:35.3871795Z [36;1msudo apt-get install -y jpegoptim optipng[0m
+2026-06-03T19:59:35.3902677Z shell: /usr/bin/bash -e {0}
+2026-06-03T19:59:35.3902957Z ##[endgroup]
+2026-06-03T19:59:35.5398424Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-06-03T19:59:35.5688085Z Get:6 https://packages.microsoft.com/repos/azure-cli noble InRelease [3564 B]
+2026-06-03T19:59:35.5945190Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-06-03T19:59:35.5946198Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-06-03T19:59:35.6009483Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-06-03T19:59:35.6094041Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-06-03T19:59:35.6184473Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-06-03T19:59:35.6223915Z Get:8 https://dl.google.com/linux/chrome-stable/deb stable InRelease [1825 B]
+2026-06-03T19:59:35.6979149Z Get:9 https://packages.microsoft.com/repos/azure-cli noble/main amd64 Packages [2255 B]
+2026-06-03T19:59:35.8321400Z Get:10 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [164 kB]
+2026-06-03T19:59:35.8371689Z Get:11 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [135 kB]
+2026-06-03T19:59:35.8837068Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [2053 kB]
+2026-06-03T19:59:35.8944989Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [361 kB]
+2026-06-03T19:59:35.8974776Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [177 kB]
+2026-06-03T19:59:35.8995386Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [17.3 kB]
+2026-06-03T19:59:35.9006907Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1696 kB]
+2026-06-03T19:59:35.9124162Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [331 kB]
+2026-06-03T19:59:35.9130955Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [386 kB]
+2026-06-03T19:59:35.9165373Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [34.6 kB]
+2026-06-03T19:59:35.9173091Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [3277 kB]
+2026-06-03T19:59:35.9328038Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [761 kB]
+2026-06-03T19:59:35.9792936Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 c-n-f Metadata [456 B]
+2026-06-03T19:59:35.9802256Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [11.3 kB]
+2026-06-03T19:59:35.9816510Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+2026-06-03T19:59:35.9827338Z Get:25 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 c-n-f Metadata [656 B]
+2026-06-03T19:59:35.9837065Z Get:26 http://azure.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [5760 B]
+2026-06-03T19:59:35.9849466Z Get:27 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [10.5 kB]
+2026-06-03T19:59:35.9862157Z Get:28 http://azure.archive.ubuntu.com/ubuntu noble-backports/universe amd64 c-n-f Metadata [1588 B]
+2026-06-03T19:59:36.0088500Z Get:29 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1742 kB]
+2026-06-03T19:59:36.0185408Z Get:30 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [273 kB]
+2026-06-03T19:59:36.0204752Z Get:31 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Components [42.4 kB]
+2026-06-03T19:59:36.0214555Z Get:32 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [11.3 kB]
+2026-06-03T19:59:36.0228294Z Get:33 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1194 kB]
+2026-06-03T19:59:36.0295082Z Get:34 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [231 kB]
+2026-06-03T19:59:36.0314966Z Get:35 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Components [74.4 kB]
+2026-06-03T19:59:36.0330387Z Get:36 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [23.2 kB]
+2026-06-03T19:59:36.0818966Z Get:42 https://dl.google.com/linux/chrome-stable/deb stable/main amd64 Packages [1210 B]
+2026-06-03T19:59:36.0828028Z Get:37 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [3073 kB]
+2026-06-03T19:59:36.0981804Z Get:38 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [716 kB]
+2026-06-03T19:59:36.1024438Z Get:39 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 c-n-f Metadata [444 B]
+2026-06-03T19:59:36.1034691Z Get:40 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [9248 B]
+2026-06-03T19:59:36.1045312Z Get:41 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 c-n-f Metadata [468 B]
+2026-06-03T19:59:48.7963895Z Fetched 17.2 MB in 2s (8550 kB/s)
+2026-06-03T19:59:49.5738308Z Reading package lists...
+2026-06-03T19:59:49.6064239Z Reading package lists...
+2026-06-03T19:59:49.7858158Z Building dependency tree...
+2026-06-03T19:59:49.7865546Z Reading state information...
+2026-06-03T19:59:49.9626917Z The following NEW packages will be installed:
+2026-06-03T19:59:49.9635785Z   jpegoptim optipng
+2026-06-03T19:59:49.9834168Z 0 upgraded, 2 newly installed, 0 to remove and 66 not upgraded.
+2026-06-03T19:59:49.9834858Z Need to get 132 kB of archives.
+2026-06-03T19:59:49.9835391Z After this operation, 273 kB of additional disk space will be used.
+2026-06-03T19:59:49.9835844Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-06-03T19:59:50.0270103Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 jpegoptim amd64 1.4.7-1 [21.8 kB]
+2026-06-03T19:59:50.0368108Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 optipng amd64 0.7.8+ds-1build2 [110 kB]
+2026-06-03T19:59:50.3226215Z Fetched 132 kB in 0s (1935 kB/s)
+2026-06-03T19:59:50.3900083Z Selecting previously unselected package jpegoptim.
+2026-06-03T19:59:50.4825673Z (Reading database ... 
+2026-06-03T19:59:50.4826314Z (Reading database ... 5%
+2026-06-03T19:59:50.4826763Z (Reading database ... 10%
+2026-06-03T19:59:50.4827486Z (Reading database ... 15%
+2026-06-03T19:59:50.4827874Z (Reading database ... 20%
+2026-06-03T19:59:50.4828243Z (Reading database ... 25%
+2026-06-03T19:59:50.4828612Z (Reading database ... 30%
+2026-06-03T19:59:50.4828981Z (Reading database ... 35%
+2026-06-03T19:59:50.4829346Z (Reading database ... 40%
+2026-06-03T19:59:50.4829721Z (Reading database ... 45%
+2026-06-03T19:59:50.4830087Z (Reading database ... 50%
+2026-06-03T19:59:50.5387458Z (Reading database ... 55%
+2026-06-03T19:59:50.9145080Z (Reading database ... 60%
+2026-06-03T19:59:51.2325699Z (Reading database ... 65%
+2026-06-03T19:59:51.4889973Z (Reading database ... 70%
+2026-06-03T19:59:51.7727270Z (Reading database ... 75%
+2026-06-03T19:59:52.1872692Z (Reading database ... 80%
+2026-06-03T19:59:52.8399321Z (Reading database ... 85%
+2026-06-03T19:59:53.5645565Z (Reading database ... 90%
+2026-06-03T19:59:54.2760648Z (Reading database ... 95%
+2026-06-03T19:59:54.2761289Z (Reading database ... 100%
+2026-06-03T19:59:54.2762012Z (Reading database ... 202271 files and directories currently installed.)
+2026-06-03T19:59:54.2807739Z Preparing to unpack .../jpegoptim_1.4.7-1_amd64.deb ...
+2026-06-03T19:59:54.2840037Z Unpacking jpegoptim (1.4.7-1) ...
+2026-06-03T19:59:54.3539772Z Selecting previously unselected package optipng.
+2026-06-03T19:59:54.3667783Z Preparing to unpack .../optipng_0.7.8+ds-1build2_amd64.deb ...
+2026-06-03T19:59:54.3678723Z Unpacking optipng (0.7.8+ds-1build2) ...
+2026-06-03T19:59:54.4125712Z Setting up jpegoptim (1.4.7-1) ...
+2026-06-03T19:59:54.4152918Z Setting up optipng (0.7.8+ds-1build2) ...
+2026-06-03T19:59:54.4182078Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-06-03T19:59:54.4267394Z Not building database; man-db/auto-update is not 'true'.
+2026-06-03T19:59:55.6277660Z 
+2026-06-03T19:59:55.6278244Z Running kernel seems to be up-to-date.
+2026-06-03T19:59:55.6278615Z 
+2026-06-03T19:59:55.6278773Z No services need to be restarted.
+2026-06-03T19:59:55.6279084Z 
+2026-06-03T19:59:55.6279253Z No containers need to be restarted.
+2026-06-03T19:59:55.6279587Z 
+2026-06-03T19:59:55.6279784Z No user sessions are running outdated binaries.
+2026-06-03T19:59:55.6280130Z 
+2026-06-03T19:59:55.6280448Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-06-03T19:59:56.5118119Z ##[group]Run echo "size=$(du -sb . | cut -f1)" >> $GITHUB_OUTPUT
+2026-06-03T19:59:56.5118619Z [36;1mecho "size=$(du -sb . | cut -f1)" >> $GITHUB_OUTPUT[0m
+2026-06-03T19:59:56.5145168Z shell: /usr/bin/bash -e {0}
+2026-06-03T19:59:56.5145443Z ##[endgroup]
+2026-06-03T19:59:56.5332880Z ##[group]Run find . -type f \( -name "*.jpg" -o -name "*.jpeg" \) \
+2026-06-03T19:59:56.5333374Z [36;1mfind . -type f \( -name "*.jpg" -o -name "*.jpeg" \) \[0m
+2026-06-03T19:59:56.5334121Z [36;1m-exec jpegoptim --max=80 --strip-all {} \;[0m
+2026-06-03T19:59:56.5358156Z shell: /usr/bin/bash -e {0}
+2026-06-03T19:59:56.5358420Z ##[endgroup]
+2026-06-03T19:59:56.6378236Z ./Test IA/train/images/20250413_120128.jpg 4080x1884 24bit N Exif ICC  [OK] 2202816 --> 645882 bytes (70.68%), optimized.
+2026-06-03T19:59:56.7651240Z ./Test IA/train/images/20250413_122948.jpg 4080x1884 24bit N Exif ICC  [OK] 4033831 --> 2006638 bytes (50.25%), optimized.
+2026-06-03T19:59:56.8689260Z ./Test IA/train/images/20250412_105229.jpg 4080x1884 24bit N Exif ICC  [OK] 3147624 --> 935615 bytes (70.28%), optimized.
+2026-06-03T19:59:56.9693842Z ./Test IA/train/images/20250412_105204.jpg 4080x1884 24bit N Exif ICC  [OK] 2986935 --> 845189 bytes (71.70%), optimized.
+2026-06-03T19:59:57.0582437Z ./Test IA/train/images/20250412_104832.jpg 4080x1884 24bit N Exif ICC  [OK] 2218295 --> 708158 bytes (68.08%), optimized.
+2026-06-03T19:59:57.1575734Z ./Test IA/train/images/20250412_105617.jpg 4080x1884 24bit N Exif ICC  [OK] 2958764 --> 874060 bytes (70.46%), optimized.
+2026-06-03T19:59:57.2472185Z ./Test IA/train/images/20250412_105803.jpg 4080x1884 24bit N Exif ICC  [OK] 2269830 --> 676683 bytes (70.19%), optimized.
+2026-06-03T19:59:57.3455868Z ./Test IA/train/images/20250412_105246.jpg 4080x1884 24bit N Exif ICC  [OK] 2937834 --> 717926 bytes (75.56%), optimized.
+2026-06-03T19:59:57.4389644Z ./Test IA/train/images/20250413_120258(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2409016 --> 798881 bytes (66.84%), optimized.
+2026-06-03T19:59:57.5834064Z ./Test IA/train/images/20250413_123055(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4975130 --> 2679519 bytes (46.14%), optimized.
+2026-06-03T19:59:57.6730379Z ./Test IA/train/images/20250412_105407.jpg 4080x1884 24bit N Exif ICC  [OK] 2187856 --> 666843 bytes (69.52%), optimized.
+2026-06-03T19:59:57.7605147Z ./Test IA/train/images/20250412_105212.jpg 4080x1884 24bit N Exif ICC  [OK] 2420378 --> 505019 bytes (79.13%), optimized.
+2026-06-03T19:59:57.8640030Z ./Test IA/train/images/20250413_120548.jpg 4080x1884 24bit N Exif ICC  [OK] 3130149 --> 959421 bytes (69.35%), optimized.
+2026-06-03T19:59:57.9565209Z ./Test IA/train/images/20250412_105353.jpg 4080x1884 24bit N Exif ICC  [OK] 2371037 --> 818209 bytes (65.49%), optimized.
+2026-06-03T19:59:58.0809461Z ./Test IA/train/images/20250413_123001(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3981091 --> 1890820 bytes (52.50%), optimized.
+2026-06-03T19:59:58.1970708Z ./Test IA/train/images/20250413_123058(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3487858 --> 1636442 bytes (53.08%), optimized.
+2026-06-03T19:59:58.2865642Z ./Test IA/train/images/20250411_181426.jpg 4080x1884 24bit N Exif ICC  [OK] 2138548 --> 622356 bytes (70.90%), optimized.
+2026-06-03T19:59:58.4007246Z ./Test IA/train/images/20250412_105840.jpg 4080x1884 24bit N Exif ICC  [OK] 3752268 --> 1289916 bytes (65.62%), optimized.
+2026-06-03T19:59:58.4863852Z ./Test IA/train/images/20250412_105219.jpg 4080x1884 24bit N Exif ICC  [OK] 2377180 --> 462841 bytes (80.53%), optimized.
+2026-06-03T19:59:58.5799917Z ./Test IA/train/images/20250412_105427.jpg 4080x1884 24bit N Exif ICC  [OK] 2299698 --> 905884 bytes (60.61%), optimized.
+2026-06-03T19:59:58.7054818Z ./Test IA/train/images/20250413_123127(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3946926 --> 2013888 bytes (48.98%), optimized.
+2026-06-03T19:59:58.8065423Z ./Test IA/train/images/20250413_120636.jpg 4080x1884 24bit N Exif ICC  [OK] 2724688 --> 1098542 bytes (59.68%), optimized.
+2026-06-03T19:59:58.8921714Z ./Test IA/train/images/20250411_181428.jpg 4080x1884 24bit N Exif ICC  [OK] 2115107 --> 608050 bytes (71.25%), optimized.
+2026-06-03T19:59:58.9923250Z ./Test IA/train/images/20250412_104910.jpg 4080x1884 24bit N Exif ICC  [OK] 2667042 --> 1128319 bytes (57.69%), optimized.
+2026-06-03T19:59:59.0930655Z ./Test IA/train/images/20250412_105203.jpg 4080x1884 24bit N Exif ICC  [OK] 3047273 --> 880036 bytes (71.12%), optimized.
+2026-06-03T19:59:59.1852765Z ./Test IA/train/images/20250412_105506.jpg 4080x1884 24bit N Exif ICC  [OK] 2332683 --> 716768 bytes (69.27%), optimized.
+2026-06-03T19:59:59.2802652Z ./Test IA/train/images/20250413_120430.jpg 4080x1884 24bit N Exif ICC  [OK] 2764700 --> 736254 bytes (73.37%), optimized.
+2026-06-03T19:59:59.3725797Z ./Test IA/train/images/20250413_120349(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2375511 --> 725284 bytes (69.47%), optimized.
+2026-06-03T19:59:59.4724847Z ./Test IA/train/images/20250413_120144(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2529743 --> 1120712 bytes (55.70%), optimized.
+2026-06-03T19:59:59.5625205Z ./Test IA/train/images/20250412_105707.jpg 4080x1884 24bit N Exif ICC  [OK] 2268367 --> 730537 bytes (67.79%), optimized.
+2026-06-03T19:59:59.5747268Z ./Test IA/train/images/WIN_20250412_20_01_07_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 113115 --> 68560 bytes (39.39%), optimized.
+2026-06-03T19:59:59.6688129Z ./Test IA/train/images/20250412_105801.jpg 4080x1884 24bit N Exif ICC  [OK] 2480475 --> 877465 bytes (64.63%), optimized.
+2026-06-03T19:59:59.7629996Z ./Test IA/train/images/20250412_105711.jpg 4080x1884 24bit N Exif ICC  [OK] 2369775 --> 883318 bytes (62.73%), optimized.
+2026-06-03T19:59:59.8674340Z ./Test IA/train/images/20250413_120311(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2826719 --> 1236340 bytes (56.26%), optimized.
+2026-06-03T19:59:59.9691718Z ./Test IA/train/images/20250412_105915.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 3096808 --> 944498 bytes (69.50%), optimized.
+2026-06-03T20:00:00.0616743Z ./Test IA/train/images/20250412_104859.jpg 4080x1884 24bit N Exif ICC  [OK] 2360278 --> 730246 bytes (69.06%), optimized.
+2026-06-03T20:00:00.1953244Z ./Test IA/train/images/20250413_123053.jpg 4080x1884 24bit N Exif ICC  [OK] 4423008 --> 2250397 bytes (49.12%), optimized.
+2026-06-03T20:00:00.2998354Z ./Test IA/train/images/20250412_105149.jpg 4080x1884 24bit N Exif ICC  [OK] 3249928 --> 849173 bytes (73.87%), optimized.
+2026-06-03T20:00:00.3948277Z ./Test IA/train/images/20250412_105347.jpg 4080x1884 24bit N Exif ICC  [OK] 2487060 --> 891225 bytes (64.17%), optimized.
+2026-06-03T20:00:00.4839235Z ./Test IA/train/images/20250413_120348.jpg 4080x1884 24bit N Exif ICC  [OK] 2268421 --> 678098 bytes (70.11%), optimized.
+2026-06-03T20:00:00.5972270Z ./Test IA/train/images/20250412_105842.jpg 4080x1884 24bit N Exif ICC  [OK] 3671161 --> 1257265 bytes (65.75%), optimized.
+2026-06-03T20:00:00.6956567Z ./Test IA/train/images/20250412_105624.jpg 4080x1884 24bit N Exif ICC  [OK] 2959024 --> 810251 bytes (72.62%), optimized.
+2026-06-03T20:00:00.7879118Z ./Test IA/train/images/20250411_165747.jpg 4080x1884 24bit N Exif ICC  [OK] 2321732 --> 849524 bytes (63.41%), optimized.
+2026-06-03T20:00:00.8851085Z ./Test IA/train/images/20250412_104909.jpg 4080x1884 24bit N Exif ICC  [OK] 2542106 --> 976450 bytes (61.59%), optimized.
+2026-06-03T20:00:00.9838018Z ./Test IA/train/images/20250412_105235(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2945685 --> 720460 bytes (75.54%), optimized.
+2026-06-03T20:00:01.0782420Z ./Test IA/train/images/20250412_104900.jpg 4080x1884 24bit N Exif ICC  [OK] 2447949 --> 822961 bytes (66.38%), optimized.
+2026-06-03T20:00:01.1739195Z ./Test IA/train/images/20250413_120329.jpg 4080x1884 24bit N Exif ICC  [OK] 2770840 --> 717026 bytes (74.12%), optimized.
+2026-06-03T20:00:01.3111652Z ./Test IA/train/images/20250413_123104(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4596393 --> 2421810 bytes (47.31%), optimized.
+2026-06-03T20:00:01.4554056Z ./Test IA/train/images/20250413_123103(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4932796 --> 2656717 bytes (46.14%), optimized.
+2026-06-03T20:00:01.6033885Z ./Test IA/train/images/20250413_123056(0).jpg 4080x1884 24bit N Exif ICC  [OK] 5196650 --> 2838555 bytes (45.38%), optimized.
+2026-06-03T20:00:01.6911444Z ./Test IA/train/images/20250412_105455.jpg 4080x1884 24bit N Exif ICC  [OK] 2226650 --> 579772 bytes (73.96%), optimized.
+2026-06-03T20:00:01.8163745Z ./Test IA/train/images/20250413_123045.jpg 4080x1884 24bit N Exif ICC  [OK] 3948428 --> 1913559 bytes (51.54%), optimized.
+2026-06-03T20:00:01.8290837Z ./Test IA/train/images/WIN_20250412_20_01_42_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 107226 --> 63411 bytes (40.86%), optimized.
+2026-06-03T20:00:01.8400159Z ./Test IA/train/images/WIN_20250412_20_00_58_Pro (2).jpg 1280x720 24bit N Exif JFIF  [OK] 116442 --> 70507 bytes (39.45%), optimized.
+2026-06-03T20:00:01.9316702Z ./Test IA/train/images/20250412_105804(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2400077 --> 770432 bytes (67.90%), optimized.
+2026-06-03T20:00:02.0180355Z ./Test IA/train/images/20250413_120324(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2142394 --> 569499 bytes (73.42%), optimized.
+2026-06-03T20:00:02.1222864Z ./Test IA/train/images/20250413_122939(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2903426 --> 1175108 bytes (59.53%), optimized.
+2026-06-03T20:00:02.2087304Z ./Test IA/train/images/20250412_105456.jpg 4080x1884 24bit N Exif ICC  [OK] 2190849 --> 563523 bytes (74.28%), optimized.
+2026-06-03T20:00:02.2980283Z ./Test IA/train/images/20250412_105744(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2290385 --> 621433 bytes (72.87%), optimized.
+2026-06-03T20:00:02.3879589Z ./Test IA/train/images/20250412_105504.jpg 4080x1884 24bit N Exif ICC  [OK] 2291491 --> 672659 bytes (70.65%), optimized.
+2026-06-03T20:00:02.4912485Z ./Test IA/train/images/20250412_105551.jpg 4080x1884 24bit N Exif ICC  [OK] 3235034 --> 914510 bytes (71.73%), optimized.
+2026-06-03T20:00:02.5817627Z ./Test IA/train/images/20250413_120331(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2170628 --> 865488 bytes (60.13%), optimized.
+2026-06-03T20:00:02.7289407Z ./Test IA/train/images/20250413_123234(0).jpg 4080x1884 24bit N Exif ICC  [OK] 5137100 --> 2754880 bytes (46.37%), optimized.
+2026-06-03T20:00:02.8249210Z ./Test IA/train/images/20250413_120330.jpg 4080x1884 24bit N Exif ICC  [OK] 2790178 --> 728785 bytes (73.88%), optimized.
+2026-06-03T20:00:02.9194679Z ./Test IA/train/images/20250412_105801(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2447624 --> 818623 bytes (66.55%), optimized.
+2026-06-03T20:00:03.0084286Z ./Test IA/train/images/20250413_120333(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2257825 --> 626385 bytes (72.26%), optimized.
+2026-06-03T20:00:03.1409663Z ./Test IA/train/images/20250413_122921.jpg 4080x1884 24bit N Exif ICC  [OK] 4143838 --> 2154507 bytes (48.01%), optimized.
+2026-06-03T20:00:03.2315236Z ./Test IA/train/images/20250412_105735.jpg 4080x1884 24bit N Exif ICC  [OK] 2297571 --> 713542 bytes (68.94%), optimized.
+2026-06-03T20:00:03.3202832Z ./Test IA/train/images/20250413_120333.jpg 4080x1884 24bit N Exif ICC  [OK] 2231357 --> 625435 bytes (71.97%), optimized.
+2026-06-03T20:00:03.4254158Z ./Test IA/train/images/20250413_120525.jpg 4080x1884 24bit N Exif ICC  [OK] 3282366 --> 1046023 bytes (68.13%), optimized.
+2026-06-03T20:00:03.5477331Z ./Test IA/train/images/20250413_123226.jpg 4080x1884 24bit N Exif ICC  [OK] 3770067 --> 1830627 bytes (51.44%), optimized.
+2026-06-03T20:00:03.6537855Z ./Test IA/train/images/20250412_105137.jpg 4080x1884 24bit N Exif ICC  [OK] 3261773 --> 953195 bytes (70.78%), optimized.
+2026-06-03T20:00:03.7564954Z ./Test IA/train/images/20250413_120445(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3094134 --> 817099 bytes (73.59%), optimized.
+2026-06-03T20:00:03.8580044Z ./Test IA/train/images/20250413_120144.jpg 4080x1884 24bit N Exif ICC  [OK] 2582441 --> 1147561 bytes (55.56%), optimized.
+2026-06-03T20:00:03.9488040Z ./Test IA/train/images/20250412_105905.jpg 4080x1884 24bit N Exif ICC  [OK] 2507214 --> 587764 bytes (76.56%), optimized.
+2026-06-03T20:00:04.0402796Z ./Test IA/train/images/20250413_120103.jpg 4080x1884 24bit N Exif ICC  [OK] 2289084 --> 748344 bytes (67.31%), optimized.
+2026-06-03T20:00:04.1432955Z ./Test IA/train/images/20250413_120453.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 3145827 --> 849760 bytes (72.99%), optimized.
+2026-06-03T20:00:04.2365458Z ./Test IA/train/images/20250413_120318.jpg 4080x1884 24bit N Exif ICC  [OK] 2261867 --> 888381 bytes (60.72%), optimized.
+2026-06-03T20:00:04.3236689Z ./Test IA/train/images/20250411_181432.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2150517 --> 636396 bytes (70.41%), optimized.
+2026-06-03T20:00:04.4157815Z ./Test IA/train/images/20250413_120353.jpg 4080x1884 24bit N Exif ICC  [OK] 2360832 --> 765906 bytes (67.56%), optimized.
+2026-06-03T20:00:04.5121772Z ./Test IA/train/images/20250413_120401.jpg 4080x1884 24bit N Exif ICC  [OK] 2376081 --> 1017110 bytes (57.19%), optimized.
+2026-06-03T20:00:04.6398657Z ./Test IA/train/images/20250413_123059(1).jpg 4080x1884 24bit N Exif ICC  [OK] 4076112 --> 2055209 bytes (49.58%), optimized.
+2026-06-03T20:00:04.7408386Z ./Test IA/train/images/20250412_105205.jpg 4080x1884 24bit N Exif ICC  [OK] 2981781 --> 841631 bytes (71.77%), optimized.
+2026-06-03T20:00:04.8342400Z ./Test IA/train/images/20250412_105359.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2400309 --> 791958 bytes (67.01%), optimized.
+2026-06-03T20:00:04.9292131Z ./Test IA/train/images/20250412_105911.jpg 4080x1884 24bit N Exif ICC  [OK] 2694166 --> 566691 bytes (78.97%), optimized.
+2026-06-03T20:00:05.0318337Z ./Test IA/train/images/20250412_105312.jpg 4080x1884 24bit N Exif ICC  [OK] 3128071 --> 809407 bytes (74.12%), optimized.
+2026-06-03T20:00:05.1349228Z ./Test IA/train/images/20250412_105826(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2786768 --> 1117697 bytes (59.89%), optimized.
+2026-06-03T20:00:05.2368403Z ./Test IA/train/images/20250412_105557.jpg 4080x1884 24bit N Exif ICC  [OK] 3105655 --> 855275 bytes (72.46%), optimized.
+2026-06-03T20:00:05.3336822Z ./Test IA/train/images/20250412_105233.jpg 4080x1884 24bit N Exif ICC  [OK] 2830088 --> 683458 bytes (75.85%), optimized.
+2026-06-03T20:00:05.4719098Z ./Test IA/train/images/20250413_123104.jpg 4080x1884 24bit N Exif ICC  [OK] 4627993 --> 2432369 bytes (47.44%), optimized.
+2026-06-03T20:00:05.5776651Z ./Test IA/train/images/20250412_105550.jpg 4080x1884 24bit N Exif ICC  [OK] 3300249 --> 969363 bytes (70.63%), optimized.
+2026-06-03T20:00:05.7086280Z ./Test IA/train/images/20250413_122946.jpg 4080x1884 24bit N Exif ICC  [OK] 4281455 --> 2178288 bytes (49.12%), optimized.
+2026-06-03T20:00:05.7919753Z ./Test IA/train/images/20250412_105720.jpg 4080x1884 24bit N Exif ICC  [OK] 2036502 --> 505304 bytes (75.19%), optimized.
+2026-06-03T20:00:05.9422341Z ./Test IA/train/images/20250413_123237.jpg 4080x1884 24bit N Exif ICC  [OK] 5249973 --> 2838678 bytes (45.93%), optimized.
+2026-06-03T20:00:06.0924157Z ./Test IA/train/images/20250413_122943.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 5304384 --> 2851777 bytes (46.24%), optimized.
+2026-06-03T20:00:06.1060569Z ./Test IA/train/images/WIN_20250412_20_01_35_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 146386 --> 89793 bytes (38.66%), optimized.
+2026-06-03T20:00:06.1916383Z ./Test IA/train/images/20250412_105837.jpg 4080x1884 24bit N Exif ICC  [OK] 2372362 --> 546157 bytes (76.98%), optimized.
+2026-06-03T20:00:06.2809844Z ./Test IA/train/images/20250413_120326(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2247839 --> 701641 bytes (68.79%), optimized.
+2026-06-03T20:00:06.3660061Z ./Test IA/train/images/20250413_120246.jpg 4080x1884 24bit N Exif ICC  [OK] 2032423 --> 569706 bytes (71.97%), optimized.
+2026-06-03T20:00:06.4707179Z ./Test IA/train/images/20250413_120545(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3224897 --> 1007786 bytes (68.75%), optimized.
+2026-06-03T20:00:06.5981372Z ./Test IA/train/images/20250413_123225(1).jpg 4080x1884 24bit N Exif ICC  [OK] 4033149 --> 2010518 bytes (50.15%), optimized.
+2026-06-03T20:00:06.7345078Z ./Test IA/train/images/20250413_123004.jpg 4080x1884 24bit N Exif ICC  [OK] 4670561 --> 2286891 bytes (51.04%), optimized.
+2026-06-03T20:00:06.8461252Z ./Test IA/train/images/20250412_105637(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3665815 --> 1337359 bytes (63.52%), optimized.
+2026-06-03T20:00:06.9914008Z ./Test IA/train/images/20250413_122958.jpg 4080x1884 24bit N Exif ICC  [OK] 5114354 --> 2603455 bytes (49.10%), optimized.
+2026-06-03T20:00:07.0815245Z ./Test IA/train/images/20250413_120342(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2267367 --> 716956 bytes (68.38%), optimized.
+2026-06-03T20:00:07.2273780Z ./Test IA/train/images/20250413_123220.jpg 4080x1884 24bit N Exif ICC  [OK] 5056568 --> 2703828 bytes (46.53%), optimized.
+2026-06-03T20:00:07.3281716Z ./Test IA/train/images/20250412_105629(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3068955 --> 873532 bytes (71.54%), optimized.
+2026-06-03T20:00:07.4741904Z ./Test IA/train/images/20250413_122943(1).jpg 4080x1884 24bit N Exif ICC  [OK] 5087520 --> 2691130 bytes (47.10%), optimized.
+2026-06-03T20:00:07.5666915Z ./Test IA/train/images/20250413_120247.jpg 4080x1884 24bit N Exif ICC  [OK] 2331248 --> 785762 bytes (66.29%), optimized.
+2026-06-03T20:00:07.6774220Z ./Test IA/train/images/20250412_105636.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 3616945 --> 1310179 bytes (63.78%), optimized.
+2026-06-03T20:00:07.7674372Z ./Test IA/train/images/20250413_120136.jpg 4080x1884 24bit N Exif ICC  [OK] 2244494 --> 711564 bytes (68.30%), optimized.
+2026-06-03T20:00:07.7801635Z ./Test IA/train/images/WIN_20250412_20_01_37_Pro (2).jpg 1280x720 24bit N Exif JFIF  [OK] 121508 --> 73035 bytes (39.89%), optimized.
+2026-06-03T20:00:07.8705231Z ./Test IA/train/images/20250411_165803.jpg 4080x1884 24bit N Exif ICC  [OK] 2364246 --> 871694 bytes (63.13%), optimized.
+2026-06-03T20:00:07.9740802Z ./Test IA/train/images/20250412_105152.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 3145986 --> 871024 bytes (72.31%), optimized.
+2026-06-03T20:00:08.0780534Z ./Test IA/train/images/20250413_122940.jpg 4080x1884 24bit N Exif ICC  [OK] 2878333 --> 1153740 bytes (59.92%), optimized.
+2026-06-03T20:00:08.1690107Z ./Test IA/train/images/20250412_105728(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2332148 --> 704710 bytes (69.78%), optimized.
+2026-06-03T20:00:08.3130983Z ./Test IA/train/images/20250413_123101.jpg 4080x1884 24bit N Exif ICC  [OK] 4959170 --> 2656067 bytes (46.44%), optimized.
+2026-06-03T20:00:08.3999341Z ./Test IA/train/images/20250412_105216.jpg 4080x1884 24bit N Exif ICC  [OK] 2367070 --> 460576 bytes (80.54%), optimized.
+2026-06-03T20:00:08.5001800Z ./Test IA/train/images/20250412_105629.jpg 4080x1884 24bit N Exif ICC  [OK] 3053564 --> 872410 bytes (71.43%), optimized.
+2026-06-03T20:00:08.5909509Z ./Test IA/train/images/20250413_120112.jpg 4080x1884 24bit N Exif ICC  [OK] 2286609 --> 747871 bytes (67.29%), optimized.
+2026-06-03T20:00:08.6837317Z ./Test IA/train/images/20250413_120101.jpg 4080x1884 24bit N Exif ICC  [OK] 2358896 --> 881653 bytes (62.62%), optimized.
+2026-06-03T20:00:08.7892993Z ./Test IA/train/images/20250413_122938(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2973109 --> 1236211 bytes (58.42%), optimized.
+2026-06-03T20:00:08.8933826Z ./Test IA/train/images/20250413_120448.jpg 4080x1884 24bit N Exif ICC  [OK] 3246940 --> 936370 bytes (71.16%), optimized.
+2026-06-03T20:00:08.9893135Z ./Test IA/train/images/20250412_104929.jpg 4080x1884 24bit N Exif ICC  [OK] 2246612 --> 1072109 bytes (52.28%), optimized.
+2026-06-03T20:00:09.0785813Z ./Test IA/train/images/20250412_105505.jpg 4080x1884 24bit N Exif ICC  [OK] 2275069 --> 668333 bytes (70.62%), optimized.
+2026-06-03T20:00:09.1715011Z ./Test IA/train/images/20250413_120259(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2380941 --> 808659 bytes (66.04%), optimized.
+2026-06-03T20:00:09.2782548Z ./Test IA/train/images/20250412_105853.jpg 4080x1884 24bit N Exif ICC  [OK] 3348668 --> 1029037 bytes (69.27%), optimized.
+2026-06-03T20:00:09.3830215Z ./Test IA/train/images/20250413_120454.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 3149979 --> 852617 bytes (72.93%), optimized.
+2026-06-03T20:00:09.5280253Z ./Test IA/train/images/20250413_123247.jpg 4080x1884 24bit N Exif ICC  [OK] 4980088 --> 2688011 bytes (46.02%), optimized.
+2026-06-03T20:00:09.6170501Z ./Test IA/train/images/20250413_120059.jpg 4080x1884 24bit N Exif ICC  [OK] 2185997 --> 676159 bytes (69.07%), optimized.
+2026-06-03T20:00:09.7201420Z ./Test IA/train/images/20250413_120305(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2770027 --> 1176089 bytes (57.54%), optimized.
+2026-06-03T20:00:09.8269322Z ./Test IA/train/images/20250412_104912.jpg 4080x1884 24bit N Exif ICC  [OK] 2950673 --> 1303727 bytes (55.82%), optimized.
+2026-06-03T20:00:09.9811726Z ./Test IA/train/images/20250413_123103.jpg 4080x1884 24bit N Exif ICC  [OK] 5212253 --> 2847151 bytes (45.38%), optimized.
+2026-06-03T20:00:10.0861740Z ./Test IA/train/images/20250413_122939(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2880443 --> 1159379 bytes (59.75%), optimized.
+2026-06-03T20:00:10.1742447Z ./Test IA/train/images/20250412_105304(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2477134 --> 467325 bytes (81.13%), optimized.
+2026-06-03T20:00:10.2645192Z ./Test IA/train/images/20250412_105501.jpg 4080x1884 24bit N Exif ICC  [OK] 2318703 --> 711482 bytes (69.32%), optimized.
+2026-06-03T20:00:10.3636099Z ./Test IA/train/images/20250413_120637.jpg 4080x1884 24bit N Exif ICC  [OK] 2604251 --> 1028293 bytes (60.51%), optimized.
+2026-06-03T20:00:10.4692058Z ./Test IA/train/images/20250412_104908.jpg 4080x1884 24bit N Exif ICC  [OK] 2901435 --> 1257287 bytes (56.67%), optimized.
+2026-06-03T20:00:10.5958937Z ./Test IA/train/images/20250413_122926.jpg 4080x1884 24bit N Exif ICC  [OK] 3924219 --> 1993495 bytes (49.20%), optimized.
+2026-06-03T20:00:10.7171922Z ./Test IA/train/images/20250413_123128.jpg 4080x1884 24bit N Exif ICC  [OK] 3755510 --> 1834220 bytes (51.16%), optimized.
+2026-06-03T20:00:10.8015015Z ./Test IA/train/images/20250412_104818.jpg 4080x1884 24bit N Exif ICC  [OK] 2073696 --> 510561 bytes (75.38%), optimized.
+2026-06-03T20:00:10.8144561Z ./Test IA/train/images/WIN_20250412_20_01_35_Pro (3).jpg 1280x720 24bit N Exif JFIF  [OK] 135098 --> 82543 bytes (38.90%), optimized.
+2026-06-03T20:00:10.9029555Z ./Test IA/train/images/20250413_120053(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2245325 --> 743126 bytes (66.90%), optimized.
+2026-06-03T20:00:10.9970540Z ./Test IA/train/images/20250413_120134.jpg 4080x1884 24bit N Exif ICC  [OK] 2333503 --> 821115 bytes (64.81%), optimized.
+2026-06-03T20:00:11.1262455Z ./Test IA/train/images/20250413_123059(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4190979 --> 2128997 bytes (49.20%), optimized.
+2026-06-03T20:00:11.2139145Z ./Test IA/train/images/20250412_105221.jpg 4080x1884 24bit N Exif ICC  [OK] 2438900 --> 505420 bytes (79.28%), optimized.
+2026-06-03T20:00:11.3092781Z ./Test IA/train/images/20250412_105801(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2502122 --> 844813 bytes (66.24%), optimized.
+2026-06-03T20:00:11.3235112Z ./Test IA/train/images/WIN_20250412_20_00_58_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 115440 --> 69957 bytes (39.40%), optimized.
+2026-06-03T20:00:11.4712006Z ./Test IA/train/images/20250413_123021.jpg 4080x1884 24bit N Exif ICC  [OK] 5165431 --> 2802725 bytes (45.74%), optimized.
+2026-06-03T20:00:11.6167223Z ./Test IA/train/images/20250413_123004(1).jpg 4080x1884 24bit N Exif ICC  [OK] 5107670 --> 2577403 bytes (49.54%), optimized.
+2026-06-03T20:00:11.7241939Z ./Test IA/train/images/20250413_120306(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2962494 --> 1320193 bytes (55.44%), optimized.
+2026-06-03T20:00:11.8203863Z ./Test IA/train/images/20250412_105426.jpg 4080x1884 24bit N Exif ICC  [OK] 2395846 --> 1010360 bytes (57.83%), optimized.
+2026-06-03T20:00:11.9718323Z ./Test IA/train/images/20250413_123105.jpg 4080x1884 24bit N Exif ICC  [OK] 5327406 --> 2929509 bytes (45.01%), optimized.
+2026-06-03T20:00:12.0689756Z ./Test IA/train/images/20250412_104847.jpg 4080x1884 24bit N Exif ICC  [OK] 2555438 --> 1020029 bytes (60.08%), optimized.
+2026-06-03T20:00:12.1734938Z ./Test IA/train/images/20250413_120447(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3241988 --> 935689 bytes (71.14%), optimized.
+2026-06-03T20:00:12.2787874Z ./Test IA/train/images/20250413_120549(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3196974 --> 1003480 bytes (68.61%), optimized.
+2026-06-03T20:00:12.4090007Z ./Test IA/train/images/20250413_122947(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4214723 --> 2138069 bytes (49.27%), optimized.
+2026-06-03T20:00:12.5592020Z ./Test IA/train/images/20250413_123234.jpg 4080x1884 24bit N Exif ICC  [OK] 5193354 --> 2794370 bytes (46.19%), optimized.
+2026-06-03T20:00:12.6649126Z ./Test IA/train/images/20250413_122939.jpg 4080x1884 24bit N Exif ICC  [OK] 2960887 --> 1227392 bytes (58.55%), optimized.
+2026-06-03T20:00:12.7578212Z ./Test IA/train/images/20250413_120147.jpg 4080x1884 24bit N Exif ICC  [OK] 2261284 --> 884023 bytes (60.91%), optimized.
+2026-06-03T20:00:12.9062276Z ./Test IA/train/images/20250413_123230.jpg 4080x1884 24bit N Exif ICC  [OK] 5176459 --> 2801376 bytes (45.88%), optimized.
+2026-06-03T20:00:12.9969003Z ./Test IA/train/images/20250412_104819.jpg 4080x1884 24bit N Exif ICC  [OK] 2297240 --> 696153 bytes (69.70%), optimized.
+2026-06-03T20:00:13.0998246Z ./Test IA/train/images/20250412_105650.jpg 4080x1884 24bit N Exif ICC  [OK] 3103988 --> 920305 bytes (70.35%), optimized.
+2026-06-03T20:00:13.2422681Z ./Test IA/train/images/20250413_122932.jpg 4080x1884 24bit N Exif ICC  [OK] 4899087 --> 2604600 bytes (46.83%), optimized.
+2026-06-03T20:00:13.3374210Z ./Test IA/train/images/20250413_120352(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2458973 --> 833292 bytes (66.11%), optimized.
+2026-06-03T20:00:13.4318390Z ./Test IA/train/images/20250413_120353(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2445271 --> 818001 bytes (66.55%), optimized.
+2026-06-03T20:00:13.5346162Z ./Test IA/train/images/20250412_105820(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2761222 --> 1121881 bytes (59.37%), optimized.
+2026-06-03T20:00:13.6797334Z ./Test IA/train/images/20250413_122944.jpg 4080x1884 24bit N Exif ICC  [OK] 5025472 --> 2638506 bytes (47.50%), optimized.
+2026-06-03T20:00:13.8039827Z ./Test IA/train/images/20250413_123127(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3821951 --> 1899279 bytes (50.31%), optimized.
+2026-06-03T20:00:13.9251331Z ./Test IA/train/images/20250413_123046.jpg 4080x1884 24bit N Exif ICC  [OK] 3655535 --> 1736813 bytes (52.49%), optimized.
+2026-06-03T20:00:14.0207643Z ./Test IA/train/images/20250413_120347.jpg 4080x1884 24bit N Exif ICC  [OK] 2503205 --> 825932 bytes (67.01%), optimized.
+2026-06-03T20:00:14.1255006Z ./Test IA/train/images/20250413_120524(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3269651 --> 1035462 bytes (68.33%), optimized.
+2026-06-03T20:00:14.2186792Z ./Test IA/train/images/20250412_105350.jpg 4080x1884 24bit N Exif ICC  [OK] 2399134 --> 827268 bytes (65.52%), optimized.
+2026-06-03T20:00:14.3219676Z ./Test IA/train/images/20250413_120454(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3140294 --> 847294 bytes (73.02%), optimized.
+2026-06-03T20:00:14.4308574Z ./Test IA/train/images/20250413_122938.jpg 4080x1884 24bit N Exif ICC  [OK] 3050744 --> 1286997 bytes (57.81%), optimized.
+2026-06-03T20:00:14.5574220Z ./Test IA/train/images/20250413_123159(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3877826 --> 1936585 bytes (50.06%), optimized.
+2026-06-03T20:00:14.6620329Z ./Test IA/train/images/20250412_105903(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3220001 --> 834247 bytes (74.09%), optimized.
+2026-06-03T20:00:14.7684892Z ./Test IA/train/images/20250413_120619.jpg 4080x1884 24bit N Exif ICC  [OK] 3340198 --> 1148826 bytes (65.61%), optimized.
+2026-06-03T20:00:14.8615072Z ./Test IA/train/images/20250412_105908(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2712377 --> 614705 bytes (77.34%), optimized.
+2026-06-03T20:00:14.9515443Z ./Test IA/train/images/20250412_105448.jpg 4080x1884 24bit N Exif ICC  [OK] 2229574 --> 746306 bytes (66.53%), optimized.
+2026-06-03T20:00:15.0425078Z ./Test IA/train/images/20250412_105414.jpg 4080x1884 24bit N Exif ICC  [OK] 2270052 --> 726843 bytes (67.98%), optimized.
+2026-06-03T20:00:15.1386102Z ./Test IA/train/images/20250413_120329(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2802266 --> 737544 bytes (73.68%), optimized.
+2026-06-03T20:00:15.2341056Z ./Test IA/train/images/20250413_120435.jpg 4080x1884 24bit N Exif ICC  [OK] 2789986 --> 735585 bytes (73.63%), optimized.
+2026-06-03T20:00:15.3429692Z ./Test IA/train/images/20250413_120620.jpg 4080x1884 24bit N Exif ICC  [OK] 3429684 --> 1203511 bytes (64.91%), optimized.
+2026-06-03T20:00:15.4366360Z ./Test IA/train/images/20250413_120352(0).jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2363456 --> 786887 bytes (66.71%), optimized.
+2026-06-03T20:00:15.5763132Z ./Test IA/train/images/20250413_123000.jpg 4080x1884 24bit N Exif ICC  [OK] 4804467 --> 2399362 bytes (50.06%), optimized.
+2026-06-03T20:00:15.7117927Z ./Test IA/train/images/20250413_123107(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4507822 --> 2345210 bytes (47.97%), optimized.
+2026-06-03T20:00:15.8009323Z ./Test IA/train/images/20250412_105744.jpg 4080x1884 24bit N Exif ICC  [OK] 2269673 --> 581912 bytes (74.36%), optimized.
+2026-06-03T20:00:15.9028931Z ./Test IA/train/images/20250412_105627.jpg 4080x1884 24bit N Exif ICC  [OK] 3074890 --> 891044 bytes (71.02%), optimized.
+2026-06-03T20:00:16.0024521Z ./Test IA/train/images/20250412_105820.jpg 4080x1884 24bit N Exif ICC  [OK] 2659720 --> 1046423 bytes (60.66%), optimized.
+2026-06-03T20:00:16.1028448Z ./Test IA/train/images/20250412_105429.jpg 4080x1884 24bit N Exif ICC  [OK] 2715260 --> 1026528 bytes (62.19%), optimized.
+2026-06-03T20:00:16.2338241Z ./Test IA/train/images/20250413_122942.jpg 4080x1884 24bit N Exif ICC  [OK] 4278227 --> 2179685 bytes (49.05%), optimized.
+2026-06-03T20:00:16.3541249Z ./Test IA/train/images/20250413_123114(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3668227 --> 1859155 bytes (49.32%), optimized.
+2026-06-03T20:00:16.4587330Z ./Test IA/train/images/20250411_181411.jpg 4080x1884 24bit N Exif ICC  [OK] 3224374 --> 1067582 bytes (66.89%), optimized.
+2026-06-03T20:00:16.6080442Z ./Test IA/train/images/20250413_123230(0).jpg 4080x1884 24bit N Exif ICC  [OK] 5239113 --> 2838200 bytes (45.83%), optimized.
+2026-06-03T20:00:16.7131946Z ./Test IA/train/images/20250412_105553.jpg 4080x1884 24bit N Exif ICC  [OK] 3299253 --> 938684 bytes (71.55%), optimized.
+2026-06-03T20:00:16.8410109Z ./Test IA/train/images/20250413_123046(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4147983 --> 2043075 bytes (50.75%), optimized.
+2026-06-03T20:00:16.9866706Z ./Test IA/train/images/20250413_123222(1).jpg 4080x1884 24bit N Exif ICC  [OK] 5032383 --> 2710488 bytes (46.14%), optimized.
+2026-06-03T20:00:17.0813871Z ./Test IA/train/images/20250413_120309.jpg 4080x1884 24bit N Exif ICC  [OK] 2454004 --> 866698 bytes (64.68%), optimized.
+2026-06-03T20:00:17.1795194Z ./Test IA/train/images/20250413_120309(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2569272 --> 993954 bytes (61.31%), optimized.
+2026-06-03T20:00:17.3176035Z ./Test IA/train/images/20250413_123011.jpg 4080x1884 24bit N Exif ICC  [OK] 4579216 --> 2399674 bytes (47.60%), optimized.
+2026-06-03T20:00:17.4190633Z ./Test IA/train/images/20250413_120515.jpg 4080x1884 24bit N Exif ICC  [OK] 2991388 --> 842631 bytes (71.83%), optimized.
+2026-06-03T20:00:17.5039950Z ./Test IA/train/images/20250412_104956.jpg 4080x1884 24bit N Exif ICC  [OK] 2202504 --> 484260 bytes (78.01%), optimized.
+2026-06-03T20:00:17.5165960Z ./Test IA/train/images/WIN_20250412_20_01_39_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 113898 --> 67786 bytes (40.49%), optimized.
+2026-06-03T20:00:17.6456043Z ./Test IA/train/images/20250413_122917(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4182861 --> 2169403 bytes (48.14%), optimized.
+2026-06-03T20:00:17.7716567Z ./Test IA/train/images/20250413_123159.jpg 4080x1884 24bit N Exif ICC  [OK] 3851997 --> 1929423 bytes (49.91%), optimized.
+2026-06-03T20:00:17.8744700Z ./Test IA/train/images/20250413_120455(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3144558 --> 848393 bytes (73.02%), optimized.
+2026-06-03T20:00:17.9661971Z ./Test IA/train/images/20250412_105734(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2292776 --> 765149 bytes (66.63%), optimized.
+2026-06-03T20:00:18.0562803Z ./Test IA/train/images/20250412_105449.jpg 4080x1884 24bit N Exif ICC  [OK] 2252779 --> 704177 bytes (68.74%), optimized.
+2026-06-03T20:00:18.1559801Z ./Test IA/train/images/20250412_105616.jpg 4080x1884 24bit N Exif ICC  [OK] 2963366 --> 875914 bytes (70.44%), optimized.
+2026-06-03T20:00:18.2904118Z ./Test IA/train/images/20250413_122925(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4267568 --> 2237253 bytes (47.58%), optimized.
+2026-06-03T20:00:18.3826768Z ./Test IA/train/images/20250412_104903.jpg 4080x1884 24bit N Exif ICC  [OK] 2386884 --> 740223 bytes (68.99%), optimized.
+2026-06-03T20:00:18.4737177Z ./Test IA/train/images/20250412_104919.jpg 4080x1884 24bit N Exif ICC  [OK] 2285416 --> 746781 bytes (67.32%), optimized.
+2026-06-03T20:00:18.5651461Z ./Test IA/train/images/20250413_120257.jpg 4080x1884 24bit N Exif ICC  [OK] 2303591 --> 725998 bytes (68.48%), optimized.
+2026-06-03T20:00:18.6675146Z ./Test IA/train/images/20250413_120455(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3147309 --> 849586 bytes (73.01%), optimized.
+2026-06-03T20:00:18.7677688Z ./Test IA/train/images/20250412_104846.jpg 4080x1884 24bit N Exif ICC  [OK] 2696147 --> 1127739 bytes (58.17%), optimized.
+2026-06-03T20:00:18.8724785Z ./Test IA/train/images/20250412_104931.jpg 4080x1884 24bit N Exif ICC  [OK] 2720256 --> 1336782 bytes (50.86%), optimized.
+2026-06-03T20:00:18.9622854Z ./Test IA/train/images/20250412_105441.jpg 4080x1884 24bit N Exif ICC  [OK] 2273260 --> 710353 bytes (68.75%), optimized.
+2026-06-03T20:00:19.0665508Z ./Test IA/train/images/20250412_105903.jpg 4080x1884 24bit N Exif ICC  [OK] 3217163 --> 832284 bytes (74.13%), optimized.
+2026-06-03T20:00:19.1504948Z ./Test IA/train/images/20250412_104837.jpg 4080x1884 24bit N Exif ICC  [OK] 1861950 --> 581405 bytes (68.77%), optimized.
+2026-06-03T20:00:19.2551026Z ./Test IA/train/images/20250413_122940(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2887028 --> 1171717 bytes (59.41%), optimized.
+2026-06-03T20:00:19.2677196Z ./Test IA/train/images/WIN_20250412_20_01_08_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 115309 --> 69615 bytes (39.63%), optimized.
+2026-06-03T20:00:19.3553462Z ./Test IA/train/images/20250412_104834.jpg 4080x1884 24bit N Exif ICC  [OK] 2199090 --> 685529 bytes (68.83%), optimized.
+2026-06-03T20:00:19.4527521Z ./Test IA/train/images/20250413_120102.jpg 4080x1884 24bit N Exif ICC  [OK] 2491406 --> 904932 bytes (63.68%), optimized.
+2026-06-03T20:00:19.5725506Z ./Test IA/train/images/20250413_123225(2).jpg 4080x1884 24bit N Exif ICC  [OK] 3595730 --> 1716673 bytes (52.26%), optimized.
+2026-06-03T20:00:19.6680640Z ./Test IA/train/images/20250412_104941.jpg 4080x1884 24bit N Exif ICC  [OK] 2433530 --> 934098 bytes (61.62%), optimized.
+2026-06-03T20:00:19.7675204Z ./Test IA/train/images/20250412_105626.jpg 4080x1884 24bit N Exif ICC  [OK] 2998034 --> 832122 bytes (72.24%), optimized.
+2026-06-03T20:00:19.8562750Z ./Test IA/train/images/20250412_104839.jpg 4080x1884 24bit N Exif ICC  [OK] 1948011 --> 654187 bytes (66.42%), optimized.
+2026-06-03T20:00:19.8689120Z ./Test IA/train/images/WIN_20250412_20_01_09_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 115288 --> 69833 bytes (39.43%), optimized.
+2026-06-03T20:00:19.9591168Z ./Test IA/train/images/20250412_105356.jpg 4080x1884 24bit N Exif ICC  [OK] 2352444 --> 792949 bytes (66.29%), optimized.
+2026-06-03T20:00:20.0502697Z ./Test IA/train/images/20250412_105406.jpg 4080x1884 24bit N Exif ICC  [OK] 2275581 --> 737528 bytes (67.59%), optimized.
+2026-06-03T20:00:20.1550992Z ./Test IA/train/images/20250413_120550.jpg 4080x1884 24bit N Exif ICC  [OK] 3187716 --> 998853 bytes (68.67%), optimized.
+2026-06-03T20:00:20.2566969Z ./Test IA/train/images/20250412_105827.jpg 4080x1884 24bit N Exif ICC  [OK] 2699904 --> 1059452 bytes (60.76%), optimized.
+2026-06-03T20:00:20.3502024Z ./Test IA/train/images/20250412_105817.jpg 4080x1884 24bit N Exif ICC  [OK] 2366724 --> 846025 bytes (64.25%), optimized.
+2026-06-03T20:00:20.4504860Z ./Test IA/train/images/20250413_120624(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2545992 --> 1118137 bytes (56.08%), optimized.
+2026-06-03T20:00:20.5387692Z ./Test IA/train/images/20250411_165810.jpg 4080x1884 24bit N Exif ICC  [OK] 2381043 --> 639597 bytes (73.14%), optimized.
+2026-06-03T20:00:20.6426563Z ./Test IA/train/images/20250412_105547.jpg 4080x1884 24bit N Exif ICC  [OK] 3176676 --> 838006 bytes (73.62%), optimized.
+2026-06-03T20:00:20.7816590Z ./Test IA/train/images/20250413_123012(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4658351 --> 2439509 bytes (47.63%), optimized.
+2026-06-03T20:00:20.8711066Z ./Test IA/train/images/20250413_120239.jpg 4080x1884 24bit N Exif ICC  [OK] 2422359 --> 609809 bytes (74.83%), optimized.
+2026-06-03T20:00:20.9641335Z ./Test IA/train/images/20250412_104849.jpg 4080x1884 24bit N Exif ICC  [OK] 2371272 --> 908286 bytes (61.70%), optimized.
+2026-06-03T20:00:21.0586738Z ./Test IA/train/images/20250412_104850.jpg 4080x1884 24bit N Exif ICC  [OK] 2410960 --> 945040 bytes (60.80%), optimized.
+2026-06-03T20:00:21.1572633Z ./Test IA/train/images/20250413_120148.jpg 4080x1884 24bit N Exif ICC  [OK] 2628020 --> 1017133 bytes (61.30%), optimized.
+2026-06-03T20:00:21.2844690Z ./Test IA/train/images/20250413_122917.jpg 4080x1884 24bit N Exif ICC  [OK] 3967661 --> 2031833 bytes (48.79%), optimized.
+2026-06-03T20:00:21.2975775Z ./Test IA/train/images/WIN_20250412_20_01_11_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 116756 --> 70546 bytes (39.58%), optimized.
+2026-06-03T20:00:21.3907578Z ./Test IA/train/images/20250413_120431.jpg 4080x1884 24bit N Exif ICC  [OK] 2724403 --> 715663 bytes (73.73%), optimized.
+2026-06-03T20:00:21.4826592Z ./Test IA/train/images/20250412_105445.jpg 4080x1884 24bit N Exif ICC  [OK] 2268102 --> 817256 bytes (63.97%), optimized.
+2026-06-03T20:00:21.5974233Z ./Test IA/train/images/20250412_105838(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3759001 --> 1304873 bytes (65.29%), optimized.
+2026-06-03T20:00:21.7400896Z ./Test IA/train/images/20250413_122943(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4910569 --> 2594363 bytes (47.17%), optimized.
+2026-06-03T20:00:21.8641776Z ./Test IA/train/images/20250413_123003.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 3969041 --> 1867546 bytes (52.95%), optimized.
+2026-06-03T20:00:21.9801722Z ./Test IA/train/images/20250413_122923(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3505661 --> 1688860 bytes (51.82%), optimized.
+2026-06-03T20:00:22.0745277Z ./Test IA/train/images/20250413_120149.jpg 4080x1884 24bit N Exif ICC  [OK] 2472008 --> 770312 bytes (68.84%), optimized.
+2026-06-03T20:00:22.1771043Z ./Test IA/train/images/20250412_105340.jpg 4080x1884 24bit N Exif ICC  [OK] 3148863 --> 812883 bytes (74.18%), optimized.
+2026-06-03T20:00:22.2903955Z ./Test IA/train/images/20250412_105842(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3672937 --> 1258465 bytes (65.74%), optimized.
+2026-06-03T20:00:22.3965455Z ./Test IA/train/images/20250412_105851.jpg 4080x1884 24bit N Exif ICC  [OK] 3200780 --> 940116 bytes (70.63%), optimized.
+2026-06-03T20:00:22.4919482Z ./Test IA/train/images/20250412_105259.jpg 4080x1884 24bit N Exif ICC  [OK] 2737978 --> 628176 bytes (77.06%), optimized.
+2026-06-03T20:00:22.5886158Z ./Test IA/train/images/20250412_105234.jpg 4080x1884 24bit N Exif ICC  [OK] 2793356 --> 671065 bytes (75.98%), optimized.
+2026-06-03T20:00:22.7229377Z ./Test IA/train/images/20250413_122942(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4405087 --> 2265699 bytes (48.57%), optimized.
+2026-06-03T20:00:22.8261400Z ./Test IA/train/images/20250413_120455.jpg 4080x1884 24bit N Exif ICC  [OK] 3147527 --> 849860 bytes (73.00%), optimized.
+2026-06-03T20:00:22.9710374Z ./Test IA/train/images/20250413_123233.jpg 4080x1884 24bit N Exif ICC  [OK] 4997991 --> 2666472 bytes (46.65%), optimized.
+2026-06-03T20:00:23.0615116Z ./Test IA/train/images/20250412_105459(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2310657 --> 673684 bytes (70.84%), optimized.
+2026-06-03T20:00:23.1490511Z ./Test IA/train/images/20250412_105705.jpg 4080x1884 24bit N Exif ICC  [OK] 2171631 --> 646566 bytes (70.23%), optimized.
+2026-06-03T20:00:23.2498258Z ./Test IA/train/images/20250412_105228.jpg 4080x1884 24bit N Exif ICC  [OK] 3056022 --> 881141 bytes (71.17%), optimized.
+2026-06-03T20:00:23.3398843Z ./Test IA/train/images/20250413_120239(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2458824 --> 600876 bytes (75.56%), optimized.
+2026-06-03T20:00:23.4412735Z ./Test IA/train/images/20250413_120515(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3002904 --> 855453 bytes (71.51%), optimized.
+2026-06-03T20:00:23.5411933Z ./Test IA/train/images/20250412_105227.jpg 4080x1884 24bit N Exif ICC  [OK] 3007294 --> 849164 bytes (71.76%), optimized.
+2026-06-03T20:00:23.6410155Z ./Test IA/train/images/20250413_120433.jpg 4080x1884 24bit N Exif ICC  [OK] 3032333 --> 895405 bytes (70.47%), optimized.
+2026-06-03T20:00:23.7374810Z ./Test IA/train/images/20250413_120137(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2497550 --> 877261 bytes (64.88%), optimized.
+2026-06-03T20:00:23.8413167Z ./Test IA/train/images/20250412_105651.jpg 4080x1884 24bit N Exif ICC  [OK] 3147787 --> 954746 bytes (69.67%), optimized.
+2026-06-03T20:00:23.9344298Z ./Test IA/train/images/20250412_105403.jpg 4080x1884 24bit N Exif ICC  [OK] 2375634 --> 775275 bytes (67.37%), optimized.
+2026-06-03T20:00:24.0416665Z ./Test IA/train/images/20250413_122937.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 3006642 --> 1255381 bytes (58.25%), optimized.
+2026-06-03T20:00:24.1541406Z ./Test IA/train/images/20250412_105638.jpg 4080x1884 24bit N Exif ICC  [OK] 3721292 --> 1378992 bytes (62.94%), optimized.
+2026-06-03T20:00:24.2449615Z ./Test IA/train/images/20250413_120214.jpg 4080x1884 24bit N Exif ICC  [OK] 2132474 --> 847630 bytes (60.25%), optimized.
+2026-06-03T20:00:24.3480566Z ./Test IA/train/images/20250413_120515(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3009842 --> 859667 bytes (71.44%), optimized.
+2026-06-03T20:00:24.4377754Z ./Test IA/train/images/20250413_120349.jpg 4080x1884 24bit N Exif ICC  [OK] 2238688 --> 657928 bytes (70.61%), optimized.
+2026-06-03T20:00:24.5346409Z ./Test IA/train/images/20250412_105826.jpg 4080x1884 24bit N Exif ICC  [OK] 2542471 --> 937801 bytes (63.11%), optimized.
+2026-06-03T20:00:24.6291252Z ./Test IA/train/images/20250412_105348.jpg 4080x1884 24bit N Exif ICC  [OK] 2489413 --> 868221 bytes (65.12%), optimized.
+2026-06-03T20:00:24.7496161Z ./Test IA/train/images/20250413_123002.jpg 4080x1884 24bit N Exif ICC  [OK] 3757109 --> 1741227 bytes (53.66%), optimized.
+2026-06-03T20:00:24.8794613Z ./Test IA/train/images/20250413_123001.jpg 4080x1884 24bit N Exif ICC  [OK] 4325039 --> 2096094 bytes (51.54%), optimized.
+2026-06-03T20:00:24.9855030Z ./Test IA/train/images/20250413_120203.jpg 4080x1884 24bit N Exif ICC  [OK] 2875694 --> 1338732 bytes (53.45%), optimized.
+2026-06-03T20:00:25.0855389Z ./Test IA/train/images/20250412_105625(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3019438 --> 855381 bytes (71.67%), optimized.
+2026-06-03T20:00:25.2317423Z ./Test IA/train/images/20250413_123229.jpg 4080x1884 24bit N Exif ICC  [OK] 5022506 --> 2678182 bytes (46.68%), optimized.
+2026-06-03T20:00:25.3622050Z ./Test IA/train/images/20250413_122945.jpg 4080x1884 24bit N Exif ICC  [OK] 4166092 --> 2104247 bytes (49.49%), optimized.
+2026-06-03T20:00:25.4576617Z ./Test IA/train/images/20250413_120319.jpg 4080x1884 24bit N Exif ICC  [OK] 2332180 --> 943998 bytes (59.52%), optimized.
+2026-06-03T20:00:25.5518970Z ./Test IA/train/images/20250411_165756.jpg 4080x1884 24bit N Exif ICC  [OK] 2489104 --> 953185 bytes (61.71%), optimized.
+2026-06-03T20:00:25.6563048Z ./Test IA/train/images/20250412_105158.jpg 4080x1884 24bit N Exif ICC  [OK] 3162596 --> 857230 bytes (72.89%), optimized.
+2026-06-03T20:00:25.7452958Z ./Test IA/train/images/20250412_105211.jpg 4080x1884 24bit N Exif ICC  [OK] 2362714 --> 469300 bytes (80.14%), optimized.
+2026-06-03T20:00:25.8366919Z ./Test IA/train/images/20250413_120347(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2366839 --> 699263 bytes (70.46%), optimized.
+2026-06-03T20:00:25.9274352Z ./Test IA/train/images/20250412_105734.jpg 4080x1884 24bit N Exif ICC  [OK] 2263104 --> 735997 bytes (67.48%), optimized.
+2026-06-03T20:00:26.0211585Z ./Test IA/train/images/20250413_120637(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2431268 --> 777518 bytes (68.02%), optimized.
+2026-06-03T20:00:26.1455469Z ./Test IA/train/images/20250413_123200(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3788520 --> 1888977 bytes (50.14%), optimized.
+2026-06-03T20:00:26.2920556Z ./Test IA/train/images/20250413_123229(0).jpg 4080x1884 24bit N Exif ICC  [OK] 5031798 --> 2695099 bytes (46.44%), optimized.
+2026-06-03T20:00:26.3965973Z ./Test IA/train/images/20250413_120550(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3162530 --> 984664 bytes (68.86%), optimized.
+2026-06-03T20:00:26.5243332Z ./Test IA/train/images/20250413_123225.jpg 4080x1884 24bit N Exif ICC  [OK] 4026011 --> 2011264 bytes (50.04%), optimized.
+2026-06-03T20:00:26.6244512Z ./Test IA/train/images/20250413_120623(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2558149 --> 1122396 bytes (56.12%), optimized.
+2026-06-03T20:00:26.7266620Z ./Test IA/train/images/20250412_105317(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3120541 --> 827996 bytes (73.47%), optimized.
+2026-06-03T20:00:26.8242378Z ./Test IA/train/images/20250413_120627(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2475960 --> 1058697 bytes (57.24%), optimized.
+2026-06-03T20:00:26.9246252Z ./Test IA/train/images/20250412_105800.jpg 4080x1884 24bit N Exif ICC  [OK] 2705811 --> 948334 bytes (64.95%), optimized.
+2026-06-03T20:00:27.0272800Z ./Test IA/train/images/20250413_120445(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3184106 --> 905809 bytes (71.55%), optimized.
+2026-06-03T20:00:27.1206281Z ./Test IA/train/images/20250412_105805.jpg 4080x1884 24bit N Exif ICC  [OK] 2408208 --> 754518 bytes (68.67%), optimized.
+2026-06-03T20:00:27.2216892Z ./Test IA/train/images/20250413_120628.jpg 4080x1884 24bit N Exif ICC  [OK] 2739762 --> 1054963 bytes (61.49%), optimized.
+2026-06-03T20:00:27.3569197Z ./Test IA/train/images/20250413_123103(1).jpg 4080x1884 24bit N Exif ICC  [OK] 4478800 --> 2328040 bytes (48.02%), optimized.
+2026-06-03T20:00:27.4704334Z ./Test IA/train/images/20250412_105838.jpg 4080x1884 24bit N Exif ICC  [OK] 3647764 --> 1223375 bytes (66.46%), optimized.
+2026-06-03T20:00:27.5960361Z ./Test IA/train/images/20250413_122926(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3886500 --> 1956234 bytes (49.67%), optimized.
+2026-06-03T20:00:27.6955027Z ./Test IA/train/images/20250412_105333.jpg 4080x1884 24bit N Exif ICC  [OK] 3001328 --> 733270 bytes (75.57%), optimized.
+2026-06-03T20:00:27.7849931Z ./Test IA/train/images/20250412_105507.jpg 4080x1884 24bit N Exif ICC  [OK] 2276938 --> 698853 bytes (69.31%), optimized.
+2026-06-03T20:00:27.8753370Z ./Test IA/train/images/20250413_120111.jpg 4080x1884 24bit N Exif ICC  [OK] 2235374 --> 770087 bytes (65.55%), optimized.
+2026-06-03T20:00:27.9747597Z ./Test IA/train/images/20250412_105625.jpg 4080x1884 24bit N Exif ICC  [OK] 2980066 --> 828958 bytes (72.18%), optimized.
+2026-06-03T20:00:28.0609555Z ./Test IA/train/images/20250412_105437.jpg 4080x1884 24bit N Exif ICC  [OK] 2097786 --> 609471 bytes (70.95%), optimized.
+2026-06-03T20:00:28.1500012Z ./Test IA/train/images/20250413_120055.jpg 4080x1884 24bit N Exif ICC  [OK] 2071966 --> 801628 bytes (61.31%), optimized.
+2026-06-03T20:00:28.2421704Z ./Test IA/train/images/20250412_105357.jpg 4080x1884 24bit N Exif ICC  [OK] 2369796 --> 779172 bytes (67.12%), optimized.
+2026-06-03T20:00:28.3453984Z ./Test IA/train/images/20250413_120305.jpg 4080x1884 24bit N Exif ICC  [OK] 2752501 --> 1152951 bytes (58.11%), optimized.
+2026-06-03T20:00:28.4499066Z ./Test IA/train/images/20250413_120454(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3145478 --> 849532 bytes (72.99%), optimized.
+2026-06-03T20:00:28.5565274Z ./Test IA/train/images/20250412_105852(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3319607 --> 1021009 bytes (69.24%), optimized.
+2026-06-03T20:00:28.6463798Z ./Test IA/train/images/20250413_120129.jpg 4080x1884 24bit N Exif ICC  [OK] 2263507 --> 693454 bytes (69.36%), optimized.
+2026-06-03T20:00:28.7352242Z ./Test IA/train/images/20250412_105744(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2269448 --> 603167 bytes (73.42%), optimized.
+2026-06-03T20:00:28.8322210Z ./Test IA/train/images/20250413_120304.jpg 4080x1884 24bit N Exif ICC  [OK] 2497744 --> 968543 bytes (61.22%), optimized.
+2026-06-03T20:00:28.9367545Z ./Test IA/train/images/20250412_105606.jpg 4080x1884 24bit N Exif ICC  [OK] 3241718 --> 1081029 bytes (66.65%), optimized.
+2026-06-03T20:00:29.0361303Z ./Test IA/train/images/20250413_120434.jpg 4080x1884 24bit N Exif ICC  [OK] 3019559 --> 882130 bytes (70.79%), optimized.
+2026-06-03T20:00:29.1435626Z ./Test IA/train/images/20250413_120624.jpg 4080x1884 24bit N Exif ICC  [OK] 2865770 --> 1301989 bytes (54.57%), optimized.
+2026-06-03T20:00:29.2756159Z ./Test IA/train/images/20250413_123044(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4379121 --> 2183676 bytes (50.13%), optimized.
+2026-06-03T20:00:29.3651036Z ./Test IA/train/images/20250412_105710.jpg 4080x1884 24bit N Exif ICC  [OK] 2182762 --> 731561 bytes (66.48%), optimized.
+2026-06-03T20:00:29.5136804Z ./Test IA/train/images/20250413_123220(0).jpg 4080x1884 24bit N Exif ICC  [OK] 5175415 --> 2786967 bytes (46.15%), optimized.
+2026-06-03T20:00:29.6038954Z ./Test IA/train/images/20250412_105817(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2280093 --> 727890 bytes (68.08%), optimized.
+2026-06-03T20:00:29.6165381Z ./Test IA/train/images/WIN_20250412_20_01_00_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 114895 --> 69310 bytes (39.68%), optimized.
+2026-06-03T20:00:29.7121587Z ./Test IA/train/images/20250412_105245.jpg 4080x1884 24bit N Exif ICC  [OK] 2885249 --> 702577 bytes (75.65%), optimized.
+2026-06-03T20:00:29.8035372Z ./Test IA/train/images/20250412_105727(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2338170 --> 734594 bytes (68.58%), optimized.
+2026-06-03T20:00:29.9376268Z ./Test IA/train/images/20250413_123108.jpg 4080x1884 24bit N Exif ICC  [OK] 4407155 --> 2287757 bytes (48.09%), optimized.
+2026-06-03T20:00:30.0417793Z ./Test IA/train/images/20250413_120305(2).jpg 4080x1884 24bit N Exif ICC  [OK] 2805603 --> 1203765 bytes (57.09%), optimized.
+2026-06-03T20:00:30.1656406Z ./Test IA/train/images/20250413_123108(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3826312 --> 1898225 bytes (50.39%), optimized.
+2026-06-03T20:00:30.2663399Z ./Test IA/train/images/20250412_105601.jpg 4080x1884 24bit N Exif ICC  [OK] 3043320 --> 947501 bytes (68.87%), optimized.
+2026-06-03T20:00:30.3706938Z ./Test IA/train/images/20250413_120311.jpg 4080x1884 24bit N Exif ICC  [OK] 2792401 --> 1204726 bytes (56.86%), optimized.
+2026-06-03T20:00:30.4690983Z ./Test IA/train/images/20250412_105242.jpg 4080x1884 24bit N Exif ICC  [OK] 2902831 --> 714935 bytes (75.37%), optimized.
+2026-06-03T20:00:30.5711099Z ./Test IA/train/images/20250413_120145.jpg 4080x1884 24bit N Exif ICC  [OK] 2630170 --> 1162794 bytes (55.79%), optimized.
+2026-06-03T20:00:30.6575124Z ./Test IA/train/images/20250412_105716.jpg 4080x1884 24bit N Exif ICC  [OK] 2054074 --> 524838 bytes (74.45%), optimized.
+2026-06-03T20:00:30.7625843Z ./Test IA/train/images/20250413_120546.jpg 4080x1884 24bit N Exif ICC  [OK] 3251394 --> 1026792 bytes (68.42%), optimized.
+2026-06-03T20:00:30.8531700Z ./Test IA/train/images/20250412_105727.jpg 4080x1884 24bit N Exif ICC  [OK] 2321241 --> 716864 bytes (69.12%), optimized.
+2026-06-03T20:00:30.9918693Z ./Test IA/train/images/20250413_122958(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4710335 --> 2353513 bytes (50.04%), optimized.
+2026-06-03T20:00:31.0979636Z ./Test IA/train/images/20250412_105146.jpg 4080x1884 24bit N Exif ICC  [OK] 3249219 --> 941756 bytes (71.02%), optimized.
+2026-06-03T20:00:31.1893283Z ./Test IA/train/images/20250413_120233.jpg 4080x1884 24bit N Exif ICC  [OK] 2256547 --> 788037 bytes (65.08%), optimized.
+2026-06-03T20:00:31.2894829Z ./Test IA/train/images/20250412_105600.jpg 4080x1884 24bit N Exif ICC  [OK] 3016804 --> 929391 bytes (69.19%), optimized.
+2026-06-03T20:00:31.4410679Z ./Test IA/train/images/20250413_123235.jpg 4080x1884 24bit N Exif ICC  [OK] 5325402 --> 2872383 bytes (46.06%), optimized.
+2026-06-03T20:00:31.5442444Z ./Test IA/train/images/20250412_105904.jpg 4080x1884 24bit N Exif ICC  [OK] 3218968 --> 834878 bytes (74.06%), optimized.
+2026-06-03T20:00:31.6759528Z ./Test IA/train/images/20250413_123044.jpg 4080x1884 24bit N Exif ICC  [OK] 4406230 --> 2204560 bytes (49.97%), optimized.
+2026-06-03T20:00:31.7729830Z ./Test IA/train/images/20250413_120353(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2548375 --> 905056 bytes (64.48%), optimized.
+2026-06-03T20:00:31.9105564Z ./Test IA/train/images/20250413_123004(2).jpg 4080x1884 24bit N Exif ICC  [OK] 4671907 --> 2358283 bytes (49.52%), optimized.
+2026-06-03T20:00:31.9975353Z ./Test IA/train/images/20250412_104953.jpg 4080x1884 24bit N Exif ICC  [OK] 2281287 --> 551440 bytes (75.83%), optimized.
+2026-06-03T20:00:32.0881001Z ./Test IA/train/images/20250411_165800.jpg 4080x1884 24bit N Exif ICC  [OK] 2326249 --> 788447 bytes (66.11%), optimized.
+2026-06-03T20:00:32.1017250Z ./Test IA/train/images/WIN_20250412_20_01_35_Pro (2).jpg 1280x720 24bit N Exif JFIF  [OK] 138776 --> 83991 bytes (39.48%), optimized.
+2026-06-03T20:00:32.2024933Z ./Test IA/train/images/20250413_120456.jpg 4080x1884 24bit N Exif ICC  [OK] 3138378 --> 845229 bytes (73.07%), optimized.
+2026-06-03T20:00:32.3290288Z ./Test IA/train/images/20250413_123226(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3967147 --> 1977728 bytes (50.15%), optimized.
+2026-06-03T20:00:32.4354101Z ./Test IA/train/images/20250412_105138.jpg 4080x1884 24bit N Exif ICC  [OK] 3246835 --> 943204 bytes (70.95%), optimized.
+2026-06-03T20:00:32.5812346Z ./Test IA/train/images/20250413_122956.jpg 4080x1884 24bit N Exif ICC  [OK] 5123659 --> 2682382 bytes (47.65%), optimized.
+2026-06-03T20:00:32.6677083Z ./Test IA/train/images/20250411_181423.jpg 4080x1884 24bit N Exif ICC  [OK] 2134813 --> 621555 bytes (70.88%), optimized.
+2026-06-03T20:00:32.7700071Z ./Test IA/train/images/20250412_105558.jpg 4080x1884 24bit N Exif ICC  [OK] 3168077 --> 872309 bytes (72.47%), optimized.
+2026-06-03T20:00:32.8591797Z ./Test IA/train/images/20250411_165813.jpg 4080x1884 24bit N Exif ICC  [OK] 2294757 --> 766335 bytes (66.60%), optimized.
+2026-06-03T20:00:32.9559603Z ./Test IA/train/images/20250413_120436(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2846182 --> 810717 bytes (71.52%), optimized.
+2026-06-03T20:00:33.0589911Z ./Test IA/train/images/20250412_105156.jpg 4080x1884 24bit N Exif ICC  [OK] 3148454 --> 859743 bytes (72.69%), optimized.
+2026-06-03T20:00:33.1490696Z ./Test IA/train/images/20250413_120345.jpg 4080x1884 24bit N Exif ICC  [OK] 2280039 --> 677539 bytes (70.28%), optimized.
+2026-06-03T20:00:33.2542465Z ./Test IA/train/images/20250412_105125.jpg 4080x1884 24bit N Exif ICC  [OK] 3200709 --> 926058 bytes (71.07%), optimized.
+2026-06-03T20:00:33.3431039Z ./Test IA/train/images/20250412_104917.jpg 4080x1884 24bit N Exif ICC  [OK] 2182783 --> 708459 bytes (67.54%), optimized.
+2026-06-03T20:00:33.4338903Z ./Test IA/train/images/20250412_105728.jpg 4080x1884 24bit N Exif ICC  [OK] 2317807 --> 712555 bytes (69.26%), optimized.
+2026-06-03T20:00:33.5273034Z ./Test IA/train/images/20250412_105802.jpg 4080x1884 24bit N Exif ICC  [OK] 2423671 --> 789254 bytes (67.44%), optimized.
+2026-06-03T20:00:33.6259150Z ./Test IA/train/images/20250412_105243.jpg 4080x1884 24bit N Exif ICC  [OK] 2952355 --> 729068 bytes (75.31%), optimized.
+2026-06-03T20:00:33.7169360Z ./Test IA/train/images/20250413_120113.jpg 4080x1884 24bit N Exif ICC  [OK] 2239553 --> 782374 bytes (65.07%), optimized.
+2026-06-03T20:00:33.8188448Z ./Test IA/train/images/20250413_120623(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2623528 --> 1152623 bytes (56.07%), optimized.
+2026-06-03T20:00:33.9122035Z ./Test IA/train/images/20250413_120344(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2271167 --> 831872 bytes (63.37%), optimized.
+2026-06-03T20:00:34.0043398Z ./Test IA/train/images/20250413_120259(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2331712 --> 770091 bytes (66.97%), optimized.
+2026-06-03T20:00:34.1179156Z ./Test IA/train/images/20250413_123059.jpg 4080x1884 24bit N Exif ICC  [OK] 3353372 --> 1533143 bytes (54.28%), optimized.
+2026-06-03T20:00:34.2102164Z ./Test IA/train/images/20250412_104830.jpg 4080x1884 24bit N Exif ICC  [OK] 2340423 --> 772004 bytes (67.01%), optimized.
+2026-06-03T20:00:34.3015177Z ./Test IA/train/images/20250413_120231.jpg 4080x1884 24bit N Exif ICC  [OK] 2467211 --> 663567 bytes (73.10%), optimized.
+2026-06-03T20:00:34.3935369Z ./Test IA/train/images/20250413_120137.jpg 4080x1884 24bit N Exif ICC  [OK] 2290192 --> 726564 bytes (68.27%), optimized.
+2026-06-03T20:00:34.5481187Z ./Test IA/train/images/20250413_123222(0).jpg 4080x1884 24bit N Exif ICC  [OK] 5369385 --> 2935696 bytes (45.33%), optimized.
+2026-06-03T20:00:34.6425709Z ./Test IA/train/images/20250413_120645(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2445212 --> 877063 bytes (64.13%), optimized.
+2026-06-03T20:00:34.7456294Z ./Test IA/train/images/20250413_120624(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2669448 --> 1201833 bytes (54.98%), optimized.
+2026-06-03T20:00:34.8514205Z ./Test IA/train/images/20250413_122938(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2966127 --> 1231041 bytes (58.50%), optimized.
+2026-06-03T20:00:34.9479542Z ./Test IA/train/images/20250413_120346.jpg 4080x1884 24bit N Exif ICC  [OK] 2553927 --> 866812 bytes (66.06%), optimized.
+2026-06-03T20:00:35.0528372Z ./Test IA/train/images/20250413_120523.jpg 4080x1884 24bit N Exif ICC  [OK] 3271424 --> 1041020 bytes (68.18%), optimized.
+2026-06-03T20:00:35.1501843Z ./Test IA/train/images/20250413_120436.jpg 4080x1884 24bit N Exif ICC  [OK] 2860998 --> 801914 bytes (71.97%), optimized.
+2026-06-03T20:00:35.2502116Z ./Test IA/train/images/20250413_120644.jpg 4080x1884 24bit N Exif ICC  [OK] 2639619 --> 1044588 bytes (60.43%), optimized.
+2026-06-03T20:00:35.3458482Z ./Test IA/train/images/20250413_120430(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2752414 --> 722725 bytes (73.74%), optimized.
+2026-06-03T20:00:35.4513973Z ./Test IA/train/images/20250413_120549.jpg 4080x1884 24bit N Exif ICC  [OK] 3212864 --> 1020311 bytes (68.24%), optimized.
+2026-06-03T20:00:35.5869237Z ./Test IA/train/images/20250413_122947.jpg 4080x1884 24bit N Exif ICC  [OK] 4468260 --> 2302813 bytes (48.46%), optimized.
+2026-06-03T20:00:35.7167966Z ./Test IA/train/images/20250413_123225(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4213235 --> 2126769 bytes (49.52%), optimized.
+2026-06-03T20:00:35.8133810Z ./Test IA/train/images/20250412_105805(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2510304 --> 876430 bytes (65.09%), optimized.
+2026-06-03T20:00:35.9029963Z ./Test IA/train/images/20250411_165752.jpg 4080x1884 24bit N Exif ICC  [OK] 2254959 --> 737939 bytes (67.27%), optimized.
+2026-06-03T20:00:35.9984856Z ./Test IA/train/images/20250413_120342.jpg 4080x1884 24bit N Exif ICC  [OK] 2481275 --> 845409 bytes (65.93%), optimized.
+2026-06-03T20:00:36.1045877Z ./Test IA/train/images/20250412_105140.jpg 4080x1884 24bit N Exif ICC  [OK] 3237674 --> 935653 bytes (71.10%), optimized.
+2026-06-03T20:00:36.2047622Z ./Test IA/train/images/20250413_120433(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3011915 --> 873134 bytes (71.01%), optimized.
+2026-06-03T20:00:36.2923914Z ./Test IA/train/images/20250412_104917(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2156282 --> 631789 bytes (70.70%), optimized.
+2026-06-03T20:00:36.3062009Z ./Test IA/train/images/WIN_20250412_20_01_34_Pro (2).jpg 1280x720 24bit N Exif JFIF  [OK] 146172 --> 89639 bytes (38.68%), optimized.
+2026-06-03T20:00:36.4286410Z ./Test IA/train/images/20250413_122925.jpg 4080x1884 24bit N Exif ICC  [OK] 3821190 --> 1919171 bytes (49.78%), optimized.
+2026-06-03T20:00:36.5203898Z ./Test IA/train/images/20250413_120258(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2323089 --> 723567 bytes (68.85%), optimized.
+2026-06-03T20:00:36.6122321Z ./Test IA/train/images/20250412_105704(0).jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2285706 --> 818457 bytes (64.19%), optimized.
+2026-06-03T20:00:36.7241995Z ./Test IA/train/images/20250412_105637.jpg 4080x1884 24bit N Exif ICC  [OK] 3668332 --> 1337790 bytes (63.53%), optimized.
+2026-06-03T20:00:36.8139245Z ./Test IA/train/images/20250413_120053.jpg 4080x1884 24bit N Exif ICC  [OK] 2199919 --> 761149 bytes (65.40%), optimized.
+2026-06-03T20:00:36.9068001Z ./Test IA/train/images/20250412_105416.jpg 4080x1884 24bit N Exif ICC  [OK] 2377412 --> 763352 bytes (67.89%), optimized.
+2026-06-03T20:00:37.0350565Z ./Test IA/train/images/20250413_122947(1).jpg 4080x1884 24bit N Exif ICC  [OK] 4045868 --> 2023535 bytes (49.99%), optimized.
+2026-06-03T20:00:37.1386934Z ./Test IA/train/images/20250412_105339.jpg 4080x1884 24bit N Exif ICC  [OK] 3181971 --> 835965 bytes (73.73%), optimized.
+2026-06-03T20:00:37.1514299Z ./Test IA/train/images/WIN_20250412_20_01_10_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 115857 --> 69818 bytes (39.74%), optimized.
+2026-06-03T20:00:37.2514291Z ./Test IA/train/images/20250413_120445.jpg 4080x1884 24bit N Exif ICC  [OK] 3095659 --> 818333 bytes (73.57%), optimized.
+2026-06-03T20:00:37.3429447Z ./Test IA/train/images/20250413_120354.jpg 4080x1884 24bit N Exif ICC  [OK] 2302684 --> 731878 bytes (68.22%), optimized.
+2026-06-03T20:00:37.4357548Z ./Test IA/train/images/20250413_120215.jpg 4080x1884 24bit N Exif ICC  [OK] 2211694 --> 877179 bytes (60.34%), optimized.
+2026-06-03T20:00:37.5396523Z ./Test IA/train/images/20250412_105605(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3239542 --> 1078356 bytes (66.71%), optimized.
+2026-06-03T20:00:37.6444823Z ./Test IA/train/images/20250413_120524.jpg 4080x1884 24bit N Exif ICC  [OK] 3267268 --> 1037138 bytes (68.26%), optimized.
+2026-06-03T20:00:37.7313054Z ./Test IA/train/images/20250412_104840.jpg 4080x1884 24bit N Exif ICC  [OK] 2051363 --> 717166 bytes (65.04%), optimized.
+2026-06-03T20:00:37.8225284Z ./Test IA/train/images/20250413_120146(0).jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2158599 --> 891077 bytes (58.72%), optimized.
+2026-06-03T20:00:37.9259949Z ./Test IA/train/images/20250413_120549(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3204019 --> 1010321 bytes (68.47%), optimized.
+2026-06-03T20:00:38.0186702Z ./Test IA/train/images/20250412_105401.jpg 4080x1884 24bit N Exif ICC  [OK] 2404988 --> 803474 bytes (66.59%), optimized.
+2026-06-03T20:00:38.1223926Z ./Test IA/train/images/20250413_120306.jpg 4080x1884 24bit N Exif ICC  [OK] 2815349 --> 1206597 bytes (57.14%), optimized.
+2026-06-03T20:00:38.2159051Z ./Test IA/train/images/20250411_165758.jpg 4080x1884 24bit N Exif ICC  [OK] 2432016 --> 938103 bytes (61.43%), optimized.
+2026-06-03T20:00:38.3404920Z ./Test IA/train/images/20250413_123200.jpg 4080x1884 24bit N Exif ICC  [OK] 3798512 --> 1897812 bytes (50.04%), optimized.
+2026-06-03T20:00:38.4828397Z ./Test IA/train/images/20250413_123012.jpg 4080x1884 24bit N Exif ICC  [OK] 4826248 --> 2549766 bytes (47.17%), optimized.
+2026-06-03T20:00:38.5752942Z ./Test IA/train/images/20250411_165806.jpg 4080x1884 24bit N Exif ICC  [OK] 2365332 --> 868148 bytes (63.30%), optimized.
+2026-06-03T20:00:38.6797707Z ./Test IA/train/images/20250413_120216.jpg 4080x1884 24bit N Exif ICC  [OK] 2816477 --> 1306772 bytes (53.60%), optimized.
+2026-06-03T20:00:38.7762111Z ./Test IA/train/images/20250412_104851.jpg 4080x1884 24bit N Exif ICC  [OK] 2547995 --> 1022468 bytes (59.87%), optimized.
+2026-06-03T20:00:38.8672229Z ./Test IA/train/images/20250412_105410.jpg 4080x1884 24bit N Exif ICC  [OK] 2326783 --> 720833 bytes (69.02%), optimized.
+2026-06-03T20:00:38.9529588Z ./Test IA/train/images/20250413_120325.jpg 4080x1884 24bit N Exif ICC  [OK] 2128406 --> 579354 bytes (72.78%), optimized.
+2026-06-03T20:00:38.9654966Z ./Test IA/train/images/WIN_20250412_20_01_41_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 119149 --> 71760 bytes (39.77%), optimized.
+2026-06-03T20:00:39.0600334Z ./Test IA/train/images/20250412_105425.jpg 4080x1884 24bit N Exif ICC  [OK] 2415552 --> 1020859 bytes (57.74%), optimized.
+2026-06-03T20:00:39.1655104Z ./Test IA/train/images/20250412_105144.jpg 4080x1884 24bit N Exif ICC  [OK] 3242321 --> 939546 bytes (71.02%), optimized.
+2026-06-03T20:00:39.2634944Z ./Test IA/train/images/20250412_105247.jpg 4080x1884 24bit N Exif ICC  [OK] 2914606 --> 717541 bytes (75.38%), optimized.
+2026-06-03T20:00:39.3529601Z ./Test IA/train/images/20250412_105712.jpg 4080x1884 24bit N Exif ICC  [OK] 2186305 --> 699476 bytes (68.01%), optimized.
+2026-06-03T20:00:39.4474501Z ./Test IA/train/images/20250412_105418.jpg 4080x1884 24bit N Exif ICC  [OK] 2443600 --> 807952 bytes (66.94%), optimized.
+2026-06-03T20:00:39.5374654Z ./Test IA/train/images/20250413_120100.jpg 4080x1884 24bit N Exif ICC  [OK] 2260696 --> 719272 bytes (68.18%), optimized.
+2026-06-03T20:00:39.6510830Z ./Test IA/train/images/20250412_105848.jpg 4080x1884 24bit N Exif ICC  [OK] 3706843 --> 1283784 bytes (65.37%), optimized.
+2026-06-03T20:00:39.7505264Z ./Test IA/train/images/20250412_105628(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3050153 --> 856255 bytes (71.93%), optimized.
+2026-06-03T20:00:39.7628966Z ./Test IA/train/images/WIN_20250412_20_01_09_Pro (2).jpg 1280x720 24bit N Exif JFIF  [OK] 114394 --> 68902 bytes (39.77%), optimized.
+2026-06-03T20:00:39.8526653Z ./Test IA/train/images/20250413_120239(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2476947 --> 639353 bytes (74.19%), optimized.
+2026-06-03T20:00:39.9456894Z ./Test IA/train/images/20250413_120333(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2428075 --> 738423 bytes (69.59%), optimized.
+2026-06-03T20:00:40.0506547Z ./Test IA/train/images/20250413_120621.jpg 4080x1884 24bit N Exif ICC  [OK] 3254744 --> 1081552 bytes (66.77%), optimized.
+2026-06-03T20:00:40.1936070Z ./Test IA/train/images/20250413_123051.jpg 4080x1884 24bit N Exif ICC  [OK] 4964217 --> 2566435 bytes (48.30%), optimized.
+2026-06-03T20:00:40.3048132Z ./Test IA/train/images/20250413_120623.jpg 4080x1884 24bit N Exif ICC  [OK] 3025876 --> 1432126 bytes (52.67%), optimized.
+2026-06-03T20:00:40.4030933Z ./Test IA/train/images/20250412_105802(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2591021 --> 916735 bytes (64.62%), optimized.
+2026-06-03T20:00:40.4879913Z ./Test IA/train/images/20250412_104821.jpg 4080x1884 24bit N Exif ICC  [OK] 2089648 --> 523848 bytes (74.93%), optimized.
+2026-06-03T20:00:40.5925842Z ./Test IA/train/images/20250413_120545.jpg 4080x1884 24bit N Exif ICC  [OK] 3215019 --> 1002273 bytes (68.83%), optimized.
+2026-06-03T20:00:40.6964966Z ./Test IA/train/images/20250413_120548(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3121699 --> 959184 bytes (69.27%), optimized.
+2026-06-03T20:00:40.7981954Z ./Test IA/train/images/20250412_105332.jpg 4080x1884 24bit N Exif ICC  [OK] 3145658 --> 800058 bytes (74.57%), optimized.
+2026-06-03T20:00:40.9254878Z ./Test IA/train/images/20250413_123001(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4102480 --> 1961192 bytes (52.19%), optimized.
+2026-06-03T20:00:41.0729531Z ./Test IA/train/images/20250413_122956(0).jpg 4080x1884 24bit N Exif ICC  [OK] 5184915 --> 2707771 bytes (47.78%), optimized.
+2026-06-03T20:00:41.1626795Z ./Test IA/train/images/20250411_165808.jpg 4080x1884 24bit N Exif ICC  [OK] 2295437 --> 761941 bytes (66.81%), optimized.
+2026-06-03T20:00:41.2678058Z ./Test IA/train/images/20250412_105142.jpg 4080x1884 24bit N Exif ICC  [OK] 3236789 --> 935133 bytes (71.11%), optimized.
+2026-06-03T20:00:41.3608425Z ./Test IA/train/images/20250412_105817(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2403431 --> 839772 bytes (65.06%), optimized.
+2026-06-03T20:00:41.4686836Z ./Test IA/train/images/20250412_105145.jpg 4080x1884 24bit N Exif ICC  [OK] 3253569 --> 945374 bytes (70.94%), optimized.
+2026-06-03T20:00:41.5687581Z ./Test IA/train/images/20250412_105825.jpg 4080x1884 24bit N Exif ICC  [OK] 2687553 --> 1049851 bytes (60.94%), optimized.
+2026-06-03T20:00:41.6619472Z ./Test IA/train/images/20250412_105439.jpg 4080x1884 24bit N Exif ICC  [OK] 2379515 --> 841083 bytes (64.65%), optimized.
+2026-06-03T20:00:41.6744705Z ./Test IA/train/images/WIN_20250412_20_01_40_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 108633 --> 64274 bytes (40.83%), optimized.
+2026-06-03T20:00:41.7616199Z ./Test IA/train/images/20250412_105446.jpg 4080x1884 24bit N Exif ICC  [OK] 2230215 --> 732474 bytes (67.16%), optimized.
+2026-06-03T20:00:41.8593445Z ./Test IA/train/images/20250413_120143.jpg 4080x1884 24bit N Exif ICC  [OK] 2497117 --> 1089081 bytes (56.39%), optimized.
+2026-06-03T20:00:41.9523451Z ./Test IA/train/images/20250413_120258.jpg 4080x1884 24bit N Exif ICC  [OK] 2421036 --> 760503 bytes (68.59%), optimized.
+2026-06-03T20:00:42.0857530Z ./Test IA/train/images/20250413_123000(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4524727 --> 2211377 bytes (51.13%), optimized.
+2026-06-03T20:00:42.1840072Z ./Test IA/train/images/20250413_120627.jpg 4080x1884 24bit N Exif ICC  [OK] 2462177 --> 1039613 bytes (57.78%), optimized.
+2026-06-03T20:00:42.2728416Z ./Test IA/train/images/20250412_104918.jpg 4080x1884 24bit N Exif ICC  [OK] 2217566 --> 663159 bytes (70.10%), optimized.
+2026-06-03T20:00:42.3593799Z ./Test IA/train/images/20250412_105214.jpg 4080x1884 24bit N Exif ICC  [OK] 2373724 --> 457251 bytes (80.74%), optimized.
+2026-06-03T20:00:42.4500950Z ./Test IA/train/images/20250412_105906.jpg 4080x1884 24bit N Exif ICC  [OK] 2525314 --> 595268 bytes (76.43%), optimized.
+2026-06-03T20:00:42.5427471Z ./Test IA/train/images/20250412_105726.jpg 4080x1884 24bit N Exif ICC  [OK] 2425575 --> 758643 bytes (68.72%), optimized.
+2026-06-03T20:00:42.6350900Z ./Test IA/train/images/20250412_105908.jpg 4080x1884 24bit N Exif ICC  [OK] 2716995 --> 617269 bytes (77.28%), optimized.
+2026-06-03T20:00:42.7482126Z ./Test IA/train/images/20250413_120153.jpg 4080x1884 24bit N Exif ICC  [OK] 3274974 --> 1580272 bytes (51.75%), optimized.
+2026-06-03T20:00:42.7609276Z ./Test IA/train/images/WIN_20250412_20_01_33_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 114316 --> 68091 bytes (40.44%), optimized.
+2026-06-03T20:00:42.8520310Z ./Test IA/train/images/20250413_120259.jpg 4080x1884 24bit N Exif ICC  [OK] 2375309 --> 824346 bytes (65.30%), optimized.
+2026-06-03T20:00:42.9440322Z ./Test IA/train/images/20250412_105804.jpg 4080x1884 24bit N Exif ICC  [OK] 2401626 --> 732817 bytes (69.49%), optimized.
+2026-06-03T20:00:43.0464458Z ./Test IA/train/images/20250411_181415.jpg 4080x1884 24bit N Exif ICC  [OK] 3174624 --> 1028489 bytes (67.60%), optimized.
+2026-06-03T20:00:43.0594744Z ./Test IA/train/images/WIN_20250412_20_01_36_Pro (2).jpg 1280x720 24bit N Exif JFIF  [OK] 127188 --> 76686 bytes (39.71%), optimized.
+2026-06-03T20:00:43.1964105Z ./Test IA/train/images/20250413_123222(2).jpg 4080x1884 24bit N Exif ICC  [OK] 4692604 --> 2467730 bytes (47.41%), optimized.
+2026-06-03T20:00:43.2861492Z ./Test IA/train/images/20250412_104830(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2205186 --> 713195 bytes (67.66%), optimized.
+2026-06-03T20:00:43.4344876Z ./Test IA/train/images/20250413_123221.jpg 4080x1884 24bit N Exif ICC  [OK] 5175201 --> 2798842 bytes (45.92%), optimized.
+2026-06-03T20:00:43.5363990Z ./Test IA/train/images/20250412_105317.jpg 4080x1884 24bit N Exif ICC  [OK] 3118448 --> 826393 bytes (73.50%), optimized.
+2026-06-03T20:00:43.6417032Z ./Test IA/train/images/20250413_120447(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3270483 --> 959987 bytes (70.65%), optimized.
+2026-06-03T20:00:43.7282571Z ./Test IA/train/images/20250412_105715.jpg 4080x1884 24bit N Exif ICC  [OK] 2094856 --> 642383 bytes (69.34%), optimized.
+2026-06-03T20:00:43.8801018Z ./Test IA/train/images/20250413_123238.jpg 4080x1884 24bit N Exif ICC  [OK] 5322505 --> 2879375 bytes (45.90%), optimized.
+2026-06-03T20:00:43.9695191Z ./Test IA/train/images/20250413_120334.jpg 4080x1884 24bit N Exif ICC  [OK] 2268754 --> 600009 bytes (73.55%), optimized.
+2026-06-03T20:00:44.0684079Z ./Test IA/train/images/20250412_105615.jpg 4080x1884 24bit N Exif ICC  [OK] 2910149 --> 836185 bytes (71.27%), optimized.
+2026-06-03T20:00:44.1621018Z ./Test IA/train/images/20250413_120108.jpg 4080x1884 24bit N Exif ICC  [OK] 2473338 --> 731670 bytes (70.42%), optimized.
+2026-06-03T20:00:44.2602271Z ./Test IA/train/images/20250411_181354.jpg 4080x1884 24bit N Exif ICC  [OK] 2875808 --> 848278 bytes (70.50%), optimized.
+2026-06-03T20:00:44.4001702Z ./Test IA/train/images/20250413_123007.jpg 4080x1884 24bit N Exif ICC  [OK] 4683775 --> 2448486 bytes (47.72%), optimized.
+2026-06-03T20:00:44.4934743Z ./Test IA/train/images/20250413_120318(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2284672 --> 906496 bytes (60.32%), optimized.
+2026-06-03T20:00:44.5769730Z ./Test IA/train/images/20250412_104817.jpg 4080x1884 24bit N Exif ICC  [OK] 2058431 --> 523878 bytes (74.55%), optimized.
+2026-06-03T20:00:44.7104994Z ./Test IA/train/images/20250413_123224(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4394464 --> 2245153 bytes (48.91%), optimized.
+2026-06-03T20:00:44.8144092Z ./Test IA/train/images/20250412_105605.jpg 4080x1884 24bit N Exif ICC  [OK] 3238535 --> 1077953 bytes (66.71%), optimized.
+2026-06-03T20:00:44.8989430Z ./Test IA/train/images/20250411_181348.jpg 4080x1884 24bit N Exif ICC  [OK] 2095392 --> 560472 bytes (73.25%), optimized.
+2026-06-03T20:00:44.9882957Z ./Test IA/train/images/20250412_105836.jpg 4080x1884 24bit N Exif ICC  [OK] 2459328 --> 607010 bytes (75.32%), optimized.
+2026-06-03T20:00:45.0800637Z ./Test IA/train/images/20250412_105905(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2519955 --> 591325 bytes (76.53%), optimized.
+2026-06-03T20:00:45.2059062Z ./Test IA/train/images/20250413_122922.jpg 4080x1884 24bit N Exif ICC  [OK] 3943462 --> 2009501 bytes (49.04%), optimized.
+2026-06-03T20:00:45.3115124Z ./Test IA/train/images/20250413_122924.jpg 4080x1884 24bit N Exif ICC  [OK] 2926139 --> 1260561 bytes (56.92%), optimized.
+2026-06-03T20:00:45.4169743Z ./Test IA/train/images/20250413_120447.jpg 4080x1884 24bit N Exif ICC  [OK] 3246933 --> 942612 bytes (70.97%), optimized.
+2026-06-03T20:00:45.5235127Z ./Test IA/train/images/20250413_120620(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3307015 --> 1117327 bytes (66.21%), optimized.
+2026-06-03T20:00:45.6403958Z ./Test IA/train/images/20250413_123058.jpg 4080x1884 24bit N Exif ICC  [OK] 3506950 --> 1652641 bytes (52.88%), optimized.
+2026-06-03T20:00:45.7395654Z ./Test IA/train/images/20250412_105240.jpg 4080x1884 24bit N Exif ICC  [OK] 2984836 --> 720926 bytes (75.85%), optimized.
+2026-06-03T20:00:45.8346954Z ./Test IA/train/images/20250412_105802(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2472906 --> 802265 bytes (67.56%), optimized.
+2026-06-03T20:00:45.9405489Z ./Test IA/train/images/20250413_120545(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3248776 --> 1023334 bytes (68.50%), optimized.
+2026-06-03T20:00:46.0333919Z ./Test IA/train/images/20250412_105355.jpg 4080x1884 24bit N Exif ICC  [OK] 2379484 --> 792453 bytes (66.70%), optimized.
+2026-06-03T20:00:46.1270001Z ./Test IA/train/images/20250413_120320(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2263494 --> 885991 bytes (60.86%), optimized.
+2026-06-03T20:00:46.2805425Z ./Test IA/train/images/20250413_122959.jpg 4080x1884 24bit N Exif ICC  [OK] 5286559 --> 2717511 bytes (48.60%), optimized.
+2026-06-03T20:00:46.3816212Z ./Test IA/train/images/20250412_105236.jpg 4080x1884 24bit N Exif ICC  [OK] 2993201 --> 737683 bytes (75.35%), optimized.
+2026-06-03T20:00:46.3954357Z ./Test IA/train/images/WIN_20250412_20_01_36_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 142645 --> 87134 bytes (38.92%), optimized.
+2026-06-03T20:00:46.4824987Z ./Test IA/train/images/20250412_105305.jpg 4080x1884 24bit N Exif ICC  [OK] 2468279 --> 460676 bytes (81.34%), optimized.
+2026-06-03T20:00:46.5715672Z ./Test IA/train/images/20250412_105706.jpg 4080x1884 24bit N Exif ICC  [OK] 2213703 --> 732952 bytes (66.89%), optimized.
+2026-06-03T20:00:46.6554276Z ./Test IA/train/images/20250413_120246(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2062197 --> 572977 bytes (72.22%), optimized.
+2026-06-03T20:00:46.7789989Z ./Test IA/train/images/20250413_123127.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 3883123 --> 1969905 bytes (49.27%), optimized.
+2026-06-03T20:00:46.9108979Z ./Test IA/train/images/20250413_123224(1).jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 4362346 --> 2231408 bytes (48.85%), optimized.
+2026-06-03T20:00:47.0022433Z ./Test IA/train/images/20250412_105402.jpg 4080x1884 24bit N Exif ICC  [OK] 2335382 --> 757755 bytes (67.55%), optimized.
+2026-06-03T20:00:47.0881842Z ./Test IA/train/images/20250412_104947.jpg 4080x1884 24bit N Exif ICC  [OK] 2167283 --> 522787 bytes (75.88%), optimized.
+2026-06-03T20:00:47.1795467Z ./Test IA/train/images/20250412_105444.jpg 4080x1884 24bit N Exif ICC  [OK] 2280086 --> 777515 bytes (65.90%), optimized.
+2026-06-03T20:00:47.2980343Z ./Test IA/train/images/20250413_122922(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3636930 --> 1772958 bytes (51.25%), optimized.
+2026-06-03T20:00:47.3959689Z ./Test IA/train/images/20250412_105424.jpg 4080x1884 24bit N Exif ICC  [OK] 2483029 --> 1076452 bytes (56.65%), optimized.
+2026-06-03T20:00:47.4873995Z ./Test IA/train/images/20250412_104905.jpg 4080x1884 24bit N Exif ICC  [OK] 2351985 --> 742662 bytes (68.42%), optimized.
+2026-06-03T20:00:47.5757908Z ./Test IA/train/images/20250412_105304.jpg 4080x1884 24bit N Exif ICC  [OK] 2469228 --> 463494 bytes (81.23%), optimized.
+2026-06-03T20:00:47.6668711Z ./Test IA/train/images/20250413_120335.jpg 4080x1884 24bit N Exif ICC  [OK] 2345604 --> 688509 bytes (70.65%), optimized.
+2026-06-03T20:00:47.8119588Z ./Test IA/train/images/20250413_123234(1).jpg 4080x1884 24bit N Exif ICC  [OK] 5029206 --> 2669740 bytes (46.92%), optimized.
+2026-06-03T20:00:47.9171764Z ./Test IA/train/images/20250412_105652(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3227195 --> 1015107 bytes (68.55%), optimized.
+2026-06-03T20:00:48.0075800Z ./Test IA/train/images/20250412_105459.jpg 4080x1884 24bit N Exif ICC  [OK] 2302947 --> 698680 bytes (69.66%), optimized.
+2026-06-03T20:00:48.0931380Z ./Test IA/train/images/20250411_181346.jpg 4080x1884 24bit N Exif ICC  [OK] 2098137 --> 586953 bytes (72.03%), optimized.
+2026-06-03T20:00:48.1838001Z ./Test IA/train/images/20250413_120316(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2149122 --> 807774 bytes (62.41%), optimized.
+2026-06-03T20:00:48.3243453Z ./Test IA/train/images/20250413_123004(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4857269 --> 2416135 bytes (50.26%), optimized.
+2026-06-03T20:00:48.3373423Z ./Test IA/train/images/WIN_20250412_20_01_10_Pro (2).jpg 1280x720 24bit N Exif JFIF  [OK] 114589 --> 68514 bytes (40.21%), optimized.
+2026-06-03T20:00:48.4435328Z ./Test IA/train/images/20250413_120620(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3394176 --> 1176227 bytes (65.35%), optimized.
+2026-06-03T20:00:48.4563719Z ./Test IA/train/images/WIN_20250412_20_01_39_Pro (2).jpg 1280x720 24bit N Exif JFIF  [OK] 113705 --> 67644 bytes (40.51%), optimized.
+2026-06-03T20:00:48.5528656Z ./Test IA/train/images/20250413_120645.jpg 4080x1884 24bit N Exif ICC  [OK] 2656693 --> 964878 bytes (63.68%), optimized.
+2026-06-03T20:00:48.6588226Z ./Test IA/train/images/20250412_105652.jpg 4080x1884 24bit N Exif ICC  [OK] 3282233 --> 1052314 bytes (67.94%), optimized.
+2026-06-03T20:00:48.7657152Z ./Test IA/train/images/20250413_120621(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3380676 --> 1165728 bytes (65.52%), optimized.
+2026-06-03T20:00:48.8518595Z ./Test IA/train/images/20250412_105716(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2111598 --> 607549 bytes (71.23%), optimized.
+2026-06-03T20:00:48.9468167Z ./Test IA/train/images/20250412_105258.jpg 4080x1884 24bit N Exif ICC  [OK] 2763825 --> 636524 bytes (76.97%), optimized.
+2026-06-03T20:00:49.0511565Z ./Test IA/train/images/20250412_105126.jpg 4080x1884 24bit N Exif ICC  [OK] 3169421 --> 911755 bytes (71.23%), optimized.
+2026-06-03T20:00:49.1909071Z ./Test IA/train/images/20250413_123056.jpg 4080x1884 24bit N Exif ICC  [OK] 4783374 --> 2546651 bytes (46.76%), optimized.
+2026-06-03T20:00:49.2802482Z ./Test IA/train/images/20250412_105712(0).jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2203683 --> 744347 bytes (66.22%), optimized.
+2026-06-03T20:00:49.3805291Z ./Test IA/train/images/20250412_105628.jpg 4080x1884 24bit N Exif ICC  [OK] 3054921 --> 873076 bytes (71.42%), optimized.
+2026-06-03T20:00:49.3933399Z ./Test IA/train/images/WIN_20250412_20_00_59_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 117013 --> 70834 bytes (39.46%), optimized.
+2026-06-03T20:00:49.4787312Z ./Test IA/train/images/20250411_181350.jpg 4080x1884 24bit N Exif ICC  [OK] 2116276 --> 596605 bytes (71.81%), optimized.
+2026-06-03T20:00:49.6132004Z ./Test IA/train/images/20250413_123224.jpg 4080x1884 24bit N Exif ICC  [OK] 4491805 --> 2311003 bytes (48.55%), optimized.
+2026-06-03T20:00:49.7575117Z ./Test IA/train/images/20250413_122958(1).jpg 4080x1884 24bit N Exif ICC  [OK] 5104263 --> 2569589 bytes (49.66%), optimized.
+2026-06-03T20:00:49.8557384Z ./Test IA/train/images/20250412_105412.jpg 4080x1884 24bit N Exif ICC  [OK] 2595335 --> 926766 bytes (64.29%), optimized.
+2026-06-03T20:00:49.9463112Z ./Test IA/train/images/20250411_165751.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2297973 --> 800997 bytes (65.14%), optimized.
+2026-06-03T20:00:50.0377664Z ./Test IA/train/images/20250413_120316.jpg 4080x1884 24bit N Exif ICC  [OK] 2182790 --> 824065 bytes (62.25%), optimized.
+2026-06-03T20:00:50.1366878Z ./Test IA/train/images/20250412_105239(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2982577 --> 718404 bytes (75.91%), optimized.
+2026-06-03T20:00:50.2417173Z ./Test IA/train/images/20250412_105554.jpg 4080x1884 24bit N Exif ICC  [OK] 3283058 --> 926053 bytes (71.79%), optimized.
+2026-06-03T20:00:50.3407960Z ./Test IA/train/images/20250411_181418.jpg 4080x1884 24bit N Exif ICC  [OK] 2933302 --> 868482 bytes (70.39%), optimized.
+2026-06-03T20:00:50.4753094Z ./Test IA/train/images/20250413_123107.jpg 4080x1884 24bit N Exif ICC  [OK] 4434835 --> 2291165 bytes (48.34%), optimized.
+2026-06-03T20:00:50.6049029Z ./Test IA/train/images/20250413_122927.jpg 4080x1884 24bit N Exif ICC  [OK] 4067560 --> 2076708 bytes (48.94%), optimized.
+2026-06-03T20:00:50.6941757Z ./Test IA/train/images/20250413_120324.jpg 4080x1884 24bit N Exif ICC  [OK] 2284906 --> 656081 bytes (71.29%), optimized.
+2026-06-03T20:00:50.7855927Z ./Test IA/train/images/20250412_105351.jpg 4080x1884 24bit N Exif ICC  [OK] 2324336 --> 755921 bytes (67.48%), optimized.
+2026-06-03T20:00:50.8726373Z ./Test IA/train/images/20250412_104826.jpg 4080x1884 24bit N Exif ICC  [OK] 2172695 --> 551637 bytes (74.61%), optimized.
+2026-06-03T20:00:50.9661933Z ./Test IA/train/images/20250413_120320.jpg 4080x1884 24bit N Exif ICC  [OK] 2289023 --> 903298 bytes (60.54%), optimized.
+2026-06-03T20:00:51.0547686Z ./Test IA/train/images/20250412_105722.jpg 4080x1884 24bit N Exif ICC  [OK] 2177757 --> 575435 bytes (73.58%), optimized.
+2026-06-03T20:00:51.1717505Z ./Test IA/train/images/20250413_122923.jpg 4080x1884 24bit N Exif ICC  [OK] 3520933 --> 1695121 bytes (51.86%), optimized.
+2026-06-03T20:00:51.2999977Z ./Test IA/train/images/20250413_123046(2).jpg 4080x1884 24bit N Exif ICC  [OK] 4158564 --> 2073573 bytes (50.14%), optimized.
+2026-06-03T20:00:51.4284770Z ./Test IA/val/images/20250413_122945(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4059061 --> 2029021 bytes (50.01%), optimized.
+2026-06-03T20:00:51.5266951Z ./Test IA/val/images/20250413_120145(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2450368 --> 1073625 bytes (56.19%), optimized.
+2026-06-03T20:00:51.6766794Z ./Test IA/val/images/20250413_123055.jpg 4080x1884 24bit N Exif ICC  [OK] 5298840 --> 2912229 bytes (45.04%), optimized.
+2026-06-03T20:00:51.7684399Z ./Test IA/val/images/20250413_120334(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2317463 --> 685790 bytes (70.41%), optimized.
+2026-06-03T20:00:51.8550344Z ./Test IA/val/images/20250412_105300.jpg 4080x1884 24bit N Exif ICC  [OK] 2402733 --> 446402 bytes (81.42%), optimized.
+2026-06-03T20:00:51.9990063Z ./Test IA/val/images/20250413_122957.jpg 4080x1884 24bit N Exif ICC  [OK] 5031290 --> 2575143 bytes (48.82%), optimized.
+2026-06-03T20:00:52.0963835Z ./Test IA/val/images/20250412_105239.jpg 4080x1884 24bit N Exif ICC  [OK] 2942214 --> 714772 bytes (75.71%), optimized.
+2026-06-03T20:00:52.1795580Z ./Test IA/val/images/20250412_105008.jpg 4080x1884 24bit N Exif ICC  [OK] 2120376 --> 430232 bytes (79.71%), optimized.
+2026-06-03T20:00:52.2996746Z ./Test IA/val/images/20250413_123114.jpg 4080x1884 24bit N Exif ICC  [OK] 3725863 --> 1879554 bytes (49.55%), optimized.
+2026-06-03T20:00:52.3866271Z ./Test IA/val/images/20250412_105743.jpg 4080x1884 24bit N Exif ICC  [OK] 2171074 --> 532083 bytes (75.49%), optimized.
+2026-06-03T20:00:52.4830277Z ./Test IA/val/images/20250412_105235.jpg 4080x1884 24bit N Exif ICC  [OK] 2822858 --> 676260 bytes (76.04%), optimized.
+2026-06-03T20:00:52.5757980Z ./Test IA/val/images/20250412_104902.jpg 4080x1884 24bit N Exif ICC  [OK] 2380045 --> 771046 bytes (67.60%), optimized.
+2026-06-03T20:00:52.6712762Z ./Test IA/val/images/20250413_120146.jpg 4080x1884 24bit N Exif ICC  [OK] 2368438 --> 968601 bytes (59.10%), optimized.
+2026-06-03T20:00:52.7909473Z ./Test IA/val/images/20250413_122922(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3670838 --> 1798085 bytes (51.02%), optimized.
+2026-06-03T20:00:52.8809568Z ./Test IA/val/images/20250411_165728.jpg 4080x1884 24bit N Exif ICC  [OK] 2259944 --> 745903 bytes (66.99%), optimized.
+2026-06-03T20:00:52.9747340Z ./Test IA/val/images/20250413_120344.jpg 4080x1884 24bit N Exif ICC  [OK] 2327128 --> 876129 bytes (62.35%), optimized.
+2026-06-03T20:00:52.9882855Z ./Test IA/val/images/WIN_20250412_20_01_37_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 129867 --> 78692 bytes (39.41%), optimized.
+2026-06-03T20:00:53.0889344Z ./Test IA/val/images/20250412_105559.jpg 4080x1884 24bit N Exif ICC  [OK] 3122705 --> 855619 bytes (72.60%), optimized.
+2026-06-03T20:00:53.1789483Z ./Test IA/val/images/20250412_104831.jpg 4080x1884 24bit N Exif ICC  [OK] 2239169 --> 733203 bytes (67.26%), optimized.
+2026-06-03T20:00:53.2615379Z ./Test IA/val/images/20250411_165741.jpg 4080x1884 24bit N Exif ICC  [OK] 1979620 --> 476491 bytes (75.93%), optimized.
+2026-06-03T20:00:53.3481004Z ./Test IA/val/images/20250412_105706(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2111902 --> 614565 bytes (70.90%), optimized.
+2026-06-03T20:00:53.4406776Z ./Test IA/val/images/20250413_120054(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2319124 --> 826447 bytes (64.36%), optimized.
+2026-06-03T20:00:53.5262658Z ./Test IA/val/images/20250412_105218.jpg 4080x1884 24bit N Exif ICC  [OK] 2335849 --> 439772 bytes (81.17%), optimized.
+2026-06-03T20:00:53.6334788Z ./Test IA/val/images/20250412_105853(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3371438 --> 1042212 bytes (69.09%), optimized.
+2026-06-03T20:00:53.7273449Z ./Test IA/val/images/20250412_105803(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2418577 --> 768497 bytes (68.23%), optimized.
+2026-06-03T20:00:53.8162029Z ./Test IA/val/images/20250413_120352.jpg 4080x1884 24bit N Exif ICC  [OK] 2186608 --> 673857 bytes (69.18%), optimized.
+2026-06-03T20:00:53.9147581Z ./Test IA/val/images/20250413_120637(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2591000 --> 1001397 bytes (61.35%), optimized.
+2026-06-03T20:00:54.0171847Z ./Test IA/val/images/20250412_105915(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3052900 --> 910014 bytes (70.19%), optimized.
+2026-06-03T20:00:54.1107460Z ./Test IA/val/images/20250412_104943.jpg 4080x1884 24bit N Exif ICC  [OK] 2361962 --> 855572 bytes (63.78%), optimized.
+2026-06-03T20:00:54.2001248Z ./Test IA/val/images/20250413_120326.jpg 4080x1884 24bit N Exif ICC  [OK] 2225335 --> 686783 bytes (69.14%), optimized.
+2026-06-03T20:00:54.2972967Z ./Test IA/val/images/20250413_120626.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2416836 --> 1007827 bytes (58.30%), optimized.
+2026-06-03T20:00:54.4079827Z ./Test IA/val/images/20250412_104927.jpg 4080x1884 24bit N Exif ICC  [OK] 2998046 --> 1352037 bytes (54.90%), optimized.
+2026-06-03T20:00:54.5361245Z ./Test IA/val/images/20250413_123100.jpg 4080x1884 24bit N Exif ICC  [OK] 4116335 --> 2081088 bytes (49.44%), optimized.
+2026-06-03T20:00:54.6346159Z ./Test IA/val/images/20250412_105226.jpg 4080x1884 24bit N Exif ICC  [OK] 2914531 --> 791546 bytes (72.84%), optimized.
+2026-06-03T20:00:54.7577331Z ./Test IA/val/images/20250413_122916.jpg 4080x1884 24bit N Exif ICC  [OK] 3785269 --> 1897874 bytes (49.86%), optimized.
+2026-06-03T20:00:54.9158662Z ./Test IA/val/images/20250413_123222.jpg 4080x1884 24bit N Exif ICC  [OK] 5404457 --> 2955168 bytes (45.32%), optimized.
+2026-06-03T20:00:55.0040872Z ./Test IA/val/images/20250413_120054.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2162750 --> 671186 bytes (68.97%), optimized.
+2026-06-03T20:00:55.0964341Z ./Test IA/val/images/20250412_105440.jpg 4080x1884 24bit N Exif ICC  [OK] 2361498 --> 776795 bytes (67.11%), optimized.
+2026-06-03T20:00:55.1789112Z ./Test IA/val/images/20250411_165819.jpg 4080x1884 24bit N Exif ICC  [OK] 2030856 --> 470191 bytes (76.85%), optimized.
+2026-06-03T20:00:55.3234554Z ./Test IA/val/images/20250413_122959(0).jpg 4080x1884 24bit N Exif ICC  [OK] 5097907 --> 2601388 bytes (48.97%), optimized.
+2026-06-03T20:00:55.4237415Z ./Test IA/val/images/20250412_105419.jpg 4080x1884 24bit N Exif ICC  [OK] 2648068 --> 983342 bytes (62.87%), optimized.
+2026-06-03T20:00:55.5122310Z ./Test IA/val/images/20250411_165734.jpg 4080x1884 24bit N Exif ICC  [OK] 2173902 --> 665368 bytes (69.39%), optimized.
+2026-06-03T20:00:55.6418675Z ./Test IA/val/images/20250413_122924(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4102055 --> 2139345 bytes (47.85%), optimized.
+2026-06-03T20:00:55.7330012Z ./Test IA/val/images/20250412_105503.jpg 4080x1884 24bit N Exif ICC  [OK] 2297352 --> 698886 bytes (69.58%), optimized.
+2026-06-03T20:00:55.8777333Z ./Test IA/val/images/20250413_123055(1).jpg 4080x1884 24bit N Exif ICC  [OK] 4778020 --> 2547390 bytes (46.69%), optimized.
+2026-06-03T20:00:55.9688288Z ./Test IA/val/images/20250412_105500.jpg 4080x1884 24bit N Exif ICC  [OK] 2336373 --> 691779 bytes (70.39%), optimized.
+2026-06-03T20:00:56.0689045Z ./Test IA/val/images/20250412_105244.jpg 4080x1884 24bit N Exif ICC  [OK] 2996811 --> 745395 bytes (75.13%), optimized.
+2026-06-03T20:00:56.1604745Z ./Test IA/val/images/20250412_105352.jpg 4080x1884 24bit N Exif ICC  [OK] 2319091 --> 767804 bytes (66.89%), optimized.
+2026-06-03T20:00:56.2860322Z ./Test IA/val/images/20250413_123003(0).jpg 4080x1884 24bit N Exif ICC  [OK] 4072483 --> 1921582 bytes (52.82%), optimized.
+2026-06-03T20:00:56.3728866Z ./Test IA/val/images/20250411_165736.jpg 4080x1884 24bit N Exif ICC  [OK] 2155669 --> 534172 bytes (75.22%), optimized.
+2026-06-03T20:00:56.4614467Z ./Test IA/val/images/20250411_165721.jpg 4080x1884 24bit N Exif ICC  [OK] 2198258 --> 619443 bytes (71.82%), optimized.
+2026-06-03T20:00:56.5452537Z ./Test IA/val/images/20250411_165729.jpg 4080x1884 24bit N Exif ICC  [OK] 2049912 --> 594472 bytes (71.00%), optimized.
+2026-06-03T20:00:56.6339760Z ./Test IA/val/images/20250412_105704.jpg 4080x1884 24bit N Exif ICC  [OK] 2171816 --> 693654 bytes (68.06%), optimized.
+2026-06-03T20:00:56.7337954Z ./Test IA/val/images/20250413_120516.jpg 4080x1884 24bit N Exif ICC  [OK] 2953552 --> 819239 bytes (72.26%), optimized.
+2026-06-03T20:00:56.8840583Z ./Test IA/val/images/20250413_123102.jpg 4080x1884 24bit N Exif ICC  [OK] 5283723 --> 2890766 bytes (45.29%), optimized.
+2026-06-03T20:00:56.9763887Z ./Test IA/val/images/20250413_120317.jpg 4080x1884 24bit N Exif ICC  [OK] 2243069 --> 869917 bytes (61.22%), optimized.
+2026-06-03T20:00:57.0598319Z ./Test IA/val/images/20250411_165723.jpg 4080x1884 24bit N Exif ICC  [OK] 2008502 --> 483443 bytes (75.93%), optimized.
+2026-06-03T20:00:57.1513054Z ./Test IA/val/images/20250413_120331.jpg 4080x1884 24bit N Exif ICC  [OK] 2273585 --> 810265 bytes (64.36%), optimized.
+2026-06-03T20:00:57.1649380Z ./Test IA/val/images/WIN_20250412_20_01_34_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 142522 --> 87867 bytes (38.35%), optimized.
+2026-06-03T20:00:57.2507610Z ./Test IA/val/images/20250412_105303.jpg 4080x1884 24bit N Exif ICC  [OK] 2453162 --> 454287 bytes (81.48%), optimized.
+2026-06-03T20:00:57.4012934Z ./Test IA/val/images/20250413_123221(0).jpg 4080x1884 24bit N Exif ICC  [OK] 5273253 --> 2870050 bytes (45.57%), optimized.
+2026-06-03T20:00:57.4847964Z ./Test IA/val/images/20250411_165725.jpg 4080x1884 24bit N Exif ICC  [OK] 1996029 --> 523523 bytes (73.77%), optimized.
+2026-06-03T20:00:57.5726178Z ./Test IA/val/images/20250413_120133.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2179179 --> 683666 bytes (68.63%), optimized.
+2026-06-03T20:00:57.6567980Z ./Test IA/val/images/20250413_120052.jpg 4080x1884 24bit N Exif ICC  [OK] 2059284 --> 584096 bytes (71.64%), optimized.
+2026-06-03T20:00:57.7476419Z ./Test IA/val/images/20250412_105910.jpg 4080x1884 24bit N Exif ICC  [OK] 2694868 --> 568534 bytes (78.90%), optimized.
+2026-06-03T20:00:57.8511959Z ./Test IA/val/images/20250412_105852.jpg 4080x1884 24bit N Exif ICC  [OK] 3188897 --> 921333 bytes (71.11%), optimized.
+2026-06-03T20:00:57.9424665Z ./Test IA/val/images/20250412_105358.jpg 4080x1884 24bit N Exif ICC  [OK] 2346159 --> 757007 bytes (67.73%), optimized.
+2026-06-03T20:00:58.0320667Z ./Test IA/val/images/20250412_105454.jpg 4080x1884 24bit N Exif ICC  (Extraneous data found after end of JPEG image)  [OK] 2310282 --> 608520 bytes (73.66%), optimized.
+2026-06-03T20:00:58.1584119Z ./Test IA/val/images/20250413_123201.jpg 4080x1884 24bit N Exif ICC  [OK] 3908258 --> 1965353 bytes (49.71%), optimized.
+2026-06-03T20:00:58.1709204Z ./Test IA/val/images/WIN_20250412_20_01_38_Pro.jpg 1280x720 24bit N Exif JFIF  [OK] 115780 --> 68870 bytes (40.52%), optimized.
+2026-06-03T20:00:58.2685114Z ./Test IA/val/images/20250413_120433(0).jpg 4080x1884 24bit N Exif ICC  [OK] 3013647 --> 883437 bytes (70.69%), optimized.
+2026-06-03T20:00:58.3923145Z ./Test IA/val/images/20250413_123046(1).jpg 4080x1884 24bit N Exif ICC  [OK] 3852120 --> 1856060 bytes (51.82%), optimized.
+2026-06-03T20:00:58.4998140Z ./Test IA/val/images/20250413_120443.jpg 4080x1884 24bit N Exif ICC  [OK] 3423156 --> 1075969 bytes (68.57%), optimized.
+2026-06-03T20:00:58.6025196Z ./Test IA/val/images/20250413_120305(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2776374 --> 1189022 bytes (57.17%), optimized.
+2026-06-03T20:00:58.7067494Z ./Test IA/val/images/20250413_120545(2).jpg 4080x1884 24bit N Exif ICC  [OK] 3256193 --> 1028415 bytes (68.42%), optimized.
+2026-06-03T20:00:58.8047886Z ./Test IA/val/images/20250413_120645(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2618218 --> 1001505 bytes (61.75%), optimized.
+2026-06-03T20:00:58.8980646Z ./Test IA/val/images/20250413_120431(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2690402 --> 701833 bytes (73.91%), optimized.
+2026-06-03T20:00:58.9844788Z ./Test IA/val/images/20250413_120324(0).jpg 4080x1884 24bit N Exif ICC  [OK] 2153030 --> 592217 bytes (72.49%), optimized.
+2026-06-03T20:00:59.0874229Z ./Test IA/val/images/20250413_120342(1).jpg 4080x1884 24bit N Exif ICC  [OK] 2841430 --> 1009207 bytes (64.48%), optimized.
+2026-06-03T20:00:59.0929624Z ##[group]Run find . -type f -name "*.png" -exec optipng -o2 {} \;
+2026-06-03T20:00:59.0930120Z [36;1mfind . -type f -name "*.png" -exec optipng -o2 {} \;[0m
+2026-06-03T20:00:59.0955433Z shell: /usr/bin/bash -e {0}
+2026-06-03T20:00:59.0955697Z ##[endgroup]
+2026-06-03T20:00:59.1022323Z ** Processing: ./Test IA/760_the_shrek.png
+2026-06-03T20:00:59.1034193Z 337x518 pixels, 8 bits/pixel, 110 colors (1 transparent) in palette
+2026-06-03T20:00:59.1035605Z Input IDAT size = 56801 bytes
+2026-06-03T20:00:59.1036020Z Input file size = 57306 bytes
+2026-06-03T20:00:59.1036281Z 
+2026-06-03T20:00:59.1036411Z Trying:
+2026-06-03T20:00:59.1152970Z   zc = 9  zm = 8  zs = 0  f = 0
+2026-06-03T20:00:59.1249899Z   zc = 9  zm = 8  zs = 1  f = 0
+2026-06-03T20:00:59.1294111Z   zc = 1  zm = 8  zs = 2  f = 0
+2026-06-03T20:00:59.1348017Z   zc = 9  zm = 8  zs = 3  f = 0
+2026-06-03T20:00:59.1552382Z   zc = 9  zm = 8  zs = 0  f = 5
+2026-06-03T20:00:59.1832100Z   zc = 9  zm = 8  zs = 1  f = 5
+2026-06-03T20:00:59.1887056Z   zc = 1  zm = 8  zs = 2  f = 5
+2026-06-03T20:00:59.1944239Z   zc = 9  zm = 8  zs = 3  f = 5
+2026-06-03T20:00:59.1946960Z                                
+2026-06-03T20:00:59.1947458Z Output IDAT size = 56801 bytes (no change)
+2026-06-03T20:00:59.1948058Z Output file size = 57234 bytes (72 bytes = 0.13% decrease)
+2026-06-03T20:00:59.1948395Z 
+2026-06-03T20:00:59.1992485Z ##[group]Run echo "size=$(du -sb . | cut -f1)" >> $GITHUB_OUTPUT
+2026-06-03T20:00:59.1992977Z [36;1mecho "size=$(du -sb . | cut -f1)" >> $GITHUB_OUTPUT[0m
+2026-06-03T20:00:59.2018367Z shell: /usr/bin/bash -e {0}
+2026-06-03T20:00:59.2018641Z ##[endgroup]
+2026-06-03T20:00:59.2159795Z ##[group]Run before=3729212674
+2026-06-03T20:00:59.2160109Z [36;1mbefore=3729212674[0m
+2026-06-03T20:00:59.2160352Z [36;1mafter=2611987734[0m
+2026-06-03T20:00:59.2160600Z [36;1msaved=$((before - after))[0m
+2026-06-03T20:00:59.2160905Z [36;1mecho "saved=$saved" >> $GITHUB_OUTPUT[0m
+2026-06-03T20:00:59.2184417Z shell: /usr/bin/bash -e {0}
+2026-06-03T20:00:59.2184684Z ##[endgroup]
+2026-06-03T20:00:59.2258075Z ##[group]Run BRANCH="compress-images-${GITHUB_RUN_ID}"
+2026-06-03T20:00:59.2258496Z [36;1mBRANCH="compress-images-${GITHUB_RUN_ID}"[0m
+2026-06-03T20:00:59.2258837Z [36;1mecho "BRANCH=$BRANCH" >> $GITHUB_ENV[0m
+2026-06-03T20:00:59.2259146Z [36;1mgit checkout -b "$BRANCH"[0m
+2026-06-03T20:00:59.2281946Z shell: /usr/bin/bash -e {0}
+2026-06-03T20:00:59.2282223Z ##[endgroup]
+2026-06-03T20:00:59.2345718Z Switched to a new branch 'compress-images-26909534338'
+2026-06-03T20:00:59.2382857Z ##[group]Run git config user.name "github-actions[bot]"
+2026-06-03T20:00:59.2383294Z [36;1mgit config user.name "github-actions[bot]"[0m
+2026-06-03T20:00:59.2384088Z [36;1mgit config user.email "github-actions[bot]@users.noreply.github.com"[0m
+2026-06-03T20:00:59.2384497Z [36;1mgit add .[0m
+2026-06-03T20:00:59.2384816Z [36;1mgit commit -m "chore: compress images" || echo "No changes"[0m
+2026-06-03T20:00:59.2407742Z shell: /usr/bin/bash -e {0}
+2026-06-03T20:00:59.2407996Z env:
+2026-06-03T20:00:59.2408215Z   BRANCH: compress-images-26909534338
+2026-06-03T20:00:59.2408497Z ##[endgroup]
+2026-06-03T20:01:23.9264676Z [compress-images-26909534338 a7aead1] chore: compress images
+2026-06-03T20:01:23.9265572Z  624 files changed, 0 insertions(+), 0 deletions(-)
+2026-06-03T20:01:23.9820436Z ##[group]Run git push origin $BRANCH
+2026-06-03T20:01:23.9820836Z [36;1mgit push origin $BRANCH[0m
+2026-06-03T20:01:23.9847745Z shell: /usr/bin/bash -e {0}
+2026-06-03T20:01:23.9848014Z env:
+2026-06-03T20:01:23.9848238Z   BRANCH: compress-images-26909534338
+2026-06-03T20:01:23.9848524Z ##[endgroup]
+2026-06-03T20:02:13.7344974Z remote: 
+2026-06-03T20:02:13.7345850Z remote: Create a pull request for 'compress-images-26909534338' on GitHub by visiting:        
+2026-06-03T20:02:13.7347283Z remote:      https://github.com/Robocup-Phoenix-Team/RoboCup-Phoenix-Team/pull/new/compress-images-26909534338        
+2026-06-03T20:02:13.7348274Z remote: 
+2026-06-03T20:02:13.7353112Z To https://github.com/Robocup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T20:02:13.7354015Z  * [new branch]      compress-images-26909534338 -> compress-images-26909534338
+2026-06-03T20:02:13.7504354Z ##[group]Run peter-evans/create-pull-request@v6
+2026-06-03T20:02:13.7504715Z with:
+2026-06-03T20:02:13.7504934Z   branch: compress-images-26909534338
+2026-06-03T20:02:13.7505250Z   title: 🗜️ Image compression
+2026-06-03T20:02:13.7505678Z   body: Compression automatique des images.
+
+💾 Espace gagné : `1117224940` bytes
+
+2026-06-03T20:02:13.7506103Z   base: main
+2026-06-03T20:02:13.7508960Z   token: ***
+2026-06-03T20:02:13.7509243Z   commit-message: [create-pull-request] automated change
+2026-06-03T20:02:13.7509748Z   committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+2026-06-03T20:02:13.7510287Z   author: LeVraiKing <205343298+LeVraiKing@users.noreply.github.com>
+2026-06-03T20:02:13.7510652Z   signoff: false
+2026-06-03T20:02:13.7510871Z   delete-branch: false
+2026-06-03T20:02:13.7511094Z   draft: false
+2026-06-03T20:02:13.7511288Z env:
+2026-06-03T20:02:13.7511493Z   BRANCH: compress-images-26909534338
+2026-06-03T20:02:13.7511759Z ##[endgroup]
+2026-06-03T20:02:13.8520158Z ##[group]Prepare git configuration
+2026-06-03T20:02:13.8570527Z [command]/usr/bin/git config --global --name-only --get-regexp safe.directory /home/runner/work/RoboCup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T20:02:13.8633940Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/RoboCup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T20:02:13.8663938Z [command]/usr/bin/git config --local --get remote.origin.url
+2026-06-03T20:02:13.8685913Z https://github.com/Robocup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T20:02:13.8702404Z [command]/usr/bin/git config --local --name-only --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
+2026-06-03T20:02:13.8726105Z http.https://github.com/.extraheader
+2026-06-03T20:02:13.8736448Z [command]/usr/bin/git config --local --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
+2026-06-03T20:02:13.8767980Z http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-06-03T20:02:13.8771207Z [command]/usr/bin/git config --local --unset http.https://github.com/.extraheader ^AUTHORIZATION:
+2026-06-03T20:02:13.8798531Z Unset config key 'http.https://github.com/.extraheader'
+2026-06-03T20:02:13.8799837Z ##[endgroup]
+2026-06-03T20:02:13.8800566Z ##[group]Determining the base and head repositories
+2026-06-03T20:02:13.8874670Z ##[endgroup]
+2026-06-03T20:02:13.8875363Z Pull request branch target repository set to Robocup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T20:02:13.8876602Z ##[group]Configuring credential for HTTPS authentication
+2026-06-03T20:02:13.8879066Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-06-03T20:02:13.8933163Z [command]/usr/bin/git rev-parse --git-dir
+2026-06-03T20:02:13.8955897Z .git
+2026-06-03T20:02:13.8974838Z ##[endgroup]
+2026-06-03T20:02:13.8975369Z ##[group]Checking the base repository state
+2026-06-03T20:02:13.8980512Z [command]/usr/bin/git symbolic-ref HEAD --short
+2026-06-03T20:02:13.9001576Z compress-images-26909534338
+2026-06-03T20:02:13.9006210Z Working base is branch 'compress-images-26909534338'
+2026-06-03T20:02:13.9011314Z [command]/usr/bin/git remote prune origin
+2026-06-03T20:02:14.0917600Z ##[endgroup]
+2026-06-03T20:02:14.0918035Z Pull request branch to create or update set to 'compress-images-26909534338'
+2026-06-03T20:02:14.0919272Z ##[group]Configuring the committer and author
+2026-06-03T20:02:14.0920157Z Configured git committer as 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
+2026-06-03T20:02:14.0920974Z Configured git author as 'LeVraiKing <205343298+LeVraiKing@users.noreply.github.com>'
+2026-06-03T20:02:14.0921597Z ##[endgroup]
+2026-06-03T20:02:14.0922012Z ##[group]Create or update the pull request branch
+2026-06-03T20:02:14.0928054Z [command]/usr/bin/git symbolic-ref HEAD --short
+2026-06-03T20:02:14.0956670Z compress-images-26909534338
+2026-06-03T20:02:14.0961261Z Working base is branch 'compress-images-26909534338'
+2026-06-03T20:02:14.0969432Z [command]/usr/bin/git checkout --progress -B e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db HEAD --
+2026-06-03T20:02:14.1028749Z Switched to a new branch 'e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db'
+2026-06-03T20:02:14.1039525Z [command]/usr/bin/git status --porcelain -unormal --
+2026-06-03T20:02:14.1110190Z [command]/usr/bin/git diff --quiet --
+2026-06-03T20:02:14.1155286Z [command]/usr/bin/git diff --quiet --staged --
+2026-06-03T20:02:14.1188196Z [command]/usr/bin/git stash push --include-untracked
+2026-06-03T20:02:14.1248264Z No local changes to save
+2026-06-03T20:02:14.1253437Z Resetting working base branch 'compress-images-26909534338'
+2026-06-03T20:02:14.1258026Z [command]/usr/bin/git checkout --progress compress-images-26909534338 --
+2026-06-03T20:02:14.1313723Z Switched to branch 'compress-images-26909534338'
+2026-06-03T20:02:14.1326399Z [command]/usr/bin/git reset --hard origin/compress-images-26909534338
+2026-06-03T20:02:14.1394452Z HEAD is now at a7aead1 chore: compress images
+2026-06-03T20:02:14.1399299Z Rebasing commits made to branch 'compress-images-26909534338' on to base branch 'main'
+2026-06-03T20:02:14.1405473Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --progress --no-recurse-submodules --force --depth=1 origin main:main
+2026-06-03T20:02:14.3627455Z remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)        
+2026-06-03T20:02:14.3706883Z [command]/usr/bin/git checkout --progress main --
+2026-06-03T20:02:15.4126420Z Updating files:  16% (105/624)
+2026-06-03T20:02:15.4759998Z Updating files:  17% (107/624)
+2026-06-03T20:02:15.5392815Z Updating files:  18% (113/624)
+2026-06-03T20:02:15.6012714Z Updating files:  19% (119/624)
+2026-06-03T20:02:15.6649701Z Updating files:  20% (125/624)
+2026-06-03T20:02:15.7240676Z Updating files:  21% (132/624)
+2026-06-03T20:02:15.7838675Z Updating files:  22% (138/624)
+2026-06-03T20:02:15.8514263Z Updating files:  23% (144/624)
+2026-06-03T20:02:15.9148119Z Updating files:  24% (150/624)
+2026-06-03T20:02:15.9506899Z Updating files:  25% (156/624)
+2026-06-03T20:02:15.9839761Z Updating files:  26% (163/624)
+2026-06-03T20:02:16.0326354Z Updating files:  27% (169/624)
+2026-06-03T20:02:16.0699053Z Updating files:  28% (175/624)
+2026-06-03T20:02:16.1377001Z Updating files:  29% (181/624)
+2026-06-03T20:02:16.1962644Z Updating files:  30% (188/624)
+2026-06-03T20:02:16.2573602Z Updating files:  31% (194/624)
+2026-06-03T20:02:16.3204114Z Updating files:  32% (200/624)
+2026-06-03T20:02:16.3811719Z Updating files:  33% (206/624)
+2026-06-03T20:02:16.3916550Z Updating files:  33% (212/624)
+2026-06-03T20:02:16.4522140Z Updating files:  34% (213/624)
+2026-06-03T20:02:16.5132688Z Updating files:  35% (219/624)
+2026-06-03T20:02:16.5446953Z Updating files:  36% (225/624)
+2026-06-03T20:02:16.6142708Z Updating files:  37% (231/624)
+2026-06-03T20:02:16.6757869Z Updating files:  38% (238/624)
+2026-06-03T20:02:16.7279242Z Updating files:  39% (244/624)
+2026-06-03T20:02:16.7889183Z Updating files:  40% (250/624)
+2026-06-03T20:02:16.8585737Z Updating files:  41% (256/624)
+2026-06-03T20:02:16.9015318Z Updating files:  42% (263/624)
+2026-06-03T20:02:16.9501012Z Updating files:  43% (269/624)
+2026-06-03T20:02:17.0067125Z Updating files:  44% (275/624)
+2026-06-03T20:02:17.0754814Z Updating files:  45% (281/624)
+2026-06-03T20:02:17.1338299Z Updating files:  46% (288/624)
+2026-06-03T20:02:17.1899968Z Updating files:  47% (294/624)
+2026-06-03T20:02:17.2450438Z Updating files:  48% (300/624)
+2026-06-03T20:02:17.3015685Z Updating files:  49% (306/624)
+2026-06-03T20:02:17.3727713Z Updating files:  50% (312/624)
+2026-06-03T20:02:17.3828931Z Updating files:  51% (319/624)
+2026-06-03T20:02:17.4327862Z Updating files:  51% (320/624)
+2026-06-03T20:02:17.4948606Z Updating files:  52% (325/624)
+2026-06-03T20:02:17.5580142Z Updating files:  53% (331/624)
+2026-06-03T20:02:17.6052552Z Updating files:  54% (337/624)
+2026-06-03T20:02:17.6619197Z Updating files:  55% (344/624)
+2026-06-03T20:02:17.7288674Z Updating files:  56% (350/624)
+2026-06-03T20:02:17.8074790Z Updating files:  57% (356/624)
+2026-06-03T20:02:17.8448979Z Updating files:  58% (362/624)
+2026-06-03T20:02:17.8695243Z Updating files:  59% (369/624)
+2026-06-03T20:02:17.8915841Z Updating files:  60% (375/624)
+2026-06-03T20:02:17.9187385Z Updating files:  61% (381/624)
+2026-06-03T20:02:17.9665018Z Updating files:  62% (387/624)
+2026-06-03T20:02:18.0295892Z Updating files:  63% (394/624)
+2026-06-03T20:02:18.0634065Z Updating files:  64% (400/624)
+2026-06-03T20:02:18.0965493Z Updating files:  65% (406/624)
+2026-06-03T20:02:18.1591571Z Updating files:  66% (412/624)
+2026-06-03T20:02:18.2225908Z Updating files:  67% (419/624)
+2026-06-03T20:02:18.2565860Z Updating files:  68% (425/624)
+2026-06-03T20:02:18.2825982Z Updating files:  69% (431/624)
+2026-06-03T20:02:18.3174906Z Updating files:  70% (437/624)
+2026-06-03T20:02:18.3425371Z Updating files:  71% (444/624)
+2026-06-03T20:02:18.3730203Z Updating files:  72% (450/624)
+2026-06-03T20:02:18.3782810Z Updating files:  73% (456/624)
+2026-06-03T20:02:18.4029473Z Updating files:  73% (457/624)
+2026-06-03T20:02:18.4295132Z Updating files:  74% (462/624)
+2026-06-03T20:02:18.4617341Z Updating files:  75% (468/624)
+2026-06-03T20:02:18.4933048Z Updating files:  76% (475/624)
+2026-06-03T20:02:18.5209915Z Updating files:  77% (481/624)
+2026-06-03T20:02:18.5471822Z Updating files:  78% (487/624)
+2026-06-03T20:02:18.5841309Z Updating files:  79% (493/624)
+2026-06-03T20:02:18.6089186Z Updating files:  80% (500/624)
+2026-06-03T20:02:18.6380975Z Updating files:  81% (506/624)
+2026-06-03T20:02:18.6834533Z Updating files:  82% (512/624)
+2026-06-03T20:02:18.7137456Z Updating files:  83% (518/624)
+2026-06-03T20:02:18.7169596Z Updating files:  84% (525/624)
+2026-06-03T20:02:18.7200809Z Updating files:  85% (531/624)
+2026-06-03T20:02:18.7233907Z Updating files:  86% (537/624)
+2026-06-03T20:02:18.7717535Z Updating files:  87% (543/624)
+2026-06-03T20:02:18.8294705Z Updating files:  88% (550/624)
+2026-06-03T20:02:18.8821371Z Updating files:  89% (556/624)
+2026-06-03T20:02:18.9489467Z Updating files:  90% (562/624)
+2026-06-03T20:02:19.0225421Z Updating files:  91% (568/624)
+2026-06-03T20:02:19.0814604Z Updating files:  92% (575/624)
+2026-06-03T20:02:19.1314324Z Updating files:  93% (581/624)
+2026-06-03T20:02:19.1876145Z Updating files:  94% (587/624)
+2026-06-03T20:02:19.2472481Z Updating files:  95% (593/624)
+2026-06-03T20:02:19.2992629Z Updating files:  96% (600/624)
+2026-06-03T20:02:19.3251466Z Updating files:  97% (606/624)
+2026-06-03T20:02:19.3564998Z Updating files:  98% (612/624)
+2026-06-03T20:02:19.3740516Z Updating files:  99% (618/624)
+2026-06-03T20:02:19.3741278Z Updating files: 100% (624/624)
+2026-06-03T20:02:19.3741756Z Updating files: 100% (624/624), done.
+2026-06-03T20:02:19.3862161Z Switched to branch 'main'
+2026-06-03T20:02:19.3864212Z Your branch is up to date with 'origin/main'.
+2026-06-03T20:02:19.4411690Z [command]/usr/bin/git rev-list --reverse compress-images-26909534338..e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db .
+2026-06-03T20:02:19.4448420Z [command]/usr/bin/git checkout --progress -B e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db HEAD --
+2026-06-03T20:02:19.8818220Z Switched to and reset branch 'e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db'
+2026-06-03T20:02:19.8830114Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --progress --no-recurse-submodules --force --depth=1 origin main:main
+2026-06-03T20:02:20.1178288Z remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)        
+2026-06-03T20:02:20.1262493Z [command]/usr/bin/git rev-list --right-only --count main...e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db
+2026-06-03T20:02:20.1289281Z 0
+2026-06-03T20:02:20.1298728Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --progress --no-recurse-submodules --force --depth=10 origin compress-images-26909534338:refs/remotes/origin/compress-images-26909534338
+2026-06-03T20:02:20.4011962Z remote: Enumerating objects: 45, done.        
+2026-06-03T20:02:20.4012624Z remote: Counting objects:   2% (1/40)        
+2026-06-03T20:02:20.4013132Z remote: Counting objects:   5% (2/40)        
+2026-06-03T20:02:20.4014879Z remote: Counting objects:   7% (3/40)        
+2026-06-03T20:02:20.4015447Z remote: Counting objects:  10% (4/40)        
+2026-06-03T20:02:20.4015931Z remote: Counting objects:  12% (5/40)        
+2026-06-03T20:02:20.4016450Z remote: Counting objects:  15% (6/40)        
+2026-06-03T20:02:20.4016928Z remote: Counting objects:  17% (7/40)        
+2026-06-03T20:02:20.4017435Z remote: Counting objects:  20% (8/40)        
+2026-06-03T20:02:20.4017925Z remote: Counting objects:  22% (9/40)        
+2026-06-03T20:02:20.4018391Z remote: Counting objects:  25% (10/40)        
+2026-06-03T20:02:20.4018865Z remote: Counting objects:  27% (11/40)        
+2026-06-03T20:02:20.4019330Z remote: Counting objects:  30% (12/40)        
+2026-06-03T20:02:20.4019792Z remote: Counting objects:  32% (13/40)        
+2026-06-03T20:02:20.4020354Z remote: Counting objects:  35% (14/40)        
+2026-06-03T20:02:20.4020909Z remote: Counting objects:  37% (15/40)        
+2026-06-03T20:02:20.4021291Z remote: Counting objects:  40% (16/40)        
+2026-06-03T20:02:20.4021659Z remote: Counting objects:  42% (17/40)        
+2026-06-03T20:02:20.4021996Z remote: Counting objects:  45% (18/40)        
+2026-06-03T20:02:20.4022302Z remote: Counting objects:  47% (19/40)        
+2026-06-03T20:02:20.4022610Z remote: Counting objects:  50% (20/40)        
+2026-06-03T20:02:20.4022935Z remote: Counting objects:  52% (21/40)        
+2026-06-03T20:02:20.4023238Z remote: Counting objects:  55% (22/40)        
+2026-06-03T20:02:20.4023849Z remote: Counting objects:  57% (23/40)        
+2026-06-03T20:02:20.4024164Z remote: Counting objects:  60% (24/40)        
+2026-06-03T20:02:20.4024460Z remote: Counting objects:  62% (25/40)        
+2026-06-03T20:02:20.4024757Z remote: Counting objects:  65% (26/40)        
+2026-06-03T20:02:20.4025053Z remote: Counting objects:  67% (27/40)        
+2026-06-03T20:02:20.4025352Z remote: Counting objects:  70% (28/40)        
+2026-06-03T20:02:20.4025649Z remote: Counting objects:  72% (29/40)        
+2026-06-03T20:02:20.4025957Z remote: Counting objects:  75% (30/40)        
+2026-06-03T20:02:20.4026253Z remote: Counting objects:  77% (31/40)        
+2026-06-03T20:02:20.4026552Z remote: Counting objects:  80% (32/40)        
+2026-06-03T20:02:20.4026850Z remote: Counting objects:  82% (33/40)        
+2026-06-03T20:02:20.4027157Z remote: Counting objects:  85% (34/40)        
+2026-06-03T20:02:20.4027455Z remote: Counting objects:  87% (35/40)        
+2026-06-03T20:02:20.4027753Z remote: Counting objects:  90% (36/40)        
+2026-06-03T20:02:20.4028049Z remote: Counting objects:  92% (37/40)        
+2026-06-03T20:02:20.4028345Z remote: Counting objects:  95% (38/40)        
+2026-06-03T20:02:20.4028642Z remote: Counting objects:  97% (39/40)        
+2026-06-03T20:02:20.4028940Z remote: Counting objects: 100% (40/40)        
+2026-06-03T20:02:20.4029266Z remote: Counting objects: 100% (40/40), done.        
+2026-06-03T20:02:20.4029607Z remote: Compressing objects:   4% (1/24)        
+2026-06-03T20:02:20.4029929Z remote: Compressing objects:   8% (2/24)        
+2026-06-03T20:02:20.4047074Z remote: Compressing objects:  12% (3/24)        
+2026-06-03T20:02:20.4047609Z remote: Compressing objects:  16% (4/24)        
+2026-06-03T20:02:20.4047964Z remote: Compressing objects:  20% (5/24)        
+2026-06-03T20:02:20.4048294Z remote: Compressing objects:  25% (6/24)        
+2026-06-03T20:02:20.4048970Z remote: Compressing objects:  29% (7/24)        
+2026-06-03T20:02:20.4049283Z remote: Compressing objects:  33% (8/24)        
+2026-06-03T20:02:20.4049609Z remote: Compressing objects:  37% (9/24)        
+2026-06-03T20:02:20.4049927Z remote: Compressing objects:  41% (10/24)        
+2026-06-03T20:02:20.4050246Z remote: Compressing objects:  45% (11/24)        
+2026-06-03T20:02:20.4050562Z remote: Compressing objects:  50% (12/24)        
+2026-06-03T20:02:20.4050873Z remote: Compressing objects:  54% (13/24)        
+2026-06-03T20:02:20.4051183Z remote: Compressing objects:  58% (14/24)        
+2026-06-03T20:02:20.4051496Z remote: Compressing objects:  62% (15/24)        
+2026-06-03T20:02:20.4051993Z remote: Compressing objects:  66% (16/24)        
+2026-06-03T20:02:20.4052333Z remote: Compressing objects:  70% (17/24)        
+2026-06-03T20:02:20.4052895Z remote: Compressing objects:  75% (18/24)        
+2026-06-03T20:02:20.4053308Z remote: Compressing objects:  79% (19/24)        
+2026-06-03T20:02:20.4054597Z remote: Compressing objects:  83% (20/24)        
+2026-06-03T20:02:20.4110143Z remote: Compressing objects:  87% (21/24)        
+2026-06-03T20:02:20.4110737Z remote: Compressing objects:  91% (22/24)        
+2026-06-03T20:02:20.4111241Z remote: Compressing objects:  95% (23/24)        
+2026-06-03T20:02:20.4111735Z remote: Compressing objects: 100% (24/24)        
+2026-06-03T20:02:20.4112263Z remote: Compressing objects: 100% (24/24), done.        
+2026-06-03T20:02:20.4141831Z remote: Total 29 (delta 15), reused 6 (delta 2), pack-reused 0 (from 0)        
+2026-06-03T20:02:20.4268512Z Pull request branch 'compress-images-26909534338' already exists as remote branch 'origin/compress-images-26909534338'
+2026-06-03T20:02:20.4272093Z [command]/usr/bin/git checkout --progress compress-images-26909534338 --
+2026-06-03T20:02:21.8697677Z Updating files:  50% (317/624)
+2026-06-03T20:02:21.8901448Z Updating files:  51% (319/624)
+2026-06-03T20:02:21.9111881Z Updating files:  52% (325/624)
+2026-06-03T20:02:21.9331358Z Updating files:  53% (331/624)
+2026-06-03T20:02:21.9480467Z Updating files:  54% (337/624)
+2026-06-03T20:02:21.9692301Z Updating files:  55% (344/624)
+2026-06-03T20:02:21.9945630Z Updating files:  56% (350/624)
+2026-06-03T20:02:22.0182620Z Updating files:  57% (356/624)
+2026-06-03T20:02:22.0482906Z Updating files:  58% (362/624)
+2026-06-03T20:02:22.0758596Z Updating files:  59% (369/624)
+2026-06-03T20:02:22.0995908Z Updating files:  60% (375/624)
+2026-06-03T20:02:22.1198985Z Updating files:  61% (381/624)
+2026-06-03T20:02:22.1459981Z Updating files:  62% (387/624)
+2026-06-03T20:02:22.1666679Z Updating files:  63% (394/624)
+2026-06-03T20:02:22.1832179Z Updating files:  64% (400/624)
+2026-06-03T20:02:22.1976320Z Updating files:  65% (406/624)
+2026-06-03T20:02:22.2113902Z Updating files:  66% (412/624)
+2026-06-03T20:02:22.2243766Z Updating files:  67% (419/624)
+2026-06-03T20:02:22.2414145Z Updating files:  68% (425/624)
+2026-06-03T20:02:22.2566405Z Updating files:  69% (431/624)
+2026-06-03T20:02:22.2761346Z Updating files:  70% (437/624)
+2026-06-03T20:02:22.2900624Z Updating files:  71% (444/624)
+2026-06-03T20:02:22.3062445Z Updating files:  72% (450/624)
+2026-06-03T20:02:22.3220805Z Updating files:  73% (456/624)
+2026-06-03T20:02:22.3381437Z Updating files:  74% (462/624)
+2026-06-03T20:02:22.3544470Z Updating files:  75% (468/624)
+2026-06-03T20:02:22.3721080Z Updating files:  76% (475/624)
+2026-06-03T20:02:22.3869648Z Updating files:  77% (481/624)
+2026-06-03T20:02:22.4028181Z Updating files:  78% (487/624)
+2026-06-03T20:02:22.4232242Z Updating files:  79% (493/624)
+2026-06-03T20:02:22.4377346Z Updating files:  80% (500/624)
+2026-06-03T20:02:22.4543025Z Updating files:  81% (506/624)
+2026-06-03T20:02:22.4787068Z Updating files:  82% (512/624)
+2026-06-03T20:02:22.4942279Z Updating files:  83% (518/624)
+2026-06-03T20:02:22.4967725Z Updating files:  84% (525/624)
+2026-06-03T20:02:22.4991426Z Updating files:  85% (531/624)
+2026-06-03T20:02:22.5012350Z Updating files:  86% (537/624)
+2026-06-03T20:02:22.5152475Z Updating files:  87% (543/624)
+2026-06-03T20:02:22.5330062Z Updating files:  88% (550/624)
+2026-06-03T20:02:22.5469074Z Updating files:  89% (556/624)
+2026-06-03T20:02:22.5699513Z Updating files:  90% (562/624)
+2026-06-03T20:02:22.5895624Z Updating files:  91% (568/624)
+2026-06-03T20:02:22.6095588Z Updating files:  92% (575/624)
+2026-06-03T20:02:22.6302652Z Updating files:  93% (581/624)
+2026-06-03T20:02:22.6480709Z Updating files:  94% (587/624)
+2026-06-03T20:02:22.6699129Z Updating files:  95% (593/624)
+2026-06-03T20:02:22.6915656Z Updating files:  96% (600/624)
+2026-06-03T20:02:22.7075560Z Updating files:  97% (606/624)
+2026-06-03T20:02:22.7242119Z Updating files:  98% (612/624)
+2026-06-03T20:02:22.7341527Z Updating files:  99% (618/624)
+2026-06-03T20:02:22.7342197Z Updating files: 100% (624/624)
+2026-06-03T20:02:22.7342581Z Updating files: 100% (624/624), done.
+2026-06-03T20:02:22.7369291Z Switched to branch 'compress-images-26909534338'
+2026-06-03T20:02:22.7387403Z [command]/usr/bin/git rev-list --right-only --count main...compress-images-26909534338
+2026-06-03T20:02:22.7416009Z 1
+2026-06-03T20:02:22.7424514Z [command]/usr/bin/git diff --quiet compress-images-26909534338..e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db
+2026-06-03T20:02:22.7462098Z Resetting 'compress-images-26909534338'
+2026-06-03T20:02:22.7467842Z [command]/usr/bin/git checkout --progress -B compress-images-26909534338 e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db --
+2026-06-03T20:02:24.8838034Z Updating files:  16% (105/624)
+2026-06-03T20:02:24.9461672Z Updating files:  17% (107/624)
+2026-06-03T20:02:25.0085159Z Updating files:  18% (113/624)
+2026-06-03T20:02:25.0696757Z Updating files:  19% (119/624)
+2026-06-03T20:02:25.1323258Z Updating files:  20% (125/624)
+2026-06-03T20:02:25.1906282Z Updating files:  21% (132/624)
+2026-06-03T20:02:25.2502666Z Updating files:  22% (138/624)
+2026-06-03T20:02:25.3170107Z Updating files:  23% (144/624)
+2026-06-03T20:02:25.3788577Z Updating files:  24% (150/624)
+2026-06-03T20:02:25.4144114Z Updating files:  25% (156/624)
+2026-06-03T20:02:25.4473481Z Updating files:  26% (163/624)
+2026-06-03T20:02:25.4915765Z Updating files:  27% (169/624)
+2026-06-03T20:02:25.5288305Z Updating files:  28% (175/624)
+2026-06-03T20:02:25.5958539Z Updating files:  29% (181/624)
+2026-06-03T20:02:25.6534696Z Updating files:  30% (188/624)
+2026-06-03T20:02:25.7131970Z Updating files:  31% (194/624)
+2026-06-03T20:02:25.7757242Z Updating files:  32% (200/624)
+2026-06-03T20:02:25.8465788Z Updating files:  33% (206/624)
+2026-06-03T20:02:25.8568987Z Updating files:  34% (213/624)
+2026-06-03T20:02:25.9073320Z Updating files:  34% (214/624)
+2026-06-03T20:02:25.9679739Z Updating files:  35% (219/624)
+2026-06-03T20:02:25.9976849Z Updating files:  36% (225/624)
+2026-06-03T20:02:26.0665145Z Updating files:  37% (231/624)
+2026-06-03T20:02:26.1286164Z Updating files:  38% (238/624)
+2026-06-03T20:02:26.1806807Z Updating files:  39% (244/624)
+2026-06-03T20:02:26.2415207Z Updating files:  40% (250/624)
+2026-06-03T20:02:26.3108417Z Updating files:  41% (256/624)
+2026-06-03T20:02:26.3538762Z Updating files:  42% (263/624)
+2026-06-03T20:02:26.4020528Z Updating files:  43% (269/624)
+2026-06-03T20:02:26.4581337Z Updating files:  44% (275/624)
+2026-06-03T20:02:26.5264089Z Updating files:  45% (281/624)
+2026-06-03T20:02:26.5839089Z Updating files:  46% (288/624)
+2026-06-03T20:02:26.6392517Z Updating files:  47% (294/624)
+2026-06-03T20:02:26.6934721Z Updating files:  48% (300/624)
+2026-06-03T20:02:26.7491641Z Updating files:  49% (306/624)
+2026-06-03T20:02:26.8196094Z Updating files:  50% (312/624)
+2026-06-03T20:02:26.8597973Z Updating files:  51% (319/624)
+2026-06-03T20:02:26.8788207Z Updating files:  51% (323/624)
+2026-06-03T20:02:26.9400115Z Updating files:  52% (325/624)
+2026-06-03T20:02:27.0025326Z Updating files:  53% (331/624)
+2026-06-03T20:02:27.0487892Z Updating files:  54% (337/624)
+2026-06-03T20:02:27.1048766Z Updating files:  55% (344/624)
+2026-06-03T20:02:27.1710807Z Updating files:  56% (350/624)
+2026-06-03T20:02:27.2488478Z Updating files:  57% (356/624)
+2026-06-03T20:02:27.2857571Z Updating files:  58% (362/624)
+2026-06-03T20:02:27.3101525Z Updating files:  59% (369/624)
+2026-06-03T20:02:27.3316654Z Updating files:  60% (375/624)
+2026-06-03T20:02:27.3582465Z Updating files:  61% (381/624)
+2026-06-03T20:02:27.4049077Z Updating files:  62% (387/624)
+2026-06-03T20:02:27.4671048Z Updating files:  63% (394/624)
+2026-06-03T20:02:27.4995259Z Updating files:  64% (400/624)
+2026-06-03T20:02:27.5310636Z Updating files:  65% (406/624)
+2026-06-03T20:02:27.5920801Z Updating files:  66% (412/624)
+2026-06-03T20:02:27.6544421Z Updating files:  67% (419/624)
+2026-06-03T20:02:27.6868725Z Updating files:  68% (425/624)
+2026-06-03T20:02:27.7120771Z Updating files:  69% (431/624)
+2026-06-03T20:02:27.7457113Z Updating files:  70% (437/624)
+2026-06-03T20:02:27.7699251Z Updating files:  71% (444/624)
+2026-06-03T20:02:27.7995559Z Updating files:  72% (450/624)
+2026-06-03T20:02:27.8288420Z Updating files:  73% (456/624)
+2026-06-03T20:02:27.8554737Z Updating files:  74% (462/624)
+2026-06-03T20:02:27.8894793Z Updating files:  75% (468/624)
+2026-06-03T20:02:27.9228478Z Updating files:  76% (475/624)
+2026-06-03T20:02:27.9507825Z Updating files:  77% (481/624)
+2026-06-03T20:02:27.9769577Z Updating files:  78% (487/624)
+2026-06-03T20:02:28.0130119Z Updating files:  79% (493/624)
+2026-06-03T20:02:28.0369654Z Updating files:  80% (500/624)
+2026-06-03T20:02:28.0661191Z Updating files:  81% (506/624)
+2026-06-03T20:02:28.1085878Z Updating files:  82% (512/624)
+2026-06-03T20:02:28.1377938Z Updating files:  83% (518/624)
+2026-06-03T20:02:28.1408909Z Updating files:  84% (525/624)
+2026-06-03T20:02:28.1439492Z Updating files:  85% (531/624)
+2026-06-03T20:02:28.1472052Z Updating files:  86% (537/624)
+2026-06-03T20:02:28.1948767Z Updating files:  87% (543/624)
+2026-06-03T20:02:28.2518360Z Updating files:  88% (550/624)
+2026-06-03T20:02:28.3040090Z Updating files:  89% (556/624)
+2026-06-03T20:02:28.3698542Z Updating files:  90% (562/624)
+2026-06-03T20:02:28.4464494Z Updating files:  91% (568/624)
+2026-06-03T20:02:28.5055704Z Updating files:  92% (575/624)
+2026-06-03T20:02:28.6738876Z Updating files:  93% (581/624)
+2026-06-03T20:02:28.7324934Z Updating files:  94% (587/624)
+2026-06-03T20:02:28.7917927Z Updating files:  95% (593/624)
+2026-06-03T20:02:28.8380871Z Updating files:  96% (600/624)
+2026-06-03T20:02:28.8545059Z Updating files:  97% (606/624)
+2026-06-03T20:02:28.8632064Z Updating files:  97% (610/624)
+2026-06-03T20:02:28.8929878Z Updating files:  98% (612/624)
+2026-06-03T20:02:28.9104309Z Updating files:  99% (618/624)
+2026-06-03T20:02:28.9105052Z Updating files: 100% (624/624)
+2026-06-03T20:02:28.9105612Z Updating files: 100% (624/624), done.
+2026-06-03T20:02:28.9119703Z Reset branch 'compress-images-26909534338'
+2026-06-03T20:02:28.9654719Z [command]/usr/bin/git rev-list --right-only --count origin/compress-images-26909534338...compress-images-26909534338
+2026-06-03T20:02:28.9686215Z 0
+2026-06-03T20:02:28.9695910Z [command]/usr/bin/git rev-list --left-only --count origin/compress-images-26909534338...compress-images-26909534338
+2026-06-03T20:02:28.9719814Z 1
+2026-06-03T20:02:28.9724092Z Updated branch 'compress-images-26909534338'
+2026-06-03T20:02:28.9728605Z [command]/usr/bin/git rev-list --right-only --count main...compress-images-26909534338
+2026-06-03T20:02:28.9752022Z 0
+2026-06-03T20:02:28.9759799Z [command]/usr/bin/git rev-parse HEAD
+2026-06-03T20:02:28.9779813Z b02e4d2e33dbf8513fc08d7cb6064ca3c42cee5b
+2026-06-03T20:02:28.9787391Z [command]/usr/bin/git branch --delete --force e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db
+2026-06-03T20:02:28.9812563Z Deleted branch e0fdc238-afd5-41f9-8bf7-18ff8c2dc8db (was b02e4d2).
+2026-06-03T20:02:28.9825720Z [command]/usr/bin/git checkout --progress compress-images-26909534338 --
+2026-06-03T20:02:29.9265205Z Already on 'compress-images-26909534338'
+2026-06-03T20:02:29.9273407Z ##[endgroup]
+2026-06-03T20:02:29.9274852Z ##[group]Pushing pull request branch to 'origin/compress-images-26909534338'
+2026-06-03T20:02:29.9280786Z [command]/usr/bin/git push --force-with-lease origin compress-images-26909534338:refs/heads/compress-images-26909534338
+2026-06-03T20:02:30.7934014Z To https://github.com/Robocup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T20:02:30.7935163Z  + a7aead1...b02e4d2 compress-images-26909534338 -> compress-images-26909534338 (forced update)
+2026-06-03T20:02:30.7979124Z ##[endgroup]
+2026-06-03T20:02:30.7979678Z Branch 'compress-images-26909534338' no longer differs from base branch 'main'
+2026-06-03T20:02:30.7980323Z ##[group]Restore git configuration
+2026-06-03T20:02:30.7986189Z [command]/usr/bin/git config --local --name-only --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
+2026-06-03T20:02:30.8011066Z http.https://github.com/.extraheader
+2026-06-03T20:02:30.8018339Z [command]/usr/bin/git config --local --get-regexp http.https://github.com/.extraheader ^AUTHORIZATION:
+2026-06-03T20:02:30.8049681Z http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-06-03T20:02:30.8051808Z [command]/usr/bin/git config --local --unset http.https://github.com/.extraheader ^AUTHORIZATION:
+2026-06-03T20:02:30.8081500Z Unset config key 'http.https://github.com/.extraheader'
+2026-06-03T20:02:30.8088537Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-06-03T20:02:30.8124570Z Persisted git credentials restored
+2026-06-03T20:02:30.8140168Z [command]/usr/bin/git config --global --unset safe.directory /home/runner/work/RoboCup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T20:02:30.8168858Z ##[endgroup]
+2026-06-03T20:02:30.8309978Z Post job cleanup.
+2026-06-03T20:02:30.9282086Z [command]/usr/bin/git version
+2026-06-03T20:02:30.9318970Z git version 2.54.0
+2026-06-03T20:02:30.9357364Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/a99af995-c58c-418a-beb3-864db2cba391/.gitconfig'
+2026-06-03T20:02:30.9367636Z Temporarily overriding HOME='/home/runner/work/_temp/a99af995-c58c-418a-beb3-864db2cba391' before making global git config changes
+2026-06-03T20:02:30.9369029Z Adding repository directory to the temporary git global config as a safe directory
+2026-06-03T20:02:30.9381199Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/RoboCup-Phoenix-Team/RoboCup-Phoenix-Team
+2026-06-03T20:02:30.9416205Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-06-03T20:02:30.9447928Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-06-03T20:02:30.9677929Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-06-03T20:02:30.9699528Z http.https://github.com/.extraheader
+2026-06-03T20:02:30.9712483Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-06-03T20:02:30.9743755Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-06-03T20:02:30.9977925Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-06-03T20:02:31.0012770Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-06-03T20:02:31.0370633Z Cleaning up orphan processes
+2026-06-03T20:02:31.0707326Z ##[warning]Node.js 20 actions are deprecated. The following actions are running on Node.js 20 and may not work as expected: actions/checkout@v4, peter-evans/create-pull-request@v6. Actions will be forced to run with Node.js 24 by default starting June 16th, 2026. Node.js 20 will be removed from the runner on September 16th, 2026. Please check if updated versions of these actions are available that support Node.js 24. To opt into Node.js 24 now, set the FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true environment variable on the runner or in your workflow file. Once Node.js 24 becomes the default, you can temporarily opt out by setting ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
