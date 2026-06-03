@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Robot Simulator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.3/full/pyodide.js"></script>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap");
+:root {
+  --bg: #0d1117;
+  --panel: #151b23;
+  --accent: #00c2a8;
+  --accent-2: #ffb347;
+  --text: #e6edf3;
+  --muted: #9aa4b2;
+  --border: #243040;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #182234 0%, #0d1117 55%);
+  color: var(--text);
+}
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border);
+}
+.title-block h1 { margin: 0 0 8px; font-size: 26px; }
+.subtitle { margin: 0; color: var(--muted); }
+.status {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--accent);
+  background: rgba(0, 194, 168, 0.12);
+  font-weight: 600;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 24px;
+  padding: 24px 32px 40px;
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 620px;
+}
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.panel-header h2 { margin: 0; font-size: 18px; }
+.button-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+button {
+  border: 1px solid var(--border);
+  background: #0f1520;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, border 0.15s ease;
+  font-family: inherit;
+}
+button:hover { transform: translateY(-1px); border-color: var(--accent); }
+button:active { transform: translateY(0); }
+select {
+  border: 1px solid var(--border);
+  background: #0f1520;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.panel-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.log {
+  margin-top: 12px;
+  background: #0f141c;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  height: 120px;
+  overflow: auto;
+  color: var(--accent-2);
+}
+.canvas-panel { gap: 12px; }
+canvas {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.43 / 1.83;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #0a0f16;
+  display: block;
+}
+.stats { color: var(--muted); font-size: 12px; margin-top: 6px; }
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 1fr; }
+  .panel { min-height: auto; }
+}
+.editor-container { position: relative; flex: 1; min-height: 420px; }
+#highlighting,
+#code {
+  margin: 0;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre;
+  overflow: auto;
+  tab-size: 4;
+}
+#highlighting {
+  pointer-events: none;
+  padding: 16px;
+  background: #0f141c;
+  color: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+#code {
+  background: transparent;
+  color: transparent;
+  caret-color: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  resize: none;
+  outline: none;
+  white-space: pre;
+}
+.keyword  { color: #ff79c6; }
+.func     { color: #8be9fd; }
+.number   { color: #bd93f9; }
+.comment  { color: #6272a4; }
+.string   { color: #f1fa8c; }
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="title-block">
+    <h1>🤖 Robot Simulator</h1>
+    <p class="subtitle">Simulateur de robot omni-directionnel — terrain 2.43 × 1.83 m</p>
+  </div>
+  <div id="py-status" class="status">Python: loading…</div>
+</header>
+
+<div class="layout">
+
+  <!-- Éditeur Python -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>Python Controller</h2>
+      <div class="button-row">
+        <button id="new-file-btn">Nouveau</button>
+        <button id="save-file-btn">Sauver</button>
+        <button id="rename-file-btn">Renommer</button>
+        <select id="file-list"></select>
+        <input type="file" id="upload-py" accept=".py" hidden />
+        <button id="upload-btn">Import .py</button>
+        <button id="run-btn">▶ Run</button>
+        <button id="pause-btn">⏸ Pause</button>
+        <button id="reset-btn">⟳ Reset</button>
+        <button id="sample-btn">Sample</button>
+      </div>
+    </div>
+    <div class="editor-container">
+      <pre id="highlighting" aria-hidden="true"></pre>
+      <textarea id="code" spellcheck="false" autocorrect="off" autocapitalize="off"></textarea>
+    </div>
+    <div class="panel-footer">
+      <div class="hint">API : setmotor_speed1..4(pct) · set_wheel_speeds(fl,fr,rl,rr)</div>
+    </div>
+    <div class="log" id="log"></div>
+  </section>
+
+  <!-- Terrain -->
+  <section class="panel canvas-panel">
+    <div class="panel-header">
+      <h2>Terrain</h2>
+    </div>
+    <canvas id="field"></canvas>
+    <div id="stats" class="stats">robot: — | ball: —</div>
+  </section>
+
+</div>
+
+<script>
+/* ─── Constantes ────────────────────────────────────────────── */
+const FIELD = { width: 2.43, height: 1.83 };
+const LIMITS = { maxWheelSpeed: 2.0, ballRestitution: 0.6, ballFriction: 0.7 };
+const DRIVE  = { wheelRadius: 0.03, maxWheelOmega: 40, maxWheelAccel: 120 };
+
+/* ─── DOM ───────────────────────────────────────────────────── */
+const canvas      = document.getElementById("field");
+const ctx         = canvas.getContext("2d");
+const statsEl     = document.getElementById("stats");
+const statusEl    = document.getElementById("py-status");
+const logEl       = document.getElementById("log");
+const codeEl      = document.getElementById("code");
+const highlightEl = document.getElementById("highlighting");
+
+const runBtn       = document.getElementById("run-btn");
+const pauseBtn     = document.getElementById("pause-btn");
+const resetBtn     = document.getElementById("reset-btn");
+const sampleBtn    = document.getElementById("sample-btn");
+const fileList     = document.getElementById("file-list");
+const newFileBtn   = document.getElementById("new-file-btn");
+const saveFileBtn  = document.getElementById("save-file-btn");
+const renameFileBtn= document.getElementById("rename-file-btn");
+const uploadBtn    = document.getElementById("upload-btn");
+const uploadPy     = document.getElementById("upload-py");
+
+/* ─── Sample code ───────────────────────────────────────────── */
+const sampleCode = `from robot_api import setmotor_speed1, setmotor_speed2, setmotor_speed3, setmotor_speed4
+
+# Ordre des moteurs : 1=avant-gauche, 2=avant-droit, 3=arriere-gauche, 4=arriere-droit
+# Vitesse en pourcentage dans [-100, 100]
+
+phase = 0.0
+
+
+def set_all(fl, fr, rl, rr):
+    setmotor_speed1(fl)
+    setmotor_speed2(fr)
+    setmotor_speed3(rl)
+    setmotor_speed4(rr)
+
+
+def stop():
+    set_all(0, 0, 0, 0)
+
+
+def avancer(v=70):
+    set_all(v, v, v, v)
+
+
+def reculer(v=70):
+    set_all(-v, -v, -v, -v)
+
+
+def strafe_droite(v=70):
+    # Mecanum : FL(-) FR(+) RL(+) RR(-)
+    set_all(-v, v, v, -v)
+
+
+def strafe_gauche(v=70):
+    set_all(v, -v, -v, v)
+
+
+def rotation_cw(v=60):
+    set_all(-v, v, -v, v)
+
+
+def rotation_ccw(v=60):
+    set_all(v, -v, v, -v)
+
+
+def diagonale_avant_droite(v1=20, v2=80):
+    # FR et RL rapides, FL et RR lents
+    set_all(v1, v2, v2, v1)
+
+
+def diagonale_avant_gauche(v1=80, v2=20):
+    # FL et RL rapides, FR et RR lents
+    set_all(v1, v2, v2, v1)
+
+
+def step(dt, state):
+    global phase
+    phase += dt
+    t = phase % 16.0
+
+    if t < 2.0:
+        avancer(70)
+    elif t < 4.0:
+        reculer(70)
+    elif t < 6.0:
+        strafe_droite(70)
+    elif t < 8.0:
+        strafe_gauche(70)
+    elif t < 10.0:
+        rotation_cw(60)
+    elif t < 12.0:
+        rotation_ccw(60)
+    elif t < 14.0:
+        diagonale_avant_droite(20, 80)
+    else:
+        diagonale_avant_gauche(80, 20)
+`;
+
+/* ─── État robot / balle ────────────────────────────────────── */
+const robot = {
+  x: FIELD.width * 0.5,
+  y: FIELD.height * 0.5,
+  heading: 0,
+  radius: 0.09,
+  halfLength: 0.09,
+  halfWidth: 0.09,
+  wheels:      { fl: 0, fr: 0, rl: 0, rr: 0 },
+  wheelTargets:{ fl: 0, fr: 0, rl: 0, rr: 0 }
+};
+
+const ball = {
+  x: FIELD.width * 0.7,
+  y: FIELD.height * 0.5,
+  vx: 0, vy: 0,
+  radius: 0.04
+};
+
+/* ─── Pyodide ───────────────────────────────────────────────── */
+let pyodide   = null;
+let pyReady   = false;
+let pyStepFn  = null;
+let lastTime  = null;
+let running   = false;
+
+function log(message) {
+  const line = document.createElement("div");
+  line.textContent = message;
+  logEl.appendChild(line);
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+/* ─── API moteurs ───────────────────────────────────────────── */
+// set_wheel_speeds : vitesses en m/s → omega
+function setWheelSpeeds(fl, fr, rl, rr) {
+  function toOmega(ms) {
+    const msClamped = clamp(Number(ms) || 0, -LIMITS.maxWheelSpeed, LIMITS.maxWheelSpeed);
+    return clamp(msClamped / DRIVE.wheelRadius, -DRIVE.maxWheelOmega, DRIVE.maxWheelOmega);
+  }
+  robot.wheelTargets.fl = toOmega(fl);
+  robot.wheelTargets.fr = toOmega(fr);
+  robot.wheelTargets.rl = toOmega(rl);
+  robot.wheelTargets.rr = toOmega(rr);
+}
+
+// setmotor_speed : vitesse en % [-100, 100] → omega
+function setMotorSpeed(index, percent) {
+  const omega = clamp((Number(percent) || 0) / 100, -1, 1) * DRIVE.maxWheelOmega;
+  if (index === 1) robot.wheelTargets.fl = omega;
+  if (index === 2) robot.wheelTargets.fr = omega;
+  if (index === 3) robot.wheelTargets.rl = omega;
+  if (index === 4) robot.wheelTargets.rr = omega;
+}
+
+/* ─── Physique ──────────────────────────────────────────────── */
+function updateWheelSpeeds(dt) {
+  const maxDelta = DRIVE.maxWheelAccel * dt;
+  for (const k of ["fl","fr","rl","rr"]) {
+    const diff = robot.wheelTargets[k] - robot.wheels[k];
+    robot.wheels[k] += clamp(diff, -maxDelta, maxDelta);
+  }
+}
+
+// Cinématique mecanum standard
+// vx (avant), vy (gauche), omega (CCW)
+function bodyVelFromWheels() {
+  const { fl, fr, rl, rr } = robot.wheels;
+  const R = DRIVE.wheelRadius;
+  const L = robot.halfLength + robot.halfWidth; // demi-empattement + demi-voie
+  const vx    = R * (fl + fr + rl + rr) / 4;
+  const vy    = R * (-fl + fr + rl - rr) / 4;
+  const omega = R * (-fl + fr - rl + rr) / (4 * L);
+  return { vx, vy, omega };
+}
+
+function stepPhysics(dt) {
+  updateWheelSpeeds(dt);
+  const body = bodyVelFromWheels();
+  const cosH = Math.cos(robot.heading);
+  const sinH = Math.sin(robot.heading);
+
+  // Transformation corps → monde
+  const vxW = body.vx * cosH - body.vy * sinH;
+  const vyW = body.vx * sinH + body.vy * cosH;
+
+  robot.x += vxW * dt;
+  robot.y += vyW * dt;
+  robot.heading += body.omega * dt;
+  robot.heading = Math.atan2(Math.sin(robot.heading), Math.cos(robot.heading));
+  robot.x = clamp(robot.x, robot.radius, FIELD.width  - robot.radius);
+  robot.y = clamp(robot.y, robot.radius, FIELD.height - robot.radius);
+
+  // Balle
+  ball.x += ball.vx * dt;
+  ball.y += ball.vy * dt;
+  const friction = Math.max(0, 1 - LIMITS.ballFriction * dt);
+  ball.vx *= friction;
+  ball.vy *= friction;
+
+  if (ball.x < ball.radius)              { ball.x = ball.radius;              ball.vx =  Math.abs(ball.vx) * LIMITS.ballRestitution; }
+  if (ball.x > FIELD.width  - ball.radius){ ball.x = FIELD.width - ball.radius; ball.vx = -Math.abs(ball.vx) * LIMITS.ballRestitution; }
+  if (ball.y < ball.radius)              { ball.y = ball.radius;              ball.vy =  Math.abs(ball.vy) * LIMITS.ballRestitution; }
+  if (ball.y > FIELD.height - ball.radius){ ball.y = FIELD.height - ball.radius; ball.vy = -Math.abs(ball.vy) * LIMITS.ballRestitution; }
+
+  // Collision robot ↔ balle
+  const dx   = ball.x - robot.x;
+  const dy   = ball.y - robot.y;
+  const dist = Math.hypot(dx, dy);
+  const minD = ball.radius + robot.radius;
+  if (dist < minD && dist > 0.0001) {
+    const nx = dx / dist, ny = dy / dist;
+    ball.x = robot.x + nx * minD;
+    ball.y = robot.y + ny * minD;
+    ball.vx = vxW + nx * 0.4;
+    ball.vy = vyW + ny * 0.4;
+  }
+}
+
+/* ─── Rendu ─────────────────────────────────────────────────── */
+function resizeCanvas() {
+  const rect = canvas.getBoundingClientRect();
+  const w = Math.max(1, Math.round(rect.width));
+  const h = Math.max(1, Math.round(rect.height));
+  if (canvas.width !== w || canvas.height !== h) {
+    canvas.width  = w;
+    canvas.height = h;
+  }
+}
+
+function drawField() {
+  resizeCanvas();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Calcul de l'échelle et des offsets pour centrer le terrain
+  const scale   = Math.min(canvas.width / FIELD.width, canvas.height / FIELD.height);
+  const offsetX = (canvas.width  - FIELD.width  * scale) / 2;
+  const offsetY = (canvas.height - FIELD.height * scale) / 2;
+
+  function tx(x) { return offsetX + x * scale; }
+  function ty(y) { return offsetY + y * scale; }
+
+  // ── Sol ──
+  ctx.fillStyle = "#0d1a12";
+  ctx.beginPath();
+  ctx.roundRect(offsetX, offsetY, FIELD.width * scale, FIELD.height * scale, 6);
+  ctx.fill();
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.roundRect(offsetX, offsetY, FIELD.width * scale, FIELD.height * scale, 6);
+  ctx.clip();
+
+  // Lignes du terrain
+  ctx.strokeStyle = "rgba(255,255,255,0.8)";
+  ctx.lineWidth   = 2;
+
+  // Bord extérieur
+  ctx.strokeRect(offsetX, offsetY, FIELD.width * scale, FIELD.height * scale);
+
+  // Ligne médiane
+  ctx.beginPath();
+  ctx.moveTo(tx(FIELD.width / 2), ty(0));
+  ctx.lineTo(tx(FIELD.width / 2), ty(FIELD.height));
+  ctx.stroke();
+
+  // Cercle central
+  ctx.beginPath();
+  ctx.arc(tx(FIELD.width / 2), ty(FIELD.height / 2), 0.25 * scale, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Point central
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.arc(tx(FIELD.width / 2), ty(FIELD.height / 2), 3, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Buts
+  const goalDepth = 0.15 * scale;
+  const goalWidth = 0.6  * scale;
+  ctx.strokeRect(offsetX, ty(FIELD.height / 2) - goalWidth / 2, goalDepth, goalWidth);
+  ctx.strokeRect(tx(FIELD.width) - goalDepth, ty(FIELD.height / 2) - goalWidth / 2, goalDepth, goalWidth);
+
+  // ── Robot ──
+  ctx.save();
+  ctx.translate(tx(robot.x), ty(robot.y));
+  ctx.rotate(robot.heading);
+
+  const rr = robot.radius * scale;
+  // Corps
+  ctx.fillStyle   = "#00c2a8";
+  ctx.strokeStyle = "#00e8ca";
+  ctx.lineWidth   = 1.5;
+  ctx.beginPath();
+  ctx.roundRect(-rr, -rr, rr * 2, rr * 2, 4);
+  ctx.fill();
+  ctx.stroke();
+
+  // Indicateur de direction (triangle avant)
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  ctx.moveTo(rr * 0.6, 0);
+  ctx.lineTo(rr * 0.2, -rr * 0.35);
+  ctx.lineTo(rr * 0.2,  rr * 0.35);
+  ctx.closePath();
+  ctx.fill();
+
+  // Roues (4 coins)
+  const wx = rr * 0.55, wy = rr * 0.55;
+  const ww = rr * 0.35, wh = rr * 0.18;
+  ctx.fillStyle = "#243040";
+  for (const [sx, sy] of [[-1,-1],[ 1,-1],[-1, 1],[ 1, 1]]) {
+    ctx.save();
+    ctx.translate(sx * wx, sy * wy);
+    ctx.rotate(Math.PI / 4); // roues mecanum à 45°
+    ctx.fillRect(-ww / 2, -wh / 2, ww, wh);
+    ctx.restore();
+  }
+
+  ctx.restore();
+
+  // ── Balle ──
+  const bx = tx(ball.x), by = ty(ball.y);
+  const br = ball.radius * scale;
+
+  const ballGrad = ctx.createRadialGradient(bx - br*0.3, by - br*0.3, br*0.1, bx, by, br);
+  ballGrad.addColorStop(0, "#ffe080");
+  ballGrad.addColorStop(1, "#e07000");
+  ctx.fillStyle = ballGrad;
+  ctx.beginPath();
+  ctx.arc(bx, by, br, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore(); // fin du clip
+}
+
+function updateStats() {
+  const deg = (robot.heading * 180 / Math.PI).toFixed(1);
+  statsEl.textContent =
+    `robot: (${robot.x.toFixed(2)}, ${robot.y.toFixed(2)}) m  |  cap: ${deg}°  |  ` +
+    `ball: (${ball.x.toFixed(2)}, ${ball.y.toFixed(2)}) m  vx:${ball.vx.toFixed(2)} vy:${ball.vy.toFixed(2)}`;
+}
+
+/* ─── Pyodide ───────────────────────────────────────────────── */
+async function loadPython() {
+  statusEl.textContent = "Python: loading…";
+  try {
+    pyodide = await loadPyodide();
+    pyodide.registerJsModule("robot_api", {
+      set_wheel_speeds:  setWheelSpeeds,
+      setmotor_speed1:   (p) => setMotorSpeed(1, p),
+      setmotor_speed2:   (p) => setMotorSpeed(2, p),
+      setmotor_speed3:   (p) => setMotorSpeed(3, p),
+      setmotor_speed4:   (p) => setMotorSpeed(4, p),
+      log:               (m) => log(String(m))
+    });
+    pyReady = true;
+    statusEl.textContent = "Python: ready ✓";
+    statusEl.style.color = "var(--accent)";
+  } catch (err) {
+    statusEl.textContent = "Python: erreur";
+    statusEl.style.color = "#ff6b6b";
+    log("Erreur Pyodide : " + String(err));
+  }
+}
+
+async function runUserCode() {
+  if (!pyReady) { log("Python n'est pas encore prêt."); return; }
+  try {
+    if (pyStepFn) { pyStepFn.destroy(); pyStepFn = null; }
+    pyodide.globals.set("__user_code__", codeEl.value);
+    await pyodide.runPythonAsync("exec(__user_code__)");
+    const fn = pyodide.globals.get("step");
+    if (!fn) { log("Aucune fonction step(dt, state) trouvée."); return; }
+    pyStepFn = fn;
+    running  = true;
+    log("▶ Démarrage…");
+  } catch (err) {
+    log("Erreur : " + String(err));
+  }
+}
+
+function resetSim() {
+  robot.x = FIELD.width  * 0.5;
+  robot.y = FIELD.height * 0.5;
+  robot.heading = 0;
+  for (const k of ["fl","fr","rl","rr"]) {
+    robot.wheels[k]       = 0;
+    robot.wheelTargets[k] = 0;
+  }
+  ball.x = FIELD.width * 0.7; ball.y = FIELD.height * 0.5;
+  ball.vx = 0; ball.vy = 0;
+}
+
+/* ─── Boucle principale ─────────────────────────────────────── */
+function tick(timestamp) {
+  if (!lastTime) lastTime = timestamp;
+  const dt = Math.min(0.033, (timestamp - lastTime) / 1000);
+  lastTime = timestamp;
+
+  if (running && pyStepFn) {
+    const state = {
+      robot: { x: robot.x, y: robot.y, heading: robot.heading },
+      ball:  { x: ball.x,  y: ball.y,  vx: ball.vx, vy: ball.vy },
+      field: { width: FIELD.width, height: FIELD.height }
+    };
+    const pyState = pyodide.toPy(state);
+    try {
+      pyStepFn(dt, pyState);
+    } catch (err) {
+      log("Erreur step : " + String(err));
+      running = false;
+    } finally {
+      pyState.destroy();
+    }
+  }
+
+  stepPhysics(dt);
+  drawField();
+  updateStats();
+  requestAnimationFrame(tick);
+}
+
+/* ─── Boutons ───────────────────────────────────────────────── */
+runBtn.addEventListener   ("click", runUserCode);
+pauseBtn.addEventListener ("click", () => { running = false; log("⏸ Pause."); });
+resetBtn.addEventListener ("click", () => { running = false; resetSim(); log("⟳ Reset."); });
+sampleBtn.addEventListener("click", () => { codeEl.value = sampleCode; updateHighlighting(); });
+
+/* ─── Gestion des fichiers (Sauvegarde automatique dans localStorage) ─────── */
+// Clé pour le localStorage
+const STORAGE_KEY = "robot_sim_files";
+
+// 1. Initialisation : Charger depuis le localStorage ou utiliser le code par défaut
+let fileStore = { "main.py": sampleCode };
+try {
+  const savedFiles = localStorage.getItem(STORAGE_KEY);
+  if (savedFiles) {
+    fileStore = JSON.parse(savedFiles);
+  }
+} catch (e) {
+  console.error("Impossible de charger les fichiers depuis le localStorage", e);
+}
+
+// Trouver le premier fichier disponible pour l'ouvrir par défaut
+let currentFile = Object.keys(fileStore).includes("main.py") ? "main.py" : Object.keys(fileStore)[0] || "";
+
+// Fonction utilitaire pour sauvegarder l'état actuel dans le localStorage
+function saveToLocalStorage() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(fileStore));
+}
+
+function refreshFileList() {
+  fileList.innerHTML = "";
+  Object.keys(fileStore).forEach(name => {
+    const opt = document.createElement("option");
+    opt.value = name; opt.textContent = name;
+    fileList.appendChild(opt);
+  });
+  if (currentFile) fileList.value = currentFile;
+}
+
+function loadFile(name) {
+  if (!name) return;
+  currentFile  = name;
+  codeEl.value = fileStore[name] || "";
+  updateHighlighting();
+}
+
+function saveCurrentFile() {
+  fileStore[currentFile] = codeEl.value;
+  saveToLocalStorage(); // <-- Sauvegarde dans le JSON du localStorage
+  refreshFileList();
+  log("💾 Sauvé dans le navigateur : " + currentFile);
+}
+
+function createFile() {
+  const name = prompt("Nom du fichier (.py)");
+  if (!name) return;
+  fileStore[name] = "";
+  currentFile = name;
+  saveToLocalStorage(); // <-- Sauvegarde la création
+  refreshFileList();
+  loadFile(name);
+}
+
+function renameFile() {
+  const newName = prompt("Nouveau nom", currentFile);
+  if (!newName || newName === currentFile) return;
+  fileStore[newName] = fileStore[currentFile];
+  delete fileStore[currentFile];
+  currentFile = newName;
+  saveToLocalStorage(); // <-- Sauvegarde le renommage
+  refreshFileList();
+  log("✏️ Renommé en " + newName);
+}
+
+newFileBtn.addEventListener   ("click", createFile);
+saveFileBtn.addEventListener  ("click", saveCurrentFile);
+renameFileBtn.addEventListener("click", renameFile);
+fileList.addEventListener     ("change", () => {
+  // Optionnel mais recommandé : Sauvegarder le fichier en cours avant de changer
+  fileStore[currentFile] = codeEl.value;
+  saveToLocalStorage();
+  
+  loadFile(fileList.value);
+});
+
+// Import .py
+uploadBtn.addEventListener("click", () => uploadPy.click());
+uploadPy.addEventListener ("change", () => {
+  const file = uploadPy.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const name = file.name;
+    fileStore[name] = e.target.result;
+    currentFile = name;
+    saveToLocalStorage(); // <-- Sauvegarde l'import
+    refreshFileList();
+    loadFile(name);
+    log("📂 Importé et sauvegardé : " + name);
+  };
+  reader.readAsText(file);
+  uploadPy.value = "";
+});
+
+/* ─── Coloration syntaxique ─────────────────────────────────── */
+function escapeHtml(s) {
+  return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function updateHighlighting() {
+  // On tokenise ligne par ligne pour éviter les collisions regex
+  const lines = codeEl.value.split("\n");
+  const highlighted = lines.map(line => {
+    // Commentaire : tout ce qui suit #
+    const commentIdx = (() => {
+      let inStr = false, strChar = "";
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (!inStr && (c === '"' || c === "'")) { inStr = true; strChar = c; }
+        else if (inStr && c === strChar && line[i-1] !== "\\") inStr = false;
+        else if (!inStr && c === "#") return i;
+      }
+      return -1;
+    })();
+
+    let code  = commentIdx >= 0 ? line.slice(0, commentIdx) : line;
+    let comment = commentIdx >= 0 ? line.slice(commentIdx) : "";
+
+    // Escape HTML
+    code    = escapeHtml(code);
+    comment = escapeHtml(comment);
+
+    // Strings
+    code = code.replace(/("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/g, '<span class="string">$1</span>');
+    // Mots-clés
+    code = code.replace(/\b(def|class|if|elif|else|for|while|return|import|from|try|except|with|as|pass|break|continue|global|and|or|not|in|is|None|True|False|lambda|yield|raise|del|assert|nonlocal)\b/g, '<span class="keyword">$1</span>');
+    // Nombres
+    code = code.replace(/\b(\d+(?:\.\d+)?)\b/g, '<span class="number">$1</span>');
+    // Fonctions
+    code = code.replace(/\b([a-zA-Z_]\w*)\(/g, '<span class="func">$1</span>(');
+
+    return code + (comment ? `<span class="comment">${comment}</span>` : "");
+  });
+
+  highlightEl.innerHTML = highlighted.join("\n");
+  // Sync scroll
+  highlightEl.scrollTop  = codeEl.scrollTop;
+  highlightEl.scrollLeft = codeEl.scrollLeft;
+}
+
+codeEl.addEventListener("input",  updateHighlighting);
+codeEl.addEventListener("scroll", () => {
+  highlightEl.scrollTop  = codeEl.scrollTop;
+  highlightEl.scrollLeft = codeEl.scrollLeft;
+});
+
+// Gestion de la touche Tab dans l'éditeur
+codeEl.addEventListener("keydown", (e) => {
+  if (e.key === "Tab") {
+    e.preventDefault();
+    const start = codeEl.selectionStart;
+    const end   = codeEl.selectionEnd;
+    codeEl.value = codeEl.value.slice(0, start) + "    " + codeEl.value.slice(end);
+    codeEl.selectionStart = codeEl.selectionEnd = start + 4;
+    updateHighlighting();
+  }
+});
+
+/* ─── Init ──────────────────────────────────────────────────── */
+refreshFileList();
+loadFile("main.py");
+updateHighlighting();
+loadPython();
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>
