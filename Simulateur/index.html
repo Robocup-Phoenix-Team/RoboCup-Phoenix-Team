@@ -428,7 +428,24 @@ function stepPhysics(dt) {
   if (ball.y < ball.radius)              { ball.y = ball.radius;              ball.vy =  Math.abs(ball.vy) * LIMITS.ballRestitution; }
   if (ball.y > FIELD.height - ball.radius){ ball.y = FIELD.height - ball.radius; ball.vy = -Math.abs(ball.vy) * LIMITS.ballRestitution; }
 
+// ── DÉTECTION DES BUTS (Style RoboCup Junior) ──
+  const goalWidth = 0.6; // Même largeur que le dessin du but
+  const goalTop = (FIELD.height / 2) - (goalWidth / 2);
+  const goalBottom = (FIELD.height / 2) + (goalWidth / 2);
+
+  // Si la balle est alignée verticalement avec les poteaux
+  if (ball.y >= goalTop && ball.y <= goalBottom) {
+    // But Gauche ou But Droit dépassé
+    if (ball.x <= ball.radius || ball.x >= FIELD.width - ball.radius) {
+      running = false; // Arrête le code Python en cours
+      resetSim();      // Remet le robot et la balle au centre
+      log("⚽ GOAL !!! Réinitialisation du terrain.");
+      return;          // On sort de la fonction pour éviter les bugs de collision ce frame
+    }
+  }
+
   // Collision robot ↔ balle
+
   const dx   = ball.x - robot.x;
   const dy   = ball.y - robot.y;
   const dist = Math.hypot(dx, dy);
@@ -506,43 +523,77 @@ function drawField() {
   ctx.strokeRect(offsetX, ty(FIELD.height / 2) - goalWidth / 2, goalDepth, goalWidth);
   ctx.strokeRect(tx(FIELD.width) - goalDepth, ty(FIELD.height / 2) - goalWidth / 2, goalDepth, goalWidth);
 
-  // ── Robot ──
+// ── Robot (Style RoboCup Junior / Ludovatech) ──
   ctx.save();
   ctx.translate(tx(robot.x), ty(robot.y));
   ctx.rotate(robot.heading);
 
   const rr = robot.radius * scale;
-  // Corps
-  ctx.fillStyle   = "#00c2a8";
-  ctx.strokeStyle = "#00e8ca";
-  ctx.lineWidth   = 1.5;
+
+  // 1. Dessin de la base ronde du robot
+  ctx.fillStyle   = "rgba(20, 30, 45, 0.9)"; // Fond sombre high-tech
+  ctx.strokeStyle = "#00c2a8";               // Contour cyan
+  ctx.lineWidth   = 2.5;
+  
   ctx.beginPath();
-  ctx.roundRect(-rr, -rr, rr * 2, rr * 2, 4);
+  // On dessine un cercle parfait
+  ctx.arc(0, 0, rr, 0, Math.PI * 2);
   ctx.fill();
   ctx.stroke();
 
-  // Indicateur de direction (triangle avant)
-  ctx.fillStyle = "white";
+  // 2. Plaque supérieure / Indicateur de direction (Style "Plat" ou "Avant")
+  // Un demi-cercle ou une ligne pour bien voir l'avant du robot
+  ctx.fillStyle = "rgba(0, 194, 168, 0.3)";
   ctx.beginPath();
-  ctx.moveTo(rr * 0.6, 0);
-  ctx.lineTo(rr * 0.2, -rr * 0.35);
-  ctx.lineTo(rr * 0.2,  rr * 0.35);
+  ctx.arc(0, 0, rr, -Math.PI/4, Math.PI/4); // Arc de cercle à l'avant
+  ctx.lineTo(0, 0);
   ctx.closePath();
   ctx.fill();
 
-  // Roues (4 coins)
-  const wx = rr * 0.55, wy = rr * 0.55;
-  const ww = rr * 0.35, wh = rr * 0.18;
-  ctx.fillStyle = "#243040";
-  for (const [sx, sy] of [[-1,-1],[ 1,-1],[-1, 1],[ 1, 1]]) {
+  // Flèche directionnelle blanche et fine vers l'avant
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.moveTo(rr * 0.7, 0);
+  ctx.lineTo(rr * 0.4, -rr * 0.2);
+  ctx.lineTo(rr * 0.4,  rr * 0.2);
+  ctx.closePath();
+  ctx.fill();
+
+  // 3. Dessin des 4 roues à plat aux "quatres coins" du rond (à 45°)
+  // Dimensions des roues omnidirectionnelles
+  const wheelW = rr * 0.35; // Largeur de la roue
+  const wheelH = rr * 0.15; // Épaisseur de la roue
+  ctx.fillStyle = "#3a4d64";
+
+  // Les angles des 4 coins d'un cercle : 45°, 135°, 225°, 315°
+  const angles = [
+    Math.PI / 4,   // Avant-Droit
+    -Math.PI / 4,  // Avant-Gauche
+    3 * Math.PI / 4,  // Arrière-Droit
+    -3 * Math.PI / 4  // Arrière-Gauche
+  ];
+
+  angles.forEach(angle => {
     ctx.save();
-    ctx.translate(sx * wx, sy * wy);
-    ctx.rotate(Math.PI / 4); // roues mecanum à 45°
-    ctx.fillRect(-ww / 2, -wh / 2, ww, wh);
+    // On se place sur le bord du cercle (0.85 * rr pour enfoncer légèrement la roue)
+    ctx.rotate(angle);
+    ctx.translate(rr * 0.85, 0); 
+    
+    // On tourne la roue pour qu'elle soit "à plat" (tangente au cercle)
+    ctx.rotate(Math.PI / 2); 
+    
+    // Dessin du rectangle de la roue
+    ctx.fillRect(-wheelW / 2, -wheelH / 2, wheelW, wheelH);
+    
+    // Petit effet de rouleau central pour le style "Omniwheel"
+    ctx.fillStyle = "#00e8ca";
+    ctx.fillRect(-wheelW / 4, -wheelH / 2, wheelW / 2, wheelH);
+    ctx.fillStyle = "#3a4d64";
     ctx.restore();
-  }
+  });
 
   ctx.restore();
+  // ── Fin Robot ──
 
   // ── Balle ──
   const bx = tx(ball.x), by = ty(ball.y);
@@ -577,7 +628,18 @@ async function loadPython() {
       setmotor_speed2:   (p) => setMotorSpeed(2, p),
       setmotor_speed3:   (p) => setMotorSpeed(3, p),
       setmotor_speed4:   (p) => setMotorSpeed(4, p),
-      log:               (m) => log(String(m))
+      log:               (m) => log(String(m)),
+      
+      // ── Nouvelle API pour récupérer la balle ──
+      get_ball_x:        () => ball.x,
+      get_ball_y:        () => ball.y,
+      get_ball_vx:       () => ball.vx,
+      get_ball_vy:       () => ball.vy,
+      
+      // Petit bonus si tu as besoin du robot plus tard
+      get_robot_x:       () => robot.x,
+      get_robot_y:       () => robot.y,
+      get_robot_heading: () => robot.heading
     });
     pyReady = true;
     statusEl.textContent = "Python: ready ✓";
@@ -815,6 +877,95 @@ codeEl.addEventListener("keydown", (e) => {
 });
 
 /* ─── Init ──────────────────────────────────────────────────── */
+
+/* ─── Drag and Drop (Robot et Balle) ────────────────────────── */
+let isDragging = null; // Peut être 'robot', 'ball' ou null
+let wasRunningBeforeDrag = false;
+
+// Fonction pour convertir les coordonnées de la souris (pixels) en mètres (terrain)
+function getMousePosInMeters(e) {
+  const rect = canvas.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+
+  // Récupération des mêmes calculs d'échelle que dans drawField()
+  const scale = Math.min(canvas.width / FIELD.width, canvas.height / FIELD.height);
+  const offsetX = (canvas.width - FIELD.width * scale) / 2;
+  const offsetY = (canvas.height - FIELD.height * scale) / 2;
+
+  // Conversion pixel -> mètre
+  const x = (mouseX - offsetX) / scale;
+  const y = (mouseY - offsetY) / scale;
+
+  return { x, y };
+}
+
+// Événement : Clic enfoncé
+canvas.addEventListener("mousedown", (e) => {
+  const mouse = getMousePosInMeters(e);
+
+  // Vérifier si on clique sur la balle
+  const distToBall = Math.hypot(mouse.x - ball.x, mouse.y - ball.y);
+  if (distToBall <= ball.radius * 1.5) { // Marge de 1.5 pour faciliter la saisie
+    isDragging = "ball";
+    wasRunningBeforeDrag = running;
+    running = false; // Met en pause le code Python
+    ball.vx = 0;     // Coupe l'élan de la balle
+    ball.vy = 0;
+    return;
+  }
+
+  // Vérifier si on clique sur le robot
+  const distToRobot = Math.hypot(mouse.x - robot.x, mouse.y - robot.y);
+  if (distToRobot <= robot.radius * 1.2) {
+    isDragging = "robot";
+    wasRunningBeforeDrag = running;
+    running = false; // Met en pause le code Python
+    // On réinitialise les vitesses des roues pour éviter qu'il ne reparte comme une fusée
+    for (const k of ["fl","fr","rl","rr"]) {
+      robot.wheels[k] = 0;
+      robot.wheelTargets[k] = 0;
+    }
+    return;
+  }
+});
+
+// Événement : Mouvement de la souris
+canvas.addEventListener("mousemove", (e) => {
+  const mouse = getMousePosInMeters(e);
+
+  // Changement du curseur pour indiquer qu'on peut survoler/attraper
+  const distToBall = Math.hypot(mouse.x - ball.x, mouse.y - ball.y);
+  const distToRobot = Math.hypot(mouse.x - robot.x, mouse.y - robot.y);
+  
+  if (isDragging) {
+    canvas.style.cursor = "grabbing";
+  } else if (distToBall <= ball.radius * 1.5 || distToRobot <= robot.radius * 1.2) {
+    canvas.style.cursor = "grab";
+  } else {
+    canvas.style.cursor = "default";
+  }
+
+  // Déplacement effectif
+  if (isDragging === "ball") {
+    ball.x = clamp(mouse.x, ball.radius, FIELD.width - ball.radius);
+    ball.y = clamp(mouse.y, ball.radius, FIELD.height - ball.radius);
+  } else if (isDragging === "robot") {
+    robot.x = clamp(mouse.x, robot.radius, FIELD.width - robot.radius);
+    robot.y = clamp(mouse.y, robot.radius, FIELD.height - robot.radius);
+  }
+});
+
+// Événement : Relâchement du clic
+window.addEventListener("mouseup", () => {
+  if (isDragging) {
+    isDragging = null;
+    canvas.style.cursor = "default";
+    // Relance la simulation si elle tournait avant le drag
+    running = wasRunningBeforeDrag; 
+  }
+});
+
 refreshFileList();
 loadFile("main.py");
 updateHighlighting();
