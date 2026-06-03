@@ -1,16 +1,20 @@
-name: Compress images
+name: Compress images & PR
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ "main" ]
-  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  compress-images:
+  compress:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Install tools
@@ -18,22 +22,57 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jpegoptim optipng
 
-      - name: Compress JPG/JPEG images
+      - name: Measure original size
+        id: before
         run: |
-          find . -type f \( -name "*.jpg" -o -name "*.jpeg" \) -exec jpegoptim --max=80 --strip-all {} \;
+          echo "size=$(du -sb . | cut -f1)" >> $GITHUB_OUTPUT
 
-      - name: Compress PNG images
+      - name: Compress JPG/JPEG
+        run: |
+          find . -type f \( -name "*.jpg" -o -name "*.jpeg" \) \
+          -exec jpegoptim --max=80 --strip-all {} \;
+
+      - name: Compress PNG
         run: |
           find . -type f -name "*.png" -exec optipng -o2 {} \;
 
-      - name: Commit changes (if any)
+      - name: Measure new size
+        id: after
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add .
-            git commit -m "chore: compress images"
-            git push
-          else
-            echo "No changes to commit"
-          fi
+          echo "size=$(du -sb . | cut -f1)" >> $GITHUB_OUTPUT
+
+      - name: Compute saved space
+        id: diff
+        run: |
+          before=${{ steps.before.outputs.size }}
+          after=${{ steps.after.outputs.size }}
+          saved=$((before - after))
+          echo "saved=$saved" >> $GITHUB_OUTPUT
+
+      - name: Create branch
+        run: |
+          BRANCH="compress-images-${GITHUB_RUN_ID}"
+          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+          git checkout -b "$BRANCH"
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: compress images" || echo "No changes"
+
+      - name: Push branch
+        run: |
+          git push origin $BRANCH
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: ${{ env.BRANCH }}
+          title: "🗜️ Image compression"
+          body: |
+            Compression automatique des images.
+
+            💾 Espace gagné : `${{ steps.diff.outputs.saved }}` bytes
+          base: main
