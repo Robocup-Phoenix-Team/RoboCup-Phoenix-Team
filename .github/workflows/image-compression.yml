@@ -77,8 +77,3 @@ jobs:
             --body "Compression automatique"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            - name: Create branch
-              run: |
-                BRANCH="compress-images-${GITHUB_RUN_ID}"
-                echo "BRANCH=$BRANCH" >> $GITHUB_ENV
-                git checkout -b "$BRANCH"
